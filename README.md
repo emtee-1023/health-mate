@@ -1,2 +1,1 @@
-# health-mate
-Software Engineering School Project
+"# healthmate-project" 
