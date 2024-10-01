@@ -101,10 +101,6 @@
                 <input type="email" id="email" name="email" required>
             </div>
             <div class="form-group">
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="phone" required>
-            </div>
-            <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" required>
             </div>
@@ -120,10 +116,6 @@
                     <option value="nurse">Nurse</option>
                     <option value="admin">Admin</option>
                 </select>
-            </div>
-            <div id="admin-passcode" class="form-group hidden">
-                <label for="passcode">Admin Passcode</label>
-                <input type="text" id="passcode" name="passcode">
             </div>
             <a href="detailp.php" id="submitBtn" class="btn">Sign Up</a>
 
