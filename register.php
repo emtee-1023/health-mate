@@ -91,7 +91,7 @@
 <body>
     <div class="signup-container">
         <h2>Create Your Health Mate Account</h2>
-        <form action="/submit_signup" method="post">
+        <form action="user-register.php" method="post">
             <div class="form-group">
                 <label for="fullname">Full Name</label>
                 <input type="text" id="fullname" name="fullname" required>
@@ -117,8 +117,7 @@
                     <option value="admin">Admin</option>
                 </select>
             </div>
-            <a href="detailp.php" id="submitBtn" class="btn">Sign Up</a>
-
+            <input type="submit" value="sign up" class="btn">
         </form>
     </div>
 
