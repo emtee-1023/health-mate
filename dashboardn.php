@@ -10,7 +10,7 @@
     <title>Health Mate - Nurse Dashboard</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
             font-size: 0.875rem;
