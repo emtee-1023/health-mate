@@ -291,9 +291,9 @@
         <div class="navbar">
             <h1>HealthMate</h1>
             <div>
-                <a href="home.html">Home</a>
-                <a href="appointmentbook.html">Appointments</a>
-                <a href="pharmacy.html">pharmacy</a>
+                <a href="home.php">Home</a>
+                <a href="appointmentbook.php">Appointments</a>
+                <a href="pharmacy.php">pharmacy</a>
                 <a href="#">Profile</a>
                 <a href="#">Logout</a>
             </div>
@@ -366,10 +366,10 @@
                 <h3>Pending Appointments</h3>
                 <ul>
                     <li>Dr. Jane Smith - Neurology | <strong>10th Sep, 2024</strong>
-                        <a href="appointment.html" class="view-btn">View</a>
+                        <a href="appointment.php" class="view-btn">View</a>
                     </li>
                     <li>Dr. Michael Brown - Cardiology | <strong>15th Sep, 2024</strong>
-                        <a href="appointment.html" class="view-btn">View</a>
+                        <a href="appointment.php" class="view-btn">View</a>
                     </li>
                 </ul>
             </div>
@@ -379,7 +379,7 @@
                 <h3>Accepted Appointments</h3>
                 <ul>
                     <li>Dr. Lisa Adams - Dermatology | <strong>5th Sep, 2024</strong>
-                        <a href="appointment.html" class="view-btn">View</a>
+                        <a href="appointment.php" class="view-btn">View</a>
                     </li>
                 </ul>
             </div>
@@ -397,10 +397,10 @@
                 <h3>Pending Lab Tests</h3>
                 <ul>
                     <li>Blood Test | Scheduled: <strong>12th Sep, 2024</strong>
-                        <a href="tests.html" class="view-btn">View</a>
+                        <a href="tests.php" class="view-btn">View</a>
                     </li>
                     <li>Stool Test | Scheduled: <strong>16th Sep, 2024</strong>
-                        <a href="tests.html" class="view-btn">View</a>
+                        <a href="tests.php" class="view-btn">View</a>
                     </li>
                 </ul>
             </div>
@@ -410,7 +410,7 @@
                 <h3>Received Lab Tests</h3>
                 <ul>
                     <li>Blood Test | <strong>Results Received</strong>
-                        <a href="results.html" class="view-btn">View</a>
+                        <a href="results.php" class="view-btn">View</a>
                     </li>
                 </ul>
             </div>
@@ -430,13 +430,13 @@
                 <h3>Medical History</h3>
                 <ul>
                     <li>Consultation with Dr. John - 5th Aug, 2024
-                        <a href="history.html" class="view-btn">View</a>
+                        <a href="history.php" class="view-btn">View</a>
                     </li>
                     <li>Blood Test - 6th Aug, 2024 |
-                        <a href="history.html" class="view-btn">View Report</a>
+                        <a href="history.php" class="view-btn">View Report</a>
                     </li>
                     <li>Prescription - 7th Aug, 2024 |
-                        <a href="pharmacy.html" class="view-btn">Check at Pharmacy</a>
+                        <a href="pharmacy.php" class="view-btn">Check at Pharmacy</a>
                     </li>
                     <li>Insurance Uploaded: <strong>Yes</strong></li>
                 </ul>
@@ -447,7 +447,7 @@
                 <h3>Prescriptions Received</h3>
                 <ul>
                     <li>Prescription from Dr. John - <strong>7th Aug, 2024</strong>
-                        <a href="pharmacy.html" class="view-btn">View</a>
+                        <a href="pharmacy.php" class="view-btn">View</a>
                     </li>
                 </ul>
             </div>

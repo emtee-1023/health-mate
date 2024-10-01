@@ -126,7 +126,7 @@
 
       <ul class="nav nav-pills nav-flush flex-column mb-auto text-center ">
         <li class="nav-item">
-          <a href="history.html" class="nav-link active py-3 border-bottom bg-success" aria-current="page" title="Home"
+          <a href="history.php" class="nav-link active py-3 border-bottom bg-success" aria-current="page" title="Home"
             data-bs-toggle="tooltip" data-bs-placement="right">
             <svg class="bi" width="24" height="24" role="img" aria-label="Home" class="bg-success">
               <use xlink:href="#home" />
@@ -134,7 +134,7 @@
           </a>
         </li>
         <li>
-          <a href="docstask.html" class="nav-link py-3 border-bottom" title="Dashboard" data-bs-toggle="tooltip"
+          <a href="docstask.php" class="nav-link py-3 border-bottom" title="Dashboard" data-bs-toggle="tooltip"
             data-bs-placement="right">
             <svg class="bi icon-success" width="24" color="green" height="24" role="img" aria-label="Dashboard">
               <use xlink:href="#speedometer2" />
@@ -144,7 +144,7 @@
           </a>
         </li>
         <li>
-          <a href="appointment.html" class="nav-link py-3 border-bottom" title="Orders" data-bs-toggle="tooltip"
+          <a href="appointment.php" class="nav-link py-3 border-bottom" title="Orders" data-bs-toggle="tooltip"
             data-bs-placement="right">
             <svg class="bi" width="24" height="24" color="green" role="img" aria-label="Orders">
               <use xlink:href="#table" />
@@ -152,7 +152,7 @@
           </a>
         </li>
         <li>
-          <a href="pharmacy.html" class="nav-link py-3 border-bottom" title="Products" data-bs-toggle="tooltip"
+          <a href="pharmacy.php" class="nav-link py-3 border-bottom" title="Products" data-bs-toggle="tooltip"
             data-bs-placement="right">
             <svg class="bi" width="24" height="24" color="green" role="img" aria-label="Products">
               <use xlink:href="#grid" />
@@ -160,7 +160,7 @@
           </a>
         </li>
         <li>
-          <a href="docstask.html" class="nav-link py-3 border-bottom" title="Customers" data-bs-toggle="tooltip"
+          <a href="docstask.php" class="nav-link py-3 border-bottom" title="Customers" data-bs-toggle="tooltip"
             data-bs-placement="right">
             <svg class="bi" width="24" height="24" color="green" role="img" aria-label="Customers">
               <use xlink:href="#people-circle" />

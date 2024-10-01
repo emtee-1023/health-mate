@@ -125,7 +125,7 @@
                 <label for="passcode">Admin Passcode</label>
                 <input type="text" id="passcode" name="passcode">
             </div>
-            <a href="detailp.html" id="submitBtn" class="btn">Sign Up</a>
+            <a href="detailp.php" id="submitBtn" class="btn">Sign Up</a>
 
         </form>
     </div>

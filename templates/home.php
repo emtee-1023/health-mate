@@ -93,8 +93,8 @@
                 <h3 class="float-md-start mb-0"><b>HEALTHMATE</b></h3>
                 <nav class="nav nav-masthead justify-content-center float-md-end">
                     <a class="nav-link active text-dark" aria-current="page" href="#">Home</a>
-                    <a class="nav-link text-white" href="dashp.html">Dashboard</a>
-                    <a class="nav-link  text-white" href="index.html">Back</a>
+                    <a class="nav-link text-white" href="dashp.php">Dashboard</a>
+                    <a class="nav-link  text-white" href="index.php">Back</a>
                 </nav>
 
             </div>
@@ -114,7 +114,7 @@
                             <p class="card-text">View and explore various medical departments.</p>
                             <button
                                 style="background-color: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer;"
-                                onclick="window.location.href='departments.html'">
+                                onclick="window.location.href='departments.php'">
                                 View Departments
                             </button>
 
@@ -146,7 +146,7 @@
                             <p class="card-text">Browse and order medications from our pharmacy.</p>
                             <button
                                 style="background-color: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer;"
-                                onclick="window.location.href='pharmacy.html'">
+                                onclick="window.location.href='pharmacy.php'">
                                 View Pharmacy
                             </button>
 

@@ -47,9 +47,9 @@
             <li><a href="#" class="nav-link px-2 link-success">
                 <h2>HEALTHMATE</h2>
               </a></li>
-            <li><a href="home.html" class="nav-link px-2 link-dark">PATIENT</a></li>
-            <li><a href="doc.html" class="nav-link px-2 link-dark">DOCTOR</a></li>
-            <li><a href="nurse.html" class="nav-link px-2 link-dark">NURSES</a></li>
+            <li><a href="home.php" class="nav-link px-2 link-dark">PATIENT</a></li>
+            <li><a href="doc.php" class="nav-link px-2 link-dark">DOCTOR</a></li>
+            <li><a href="nurse.php" class="nav-link px-2 link-dark">NURSES</a></li>
           </ul>
 
           <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
@@ -66,7 +66,7 @@
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item" href="log.html">Sign up</a></li>
+              <li><a class="dropdown-item" href="log.php">Sign up</a></li>
             </ul>
           </div>
         </div>
@@ -83,13 +83,13 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav me-auto mb-2 mb-md-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="index.html"><b>HOME</b></a>
+              <a class="nav-link active" aria-current="page" href="index.php"><b>HOME</b></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="pharmacy.html"><B>PHARMACY</B></a>
+              <a class="nav-link active" href="pharmacy.php"><B>PHARMACY</B></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="aboutus.html"><B>ABOUT US</B></a>
+              <a class="nav-link active" href="aboutus.php"><B>ABOUT US</B></a>
             </li>
           </ul>
           <form class="d-flex">
@@ -122,7 +122,7 @@
           <div class="container">
             <div class="carousel-caption text-start text-dark">
               <h1 class="">Get treatment at your convinience</h1>
-              <p><a class="btn btn-lg btn-success" href="login.html">Sign up today</a></p>
+              <p><a class="btn btn-lg btn-success" href="login.php">Sign up today</a></p>
             </div>
           </div>
         </div>
@@ -134,7 +134,7 @@
           <img src="../assets/brand/carusel2.webp" class="d-block w-100" alt="Carousel 2">
           <div class="container">
             <div class="carousel-caption text-dark">
-              <p><a class="btn btn-lg btn-success" href="aboutus.html">Learn more</a></p>
+              <p><a class="btn btn-lg btn-success" href="aboutus.php">Learn more</a></p>
             </div>
           </div>
         </div>
@@ -146,7 +146,7 @@
           <div class="container">
             <div class="carousel-caption text-end text-dark">
               <h1>Get your Emergency responded to in seconds</h1>
-              <p><a class="btn btn-lg btn-success" href="aboutus.html">Learn More</a></p>
+              <p><a class="btn btn-lg btn-success" href="aboutus.php">Learn More</a></p>
             </div>
           </div>
         </div>
@@ -158,7 +158,7 @@
           <div class="container">
             <div class="carousel-caption text-up text-dark">
               <h1>Your health, delivered fast and with care.</h1>
-              <p><a class="btn btn-lg btn-success" href="aboutus.html">Learn more</a></p>
+              <p><a class="btn btn-lg btn-success" href="aboutus.php">Learn more</a></p>
             </div>
           </div>
         </div>
@@ -507,7 +507,7 @@
             <div>
               <h4 class="fw-bold mb-0 text-success">MEDICAL DEPARTMENTS</h4>
               <p>View our medical departments and get an idea of what we offer with our experts</p>
-              <a href="departments.html" class="btn btn-success">
+              <a href="departments.php" class="btn btn-success">
                 VIEW
               </a>
             </div>
@@ -519,7 +519,7 @@
             <div>
               <h4 class="fw-bold mb-0 text-success">PHARMA EXPRESS</h4>
               <p>Order medication via our online pharmacy that offers delivery at your convinience </p>
-              <a href="pharmacy.html" class="btn btn-success">
+              <a href="pharmacy.php" class="btn btn-success">
                 VIEW
               </a>
             </div>
@@ -531,7 +531,7 @@
             <div>
               <h4 class="fw-bold mb-0 text-success">BOOK APPOINTMENT</h4>
               <p>Book your appointments Today and Have a chance to Get treatment online </p>
-              <a href="departments.html" class="btn btn-success">
+              <a href="departments.php" class="btn btn-success">
                 VIEW
               </a>
             </div>
@@ -543,7 +543,7 @@
             <div>
               <h4 class="fw-bold mb-0 text-success">EMERGENCY</h4>
               <p>Incase of Emergencies contact our Emergencies team for fast Responses</p>
-              <a href="emergency.html" class="btn btn-success">
+              <a href="emergency.php" class="btn btn-success">
                 VIEW
               </a>
             </div>
@@ -555,7 +555,7 @@
             <div>
               <h4 class="fw-bold mb-0 text-success">SCHEDULE TESTS</h4>
               <p>Need a test done? Book your test Today and our response team Shows up in minutes .</p>
-              <a href="appointmentbook.html" class="btn btn-success">
+              <a href="appointmentbook.php" class="btn btn-success">
                 VIEW
               </a>
             </div>

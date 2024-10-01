@@ -281,9 +281,9 @@
     <header>
         <div class="logo">Health Mate Pharmacy</div>
         <nav>
-            <a href="home.html">Home</a>
-            <a href="dashp.html">Dashboard</a>
-            <a href="departments.html">Departments</a>
+            <a href="home.php">Home</a>
+            <a href="dashp.php">Dashboard</a>
+            <a href="departments.php">Departments</a>
         </nav>
         <div class="cart" onclick="toggleCartModal()">
             <img src="https://cdn-icons-png.flaticon.com/512/2331/2331970.png" alt="Cart">

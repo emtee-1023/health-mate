@@ -196,9 +196,9 @@
     <!-- Navbar -->
     <nav class="bg-success">
         <ul>
-            <li><a href="home.html">Home</a></li>
-            <li><a href="departments.html">Departments</a></li>
-            <li><a href="pharmacy.html">Pharmacy</a></li>
+            <li><a href="home.php">Home</a></li>
+            <li><a href="departments.php">Departments</a></li>
+            <li><a href="pharmacy.php">Pharmacy</a></li>
             <li><a href="#">Contact Us</a></li>
         </ul>
     </nav>
@@ -298,7 +298,7 @@
         }
 
         function bookAppointment(doctorName) {
-            window.location.href = `appointmentbook.html?doctor=${encodeURIComponent(doctorName)}`;
+            window.location.href = `appointmentbook.php?doctor=${encodeURIComponent(doctorName)}`;
         }
     </script>
 
