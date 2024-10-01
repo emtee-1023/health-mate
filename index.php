@@ -9,7 +9,7 @@
   <meta name="generator" content="Hugo 0.88.1">
   <title>HOME</title>
   <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/carousel/">
-  <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="carousel.css" rel="stylesheet">
 
   <style>
@@ -115,7 +115,7 @@
       <div class="carousel-inner">
         <!-- Carousel Item 1 -->
         <div class="carousel-item active">
-          <img src="../assets/brand/carousel11.avif" class="d-block w-100" alt="Carousel 1">
+          <img src="assets/brand/carousel11.avif" class="d-block w-100" alt="Carousel 1">
 
 
 
@@ -131,7 +131,7 @@
 
         <!-- Carousel Item 2 -->
         <div class="carousel-item">
-          <img src="../assets/brand/carusel2.webp" class="d-block w-100" alt="Carousel 2">
+          <img src="assets/brand/carusel2.webp" class="d-block w-100" alt="Carousel 2">
           <div class="container">
             <div class="carousel-caption text-dark">
               <p><a class="btn btn-lg btn-success" href="aboutus.php">Learn more</a></p>
@@ -141,7 +141,7 @@
 
         <!-- Carousel Item 3 -->
         <div class="carousel-item">
-          <img src="../assets/brand/carousel3.jpg" class="d-block w-100" alt="Carousel 3">
+          <img src="assets/brand/carousel3.jpg" class="d-block w-100" alt="Carousel 3">
 
           <div class="container">
             <div class="carousel-caption text-end text-dark">
@@ -153,7 +153,7 @@
 
         <!-- Carousel Item 4 -->
         <div class="carousel-item">
-          <img src="../assets/brand/carousel4.png" class="d-block w-100" alt="Carousel 4">
+          <img src="assets/brand/carousel4.png" class="d-block w-100" alt="Carousel 4">
 
           <div class="container">
             <div class="carousel-caption text-up text-dark">
@@ -607,7 +607,7 @@
     </main>
 
 
-    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
 
 
 </body>
