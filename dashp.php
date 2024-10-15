@@ -1,3 +1,32 @@
+<?php
+    session_start();
+    include 'includes/connect.php';
+    include 'includes/config.php';
+    
+    try
+    {
+        $pdo = new PDO($dsn, $user, $pass, $options);
+    
+        if (isset($_GET['UserID'])) {
+            $UserID = $_GET['UserID'];
+    
+            $stmt = $pdo->prepare('SELECT * FROM users WHERE UserID = ?');
+            $stmt->execute([$UserID]);
+            $users = $stmt->fetch();
+    
+            if (!$users) {
+                echo 'User not found.';
+                die();
+            }
+        } else {
+            echo 'No user ID provided.';
+            die();
+        }
+    } catch (PDOException $e) {
+        echo 'Connection failed: ' . $e->getMessage();
+        die();
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -302,13 +331,13 @@
         <!-- Welcome Section -->
         <div class="container">
             <div class="welcome-section">
-                <h2>Welcome, LarryDon</h2>
+                <h2>Welcome, <?php echo htmlspecialchars($users['UserName']);?></h2>
                 <p class="health-tip" id="healthTip">Tip of the day: Stay hydrated by drinking water regularly.</p>
                 <div class="container">
                     <div class="profile">
-                        <img src="https://via.placeholder.com/100" alt="Patient Profile Photo">
+                        <img src="uploads/<?php echo htmlspecialchars($users['ProfilePhoto']);?>" alt="Patient Profile Photo">
                         <div>
-                            <p>Patient ID: P12345</p>
+                            <p>Patient ID: <?php echo htmlspecialchars($users['UserID']);?></p>
                         </div>
                     </div>
                 </div>
