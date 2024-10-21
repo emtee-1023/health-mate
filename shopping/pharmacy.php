@@ -72,6 +72,8 @@ if ($totalMedicines === 0) {
 
         <span>Page <?= htmlspecialchars($current_page) ?> of <?= htmlspecialchars($totalPages) ?></span>
 
+
+
         <?php if ($current_page < $totalPages): ?>
             <a class="buttons" href="pharmacy.php?p=<?= $current_page + 1 ?>&items=<?= $NumberOfMedicineOnEachPage ?>" style="text-align: right;">Next</a>
         <?php endif; ?>
