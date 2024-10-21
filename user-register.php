@@ -1,5 +1,6 @@
 <?php
 include 'includes/connect.php';
+session_start();
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     $name= $_POST["fullname"];
