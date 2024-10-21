@@ -43,7 +43,7 @@ if ($totalMedicines === 0) {
 <div class="products content-wrapper">
     <h1><strong>Pharmacy Shop</strong></h1>
 
-    <form method="GET" action="pharmacy.php" style="margin-bottom: 20px;">
+    <form method="GET" action="pharmacy.php" style="margin-bottom: 20px; display:flex; gap:10px; align-items:flex-start">
         <label for="itemsPerPage">Items per page:</label>
         <select style="width: 50px;" id="itemsPerPage" name="items" onchange="this.form.submit()">
             <?php foreach ($itemsOptions as $option): ?>
