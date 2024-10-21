@@ -34,10 +34,13 @@ try{
     <div>
         <h1><?php echo htmlspecialchars($medicine['MedicineName']);?></h1>
         <span class="price">Kes. <?php echo htmlspecialchars($medicine['MedicinePrice']);?></span>
+        <br>
+        <span>Available in stock <strong><?php echo htmlspecialchars($medicine['AvailableStock']);?></strong></span>
 
         <form action="cart.php" method="post">
-                <input type="number" name="quantity" value="1" min="1" max="<?=$medicine['AvailableStock']?>" placeholder="Quantity" required>
-                <input type="hidden" name="product_id" value="<?=$medicine['MedicineID']?>">
+                <label for="quantity">Quantity:</label>
+                <input type="number" name="Quantity" value="1" min="1" max="<?=$medicine['AvailableStock']?>" placeholder="Quantity" required>
+                <input type="hidden" name="MedicineID" value="<?=$medicine['MedicineID']?>">
                 <input type="submit" value="Add To Cart">
         </form>
 

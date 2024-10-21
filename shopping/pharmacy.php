@@ -4,7 +4,7 @@ include 'functions.php';
 
 $NumberOfMedicineOnEachPage = 8;
 $current_page = isset($_GET['p']) && is_numeric($_GET['p']) ? (int)$_GET['p'] : 1;
-$stmt = $conn->prepare('SELECT * FROM medicine ORDER BY MedicineName DESC LIMIT ?, ?');
+$stmt = $conn->prepare('SELECT * FROM medicine ORDER BY MedicineName ASC LIMIT ?, ?');
 $offset = ($current_page - 1) * $NumberOfMedicineOnEachPage;
 $stmt->bind_param('ii', $offset, $NumberOfMedicineOnEachPage);
 $stmt->execute();
