@@ -26,9 +26,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['UserType'] = $users['UserType'];
 
         if ($users['UserType'] == 'doctor' || $users['UserType'] == 1){
-            header("Location: home.php");
+            header("Location: dashp.php?UserID=1");
         } elseif ($users['UserType'] == 'Patient' || $users['UserType'] == 2 || $users['UserType'] == 'patient'){
-            header("Location: home.php");
+            header("Location: dashp.php");
         } else {
             echo "<script>alert('Login failed. Invalid username or password. Please sign up if you do not have an account.');</script>";
             echo "<script>window.location.href = 'register.php';</script>";

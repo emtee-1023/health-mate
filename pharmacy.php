@@ -1,3 +1,15 @@
+<?php
+include 'includes/connect.php';
+include 'includes/config.php';
+try {
+    $pdo = new PDO($dsn, $user, $pass, $options);
+    $stmt = $pdo->query('SELECT * FROM medicine');
+    $medicines = $stmt->fetchAll();
+} catch (PDOException $e) {
+    echo 'Connection failed: ' . $e->getMessage();
+    die();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -300,13 +312,15 @@
 
         <div class="pharmacy-grid">
             <!-- Card 1 -->
+             <?php foreach($medicines as $medicine): ?>
             <div class="card">
-                <img src="https://cdn-icons-png.flaticon.com/512/3448/3448710.png" alt="Medicine 1">
-                <h3>Paracetamol</h3>
-                <p>Common pain reliever & fever reducer.</p>
-                <p>Ksh 200.00</p>
-                <button onclick="addToCart('Paracetamol', 200)">Add to Cart</button>
+                <img src="uploads/<?php echo htmlspecialchars($medicine['MedicinePhoto']);?>" alt="<?php echo htmlspecialchars($medicine['MedicineName']);?>">
+                <h3><?php echo htmlspecialchars($medicine['MedicineName']);?></h3>
+                <p><?php echo htmlspecialchars($medicine['UseCase']);?></p>
+                <p>Ksh <?php echo htmlspecialchars($medicine['MedicinePrice']);?></p>
+                <button onclick="addToCart('<?php echo htmlspecialchars($medicine['MedicineName']);?>', <?php echo htmlspecialchars($medicine['MedicinePrice']);?>)">Add to Cart</button>
             </div>
+            <?php endforeach; ?>
             <!-- Card 2 -->
             <div class="card">
                 <img src="https://cdn-icons-png.flaticon.com/512/3448/3448710.png" alt="Medicine 2">
