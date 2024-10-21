@@ -1,8 +1,6 @@
 <?php
-include 'includes/connect.php';
 include 'includes/config.php';
 try {
-    $pdo = new PDO($dsn, $user, $pass, $options);
     $stmt = $pdo->query('SELECT * FROM medicine');
     $medicines = $stmt->fetchAll();
 } catch (PDOException $e) {
@@ -37,6 +35,11 @@ try {
             justify-content: space-between;
             align-items: center;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            color: #eaf7ea;
+            margin-left: 1rem;
         }
 
         .logo {
@@ -312,16 +315,16 @@ try {
 
         <div class="pharmacy-grid">
             <!-- Card 1 -->
-             <?php foreach($medicines as $medicine): ?>
-            <div class="card">
-                <img src="uploads/<?php echo htmlspecialchars($medicine['MedicinePhoto']);?>" alt="<?php echo htmlspecialchars($medicine['MedicineName']);?>">
-                <h3><?php echo htmlspecialchars($medicine['MedicineName']);?></h3>
-                <p><?php echo htmlspecialchars($medicine['UseCase']);?></p>
-                <p>Ksh <?php echo htmlspecialchars($medicine['MedicinePrice']);?></p>
-                <button onclick="addToCart('<?php echo htmlspecialchars($medicine['MedicineName']);?>', <?php echo htmlspecialchars($medicine['MedicinePrice']);?>)">Add to Cart</button>
-            </div>
+            <?php foreach ($medicines as $medicine): ?>
+                <div class="card">
+                    <img src="uploads/<?php echo htmlspecialchars($medicine['MedicinePhoto']); ?>" alt="<?php echo htmlspecialchars($medicine['MedicineName']); ?>">
+                    <h3><?php echo htmlspecialchars($medicine['MedicineName']); ?></h3>
+                    <p><?php echo htmlspecialchars($medicine['UseCase']); ?></p>
+                    <p>Ksh <?php echo htmlspecialchars($medicine['MedicinePrice']); ?></p>
+                    <button onclick="addToCart('<?php echo htmlspecialchars($medicine['MedicineName']); ?>', <?php echo htmlspecialchars($medicine['MedicinePrice']); ?>)">Add to Cart</button>
+                </div>
             <?php endforeach; ?>
-            
+
         </div>
 
         <!-- Cart Modal -->
@@ -355,7 +358,10 @@ try {
         let cartCount = 0;
 
         function addToCart(name, price) {
-            cart.push({ name, price });
+            cart.push({
+                name,
+                price
+            });
             cartCount++;
             document.getElementById('cart-count').textContent = cartCount;
             displayCartItems();
@@ -434,7 +440,7 @@ try {
         }
 
         // Search functionality
-        document.getElementById('searchInput').addEventListener('input', function () {
+        document.getElementById('searchInput').addEventListener('input', function() {
             const searchValue = this.value.toLowerCase();
             document.querySelectorAll('.pharmacy-grid .card').forEach(card => {
                 const text = card.textContent.toLowerCase();
