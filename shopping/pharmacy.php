@@ -3,8 +3,8 @@ include '../includes/connect.php';
 include 'functions.php';
 
 // Default items per page
-$defaultItemsPerPage = 2; // Set a default
-$itemsOptions = [2, 4, 6, 8, 10]; // Options for items per page
+$defaultItemsPerPage = 8; // Set a default
+$itemsOptions = [4, 6, 8]; // Options for items per page
 
 // Get current page number from URL, defaulting to 1 if not set or invalid
 $current_page = isset($_GET['p']) && is_numeric($_GET['p']) ? (int)$_GET['p'] : 1;
@@ -45,7 +45,7 @@ if ($totalMedicines === 0) {
 
     <form method="GET" action="pharmacy.php" style="margin-bottom: 20px;">
         <label for="itemsPerPage">Items per page:</label>
-        <select id="itemsPerPage" name="items" onchange="this.form.submit()">
+        <select style="width: 50px;" id="itemsPerPage" name="items" onchange="this.form.submit()">
             <?php foreach ($itemsOptions as $option): ?>
                 <option value="<?= $option ?>" <?= $option == $NumberOfMedicineOnEachPage ? 'selected' : '' ?>><?= $option ?></option>
             <?php endforeach; ?>
@@ -57,10 +57,10 @@ if ($totalMedicines === 0) {
 
     <div class="products-wrapper">
         <?php foreach ($medicines as $medicine): ?>
-            <a class="product" href="medicine.php?MedicineID=<?= htmlspecialchars($medicine['MedicineID']); ?>">
+            <a style="display:flex; flex-direction:column; align-items:center" class="product" href="medicine.php?MedicineID=<?= htmlspecialchars($medicine['MedicineID']); ?>">
                 <img src="../uploads/<?= htmlspecialchars($medicine['MedicinePhoto']); ?>" width="200" height="200" alt="<?= htmlspecialchars($medicine['MedicineName']); ?>">
-                <span class="name"><?= htmlspecialchars($medicine['MedicineName']); ?></span>
-                <span class="price">Kes. <?= htmlspecialchars($medicine['MedicinePrice']); ?></span>
+                <span style="text-align: center;" class="name"><?= htmlspecialchars($medicine['MedicineName']); ?></span>
+                <span style="text-align: center;" class="price">Kes. <?= htmlspecialchars($medicine['MedicinePrice']); ?></span>
             </a>
         <?php endforeach; ?>
     </div>
