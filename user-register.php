@@ -1,6 +1,7 @@
 
 <?php 
 include 'includes/connect.php';
+session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $fname = test_input($_POST["firstname"]);

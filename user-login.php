@@ -18,22 +18,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
-        $user = $result->fetch_assoc();
-        
+        $users = $result->fetch_assoc();
+        $_SESSION['pid'] = $users['UserID'];
+        $_SESSION['email'] = $users['email'];
+        $_SESSION['UserType'] = $users['UserType'];
 
-        // Verify the password (assuming passwords are hashed)
-        if (password_verify($password, $user['password'])) {
-            // Redirect based on UserType
-            if ($user['user_type'] == 'doctor') {
-                header("Location: login-doctor.php"); // Doctor's homepage
-            } elseif ($user['user_type'] == 'nurse') {
-                header("Location: login-nurse.php"); // Nurse's homepage
-            } elseif ($user['user_type'] == 'patient') {
-                header("Location: p-login.php"); // Patient's homepage
-            } else {
-                echo "<script>alert('User type not recognized.');</script>";
-            }
-            exit();
+        if ($users['UserType'] == 'doctor' || $users['UserType'] == 1){
+            header("Location: dashp.php?UserID=1");
+        } elseif ($users['UserType'] == 'Patient' || $users['UserType'] == 2 || $users['UserType'] == 'patient'){
+            header("Location: dashp.php");
         } else {
             echo "<script>alert('Invalid password. Please try again.');</script>";
         }
