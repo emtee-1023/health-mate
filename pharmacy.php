@@ -1,8 +1,6 @@
 <?php
-include 'includes/connect.php';
 include 'includes/config.php';
 try {
-    $pdo = new PDO($dsn, $user, $pass, $options);
     $stmt = $pdo->query('SELECT * FROM medicine');
     $medicines = $stmt->fetchAll();
 } catch (PDOException $e) {
@@ -37,6 +35,11 @@ try {
             justify-content: space-between;
             align-items: center;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            color: #eaf7ea;
+            margin-left: 1rem;
         }
 
         .logo {
@@ -312,71 +315,16 @@ try {
 
         <div class="pharmacy-grid">
             <!-- Card 1 -->
-             <?php foreach($medicines as $medicine): ?>
-            <div class="card">
-                <img src="uploads/<?php echo htmlspecialchars($medicine['MedicinePhoto']);?>" alt="<?php echo htmlspecialchars($medicine['MedicineName']);?>">
-                <h3><?php echo htmlspecialchars($medicine['MedicineName']);?></h3>
-                <p><?php echo htmlspecialchars($medicine['UseCase']);?></p>
-                <p>Ksh <?php echo htmlspecialchars($medicine['MedicinePrice']);?></p>
-                <button onclick="addToCart('<?php echo htmlspecialchars($medicine['MedicineName']);?>', <?php echo htmlspecialchars($medicine['MedicinePrice']);?>)">Add to Cart</button>
-            </div>
+            <?php foreach ($medicines as $medicine): ?>
+                <div class="card">
+                    <img src="uploads/<?php echo htmlspecialchars($medicine['MedicinePhoto']); ?>" alt="<?php echo htmlspecialchars($medicine['MedicineName']); ?>">
+                    <h3><?php echo htmlspecialchars($medicine['MedicineName']); ?></h3>
+                    <p><?php echo htmlspecialchars($medicine['UseCase']); ?></p>
+                    <p>Ksh <?php echo htmlspecialchars($medicine['MedicinePrice']); ?></p>
+                    <button onclick="addToCart('<?php echo htmlspecialchars($medicine['MedicineName']); ?>', <?php echo htmlspecialchars($medicine['MedicinePrice']); ?>)">Add to Cart</button>
+                </div>
             <?php endforeach; ?>
-            <!-- Card 2 -->
-            <div class="card">
-                <img src="https://cdn-icons-png.flaticon.com/512/3448/3448710.png" alt="Medicine 2">
-                <h3>Amoxicillin</h3>
-                <p>Used to treat various bacterial infections.</p>
-                <p>Ksh 500.00</p>
-                <button onclick="addToCart('Amoxicillin', 500)">Add to Cart</button>
-            </div>
-            <!-- Card 3 -->
-            <div class="card">
-                <img src="https://cdn-icons-png.flaticon.com/512/3448/3448710.png" alt="Medicine 3">
-                <h3>Aspirin</h3>
-                <p>Reduces pain, fever, or inflammation.</p>
-                <p>Ksh 150.00</p>
-                <button onclick="addToCart('Aspirin', 150)">Add to Cart</button>
-            </div>
-            <!-- Card 4 -->
-            <div class="card">
-                <img src="https://cdn-icons-png.flaticon.com/512/3448/3448710.png" alt="Medicine 4">
-                <h3>Cough Syrup</h3>
-                <p>Relieves cough and throat irritation.</p>
-                <p>Ksh 300.00</p>
-                <button onclick="addToCart('Cough Syrup', 300)">Add to Cart</button>
-            </div>
-            <!-- Card 5 -->
-            <div class="card">
-                <img src="https://cdn-icons-png.flaticon.com/512/3448/3448710.png" alt="Medicine 5">
-                <h3>Vitamin C</h3>
-                <p>Boosts immune system and skin health.</p>
-                <p>Ksh 180.00</p>
-                <button onclick="addToCart('Vitamin C', 180)">Add to Cart</button>
-            </div>
-            <!-- Card 6 -->
-            <div class="card">
-                <img src="https://cdn-icons-png.flaticon.com/512/3448/3448710.png" alt="Medicine 6">
-                <h3>Antibiotic Ointment</h3>
-                <p>Used for treating minor cuts and burns.</p>
-                <p>Ksh 250.00</p>
-                <button onclick="addToCart('Antibiotic Ointment', 250)">Add to Cart</button>
-            </div>
-            <!-- Card 7 -->
-            <div class="card">
-                <img src="https://cdn-icons-png.flaticon.com/512/3448/3448710.png" alt="Medicine 7">
-                <h3>Antihistamine</h3>
-                <p>Relieves allergy symptoms.</p>
-                <p>Ksh 220.00</p>
-                <button onclick="addToCart('Antihistamine', 220)">Add to Cart</button>
-            </div>
-            <!-- Card 8 -->
-            <div class="card">
-                <img src="https://cdn-icons-png.flaticon.com/512/3448/3448710.png" alt="Medicine 8">
-                <h3>Antacids</h3>
-                <p>Relieves heartburn and indigestion.</p>
-                <p>Ksh 270.00</p>
-                <button onclick="addToCart('Antacids', 270)">Add to Cart</button>
-            </div>
+
         </div>
 
         <!-- Cart Modal -->
@@ -410,7 +358,10 @@ try {
         let cartCount = 0;
 
         function addToCart(name, price) {
-            cart.push({ name, price });
+            cart.push({
+                name,
+                price
+            });
             cartCount++;
             document.getElementById('cart-count').textContent = cartCount;
             displayCartItems();
@@ -489,7 +440,7 @@ try {
         }
 
         // Search functionality
-        document.getElementById('searchInput').addEventListener('input', function () {
+        document.getElementById('searchInput').addEventListener('input', function() {
             const searchValue = this.value.toLowerCase();
             document.querySelectorAll('.pharmacy-grid .card').forEach(card => {
                 const text = card.textContent.toLowerCase();

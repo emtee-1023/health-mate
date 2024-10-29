@@ -1,5 +1,6 @@
 <?php
 session_start();
+
     if (!isset($_SESSION['pid'])){
         header('location: login.php');
         exit();
@@ -153,7 +154,7 @@ session_start();
                             <p class="card-text">Browse and order medications from our pharmacy.</p>
                             <button
                                 style="background-color: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer;"
-                                onclick="window.location.href='pharmacy.php'">
+                                onclick="window.location.href='shopping/pharmacy.php'">
                                 View Pharmacy
                             </button>
 

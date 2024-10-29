@@ -1,4 +1,63 @@
 
+<?php
+include 'includes/connect.php';
+
+$patient_id = 1; // Replace with the actual patient ID
+
+// Fetch patient details
+$patient_query = $conn->prepare("SELECT UserName FROM users WHERE UserID = ?");
+$patient_query->bind_param('i', $patient_id);  // 'i' for integer
+$patient_query->execute();
+$patient_result = $patient_query->get_result();
+$patient = $patient_result->fetch_assoc();  // Fetch single row as associative array
+
+// Fetch appointment details
+$appointments_query = $conn->prepare("
+    SELECT d.DoctorName, a.AppointmentDate, a.ConsultationFee
+    FROM appointments a
+    JOIN doctors d ON a.DoctorID = d.DoctorID
+    WHERE a.UserID = ?
+");
+$appointments_query->bind_param('i', $patient_id);
+$appointments_query->execute();
+$appointments_result = $appointments_query->get_result();
+$appointments = $appointments_result->fetch_all(MYSQLI_ASSOC);  // Fetch all rows as associative array
+
+// Fetch total spent on doctors
+$total_spent_doctors_query = $conn->prepare("
+    SELECT SUM(ConsultationFee) AS total_spent_on_doctors
+    FROM appointments
+    WHERE UserID = ?
+");
+$total_spent_doctors_query->bind_param('i', $patient_id);
+$total_spent_doctors_query->execute();
+$total_spent_doctors_result = $total_spent_doctors_query->get_result();
+$total_spent_doctors = $total_spent_doctors_result->fetch_assoc()['total_spent_on_doctors'];
+
+// Fetch pharmacy purchases
+$pharmacy_query = $conn->prepare("
+    SELECT ph.MedicineName, pp.PurchaseDate, pp.TotalCost
+    FROM pharmacy_purchases pp
+    JOIN medicine ph ON pp.MedicineID = ph.MedicineID
+    WHERE pp.UserID = ?
+");
+$pharmacy_query->bind_param('i', $patient_id);
+$pharmacy_query->execute();
+$pharmacy_result = $pharmacy_query->get_result();
+$pharmacy_purchases = $pharmacy_result->fetch_all(MYSQLI_ASSOC);
+
+// Fetch total spent on pharmacy
+$total_spent_pharmacy_query = $conn->prepare("
+    SELECT SUM(TotalCost) AS total_spent_on_pharmacy
+    FROM pharmacy_purchases
+    WHERE UserId = ?
+");
+$total_spent_pharmacy_query->bind_param('i', $patient_id);
+$total_spent_pharmacy_query->execute();
+$total_spent_pharmacy_result = $total_spent_pharmacy_query->get_result();
+$total_spent_pharmacy = $total_spent_pharmacy_result->fetch_assoc()['total_spent_on_pharmacy'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
