@@ -1,55 +1,120 @@
-<?php
-include 'includes/connect.php';
-?>
-<!-- Bootstrap core CSS -->
-<link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="en">
 
-<style>
-    .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-    }
-
-    @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-            font-size: 3.5rem;
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Mate Sign Up</title>
+    <style>
+        /* Primary Color Variables */
+        :root {
+            --primary-color: #218838;
+            --primary-hover-color: #218838;
+            --white-color: #ffffff;
+            --form-background: #f8f9fa;
         }
-    }
-</style>
 
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--form-background);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
 
-<!-- Custom styles for this template -->
-<link href="heroes.css" rel="stylesheet">
+        .signup-container {
+            background-color: var(--white-color);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
 
+        .signup-container h2 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
 
-<div class="container col-xl-10 col-xxl-8 px-4 py-5">
-    <div class="row align-items-center g-lg-5 py-5">
-        <div class="col-lg-7 text-center text-lg-start">
-            <h1 class="display-4 fw-bold lh-1 mb-3">Welcome to Health Mate</h1>
-            <p class="col-lg-10 fs-4">Login to Continue to Patient's Dashboard</p>
-        </div>
-        <div class="col-md-10 mx-auto col-lg-5">
-            <form class="p-4 p-md-5 border rounded-3 bg-light" method="post" action="user-login.php">
-                <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email">
-                    <label for="floatingInput">Email address</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
-                    <label for="floatingPassword">Password</label>
-                </div>
-                <div class="checkbox mb-3">
-                    <label>
-                        <input type="checkbox" value="remember-me"> Remember me
-                    </label>
-                </div>
-                <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
-                <hr class="my-4">
-                <small class="text-muted">By clicking Sign up, you agree to the terms of use.</small>
-            </form>
-        </div>
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+        .btn {
+            display: inline-block;
+            width: 100%;
+            padding: 10px;
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-hover-color);
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="signup-container">
+        <h2>Log Into Your Health Mate Account</h2>
+        <form action="user-login.php" method="post">
+            <div class="form-group">
+                <label for="role">Login As</label>
+                <select id="role" name="role" required>
+                    <option value="patient">Patient</option>
+                    <option value="doctor">Doctor</option>
+                    <option value="nurse">Nurse</option>
+                    <option value="admin">Admin</option>
+                </select>
+            </div>
+            <input type="submit" value="Log In" class="btn">
+        </form>
     </div>
-</div>
+
+    <script>
+        document.getElementById('role').addEventListener('change', function () {
+            const adminPasscodeField = document.getElementById('admin-passcode');
+            if (this.value === 'admin') {
+                adminPasscodeField.classList.remove('hidden');
+            } else {
+                adminPasscodeField.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+
+</html>

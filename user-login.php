@@ -1,21 +1,19 @@
 <?php
-session_start();
 include 'includes/connect.php';
-
-
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $email = stripcslashes($email);  
-    $password = stripcslashes($password);  
-    $email = mysqli_real_escape_string($conn, $email);  
-    $password = mysqli_real_escape_string($conn, $password); 
+    // Sanitize input
+    $email = stripcslashes($email);
+    $password = stripcslashes($password);
+    $email = mysqli_real_escape_string($conn, $email);
+    $password = mysqli_real_escape_string($conn, $password);
 
-    $stmt = $conn->prepare("SELECT * FROM users WHERE email = ? AND password = ?");
-    $stmt->bind_param("ss", $email, $password);
-
+    // Query to check user login
+    $stmt = $conn->prepare("SELECT * FROM doctors WHERE email = ?");
+    $stmt->bind_param("s", $email);
     $stmt->execute();
     $result = $stmt->get_result();
 
@@ -26,18 +24,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['UserType'] = $users['UserType'];
 
         if ($users['UserType'] == 'doctor' || $users['UserType'] == 1){
-            header("Location: home.php");
+            header("Location: dashp.php?UserID=1");
         } elseif ($users['UserType'] == 'Patient' || $users['UserType'] == 2 || $users['UserType'] == 'patient'){
-            header("Location: home.php");
+            header("Location: dashp.php");
         } else {
-            echo "<script>alert('Login failed. Invalid username or password. Please sign up if you do not have an account.');</script>";
-            echo "<script>window.location.href = 'register.php';</script>";
+            echo "<script>alert('Invalid password. Please try again.');</script>";
         }
-        exit();
-
-        $stmt->close();
+    } else {
+        echo "<script>alert('No account found with that email. Please sign up.');</script>";
     }
+
+    // Close statement and connection
+    $stmt->close();
 }
 $conn->close();
 ?>
-

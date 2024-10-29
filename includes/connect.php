@@ -1,4 +1,5 @@
 <?php
+
 define('DB_SERVER', '127.0.0.1');
 define('DB_USERNAME', 'inlaqkew_root');
 define('DB_PASSWORD', '@IH&pS%l6v+Z');
