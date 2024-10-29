@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($stmt->execute()) {
         // Redirect to a success page or login page
         echo '<script>';
-        echo 'window.location.href = "login-nurse.php";';
+        echo 'window.location.href = "login.php";';
         echo '</script>';
     } else {
         echo "Error: " . $stmt->error;

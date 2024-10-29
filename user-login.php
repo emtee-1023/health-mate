@@ -19,16 +19,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($result->num_rows > 0) {
         $user = $result->fetch_assoc();
+        
 
         // Verify the password (assuming passwords are hashed)
         if (password_verify($password, $user['password'])) {
             // Redirect based on UserType
             if ($user['user_type'] == 'doctor') {
-                header("Location: dashboardd.php"); // Doctor's homepage
+                header("Location: login-doctor.php"); // Doctor's homepage
             } elseif ($user['user_type'] == 'nurse') {
-                header("Location: dashboardn.php"); // Nurse's homepage
+                header("Location: login-nurse.php"); // Nurse's homepage
             } elseif ($user['user_type'] == 'patient') {
-                header("Location: dashp.php"); // Patient's homepage
+                header("Location: p-login.php"); // Patient's homepage
             } else {
                 echo "<script>alert('User type not recognized.');</script>";
             }

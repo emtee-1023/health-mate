@@ -142,20 +142,11 @@ body {
             <label for="license">License Number</label>   
             <input type="text" id="license" name="license" required>   
             </div>
-            <input type="submit" value="sign up" class="btn">
+            <input type="submit" value="Sign Up" class="btn">
         </form>
     </div>
 
-    <!-- <script>
-        document.getElementById('role').addEventListener('change', function () {
-            const adminPasscodeField = document.getElementById('admin-passcode');
-            if (this.value === 'admin') {
-                adminPasscodeField.classList.remove('hidden');
-            } else {
-                adminPasscodeField.classList.add('hidden');
-            }
-        });
-    </script> -->
+
 </body>
 
 </html>

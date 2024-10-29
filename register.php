@@ -92,30 +92,6 @@
     <div class="signup-container">
         <h2>Create Your Health Mate Account</h2>
         <form action="user-register.php" method="post">
-            <!-- <div class="form-group">
-                <label for="firstname">First Name</label>
-                <input type="text" id="firstname" name="firstname" required>
-            </div>
-            <div class="form-group">
-                <label for="lastname">Last Name</label>
-                <input type="text" id="lastname" name="lastname" required>
-            </div>
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" id="lastname" name="username" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <div class="form-group">
-                <label for="confirm-password">Confirm Password</label>
-                <input type="password" id="confirm-password" name="confirm-password" required>
-            </div> -->
             <div class="form-group">
                 <label for="role">Sign Up As</label>
                 <select id="role" name="role" required>

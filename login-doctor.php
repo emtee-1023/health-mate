@@ -1,68 +1,55 @@
 <?php
 include 'includes/connect.php';
+?>
+<!-- Bootstrap core CSS -->
+<link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $fname = mysqli_real_escape_string($conn, $_POST['firstname']);
-    $lname = mysqli_real_escape_string($conn, $_POST['lastname']);
-    $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $password = mysqli_real_escape_string($conn, $_POST['password']);
-    $specialization = mysqli_real_escape_string($conn, $_POST['specialization']);
-    $license = mysqli_real_escape_string($conn, $_POST['license']);
-
-    // Hash the password for security
-    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
-    // Insert doctor data into the doctors table
-    $sql = "INSERT INTO doctors (Fname, Lname, Email, Password, Specialization, LicenseNumber) 
-            VALUES ('$fname', '$lname', '$email', '$hashedPassword', '$specialization', '$license')";
-
-    if (mysqli_query($conn, $sql)) {
-        echo "<script>alert('Registration successful! Please login.'); window.location.href = 'login.php';</script>";
-    } else {
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+<style>
+    .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
     }
 
-    mysqli_close($conn);
-}
-?>
+    @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+        }
+    }
+</style>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Doctor Registration</title>
-    <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-<div class="container mt-5">
-    <h2 class="text-center">Doctor Registration</h2>
-    <form method="POST" action="">
-        <div class="form-group">
-            <label for="firstname">First Name:</label>
-            <input type="text" class="form-control" id="firstname" name="firstname" required>
+
+<!-- Custom styles for this template -->
+<link href="heroes.css" rel="stylesheet">
+
+
+<div class="container col-xl-10 col-xxl-8 px-4 py-5">
+    <div class="row align-items-center g-lg-5 py-5">
+        <div class="col-lg-7 text-center text-lg-start">
+            <h1 class="display-4 fw-bold lh-1 mb-3">Welcome to Health Mate</h1>
+            <p class="col-lg-10 fs-4">Login to Continue to Doctor's Dashboard</p>
         </div>
-        <div class="form-group">
-            <label for="lastname">Last Name:</label>
-            <input type="text" class="form-control" id="lastname" name="lastname" required>
+        <div class="col-md-10 mx-auto col-lg-5">
+            <form class="p-4 p-md-5 border rounded-3 bg-light" method="post" action="l-doctor.php">
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email">
+                    <label for="floatingInput">Email address</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
+                    <label for="floatingPassword">Password</label>
+                </div>
+                <div class="checkbox mb-3">
+                    <label>
+                        <input type="checkbox" value="remember-me"> Remember me
+                    </label>
+                </div>
+                <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
+                <hr class="my-4">
+                <small class="text-muted">By clicking Sign up, you agree to the terms of use.</small>
+            </form>
         </div>
-        <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" class="form-control" id="email" name="email" required>
-        </div>
-        <div class="form-group">
-            <label for="password">Password:</label>
-            <input type="password" class="form-control" id="password" name="password" required>
-        </div>
-        <div class="form-group">
-            <label for="specialization">Specialization:</label>
-            <input type="text" class="form-control" id="specialization" name="specialization" required>
-        </div>
-        <div class="form-group">
-            <label for="license">License Number:</label>
-            <input type="text" class="form-control" id="license" name="license" required>
-        </div>
-        <button type="submit" class="btn btn-success mt-3">Register</button>
-    </form>
+    </div>
 </div>
-</body>
-</html>
