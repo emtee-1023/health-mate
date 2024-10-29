@@ -48,7 +48,7 @@
                 <h2>HEALTHMATE</h2>
               </a></li>
             <li><a href="home.php" class="nav-link px-2 link-dark">PATIENT</a></li>
-            <li><a href="doc.php" class="nav-link px-2 link-dark">DOCTOR</a></li>
+            <li><a href="docstask.php" class="nav-link px-2 link-dark">DOCTOR</a></li>
             <li><a href="nurse.php" class="nav-link px-2 link-dark">NURSES</a></li>
           </ul>
 
@@ -122,7 +122,7 @@
           <div class="container">
             <div class="carousel-caption text-start text-dark">
               <h1 class="">Get treatment at your convinience</h1>
-              <p><a class="btn btn-lg btn-success" href="login.php">Sign up today</a></p>
+              <p><a class="btn btn-lg btn-success" href="register.php">Sign up today</a></p>
             </div>
           </div>
         </div>

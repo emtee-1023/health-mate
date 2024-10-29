@@ -1,43 +1,47 @@
 <?php
-session_start();
 include 'includes/connect.php';
-
-
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $email = stripcslashes($email);  
-    $password = stripcslashes($password);  
-    $email = mysqli_real_escape_string($conn, $email);  
-    $password = mysqli_real_escape_string($conn, $password); 
+    // Sanitize input
+    $email = stripcslashes($email);
+    $password = stripcslashes($password);
+    $email = mysqli_real_escape_string($conn, $email);
+    $password = mysqli_real_escape_string($conn, $password);
 
-    $stmt = $conn->prepare("SELECT * FROM users WHERE email = ? AND password = ?");
-    $stmt->bind_param("ss", $email, $password);
-
+    // Query to check user login
+    $stmt = $conn->prepare("SELECT * FROM doctors WHERE email = ?");
+    $stmt->bind_param("s", $email);
     $stmt->execute();
     $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
-        $users = $result->fetch_assoc();
-        $_SESSION['pid'] = $users['UserID'];
-        $_SESSION['email'] = $users['email'];
-        $_SESSION['UserType'] = $users['UserType'];
+        $user = $result->fetch_assoc();
 
-        if ($users['UserType'] == 'doctor' || $users['UserType'] == 1){
-            header("Location: home.php");
-        } elseif ($users['UserType'] == 'Patient' || $users['UserType'] == 2 || $users['UserType'] == 'patient'){
-            header("Location: home.php");
+        // Verify the password (assuming passwords are hashed)
+        if (password_verify($password, $user['password'])) {
+            // Redirect based on UserType
+            if ($user['user_type'] == 'doctor') {
+                header("Location: dashboardd.php"); // Doctor's homepage
+            } elseif ($user['user_type'] == 'nurse') {
+                header("Location: dashboardn.php"); // Nurse's homepage
+            } elseif ($user['user_type'] == 'patient') {
+                header("Location: dashp.php"); // Patient's homepage
+            } else {
+                echo "<script>alert('User type not recognized.');</script>";
+            }
+            exit();
         } else {
-            echo "<script>alert('Login failed. Invalid username or password. Please sign up if you do not have an account.');</script>";
-            echo "<script>window.location.href = 'register.php';</script>";
+            echo "<script>alert('Invalid password. Please try again.');</script>";
         }
-        exit();
-
-        $stmt->close();
+    } else {
+        echo "<script>alert('No account found with that email. Please sign up.');</script>";
     }
+
+    // Close statement and connection
+    $stmt->close();
 }
 $conn->close();
 ?>
-

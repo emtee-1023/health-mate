@@ -29,7 +29,7 @@ include 'includes/connect.php';
     <div class="row align-items-center g-lg-5 py-5">
         <div class="col-lg-7 text-center text-lg-start">
             <h1 class="display-4 fw-bold lh-1 mb-3">Welcome to Health Mate</h1>
-            <p class="col-lg-10 fs-4">Login to Continue to Dashboard</p>
+            <p class="col-lg-10 fs-4">Login to Continue to Nurse's Dashboard</p>
         </div>
         <div class="col-md-10 mx-auto col-lg-5">
             <form class="p-4 p-md-5 border rounded-3 bg-light" method="post" action="user-login.php">

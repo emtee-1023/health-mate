@@ -91,8 +91,8 @@
 <body>
     <div class="signup-container">
         <h2>Create Your Health Mate Account</h2>
-        <form action="user-register.php" method="post">
-            <!-- <div class="form-group">
+        <form action="nurse-registration.php" method="post">
+            <div class="form-group">
                 <label for="firstname">First Name</label>
                 <input type="text" id="firstname" name="firstname" required>
             </div>
@@ -115,21 +115,20 @@
             <div class="form-group">
                 <label for="confirm-password">Confirm Password</label>
                 <input type="password" id="confirm-password" name="confirm-password" required>
-            </div> -->
+            </div>
             <div class="form-group">
-                <label for="role">Sign Up As</label>
-                <select id="role" name="role" required>
-                    <option value="patient">Patient</option>
-                    <option value="doctor">Doctor</option>
-                    <option value="nurse">Nurse</option>
-                    <option value="admin">Admin</option>
-                </select>
+            <label for="specification">Specification</label>   
+            <input type="text" id="specification" name="specification" required>   
+            </div>
+            <div class="form-group">
+            <label for="license">License Number</label>   
+            <input type="text" id="license" name="license" required>   
             </div>
             <input type="submit" value="sign up" class="btn">
         </form>
     </div>
 
-    <script>
+    <!-- <script>
         document.getElementById('role').addEventListener('change', function () {
             const adminPasscodeField = document.getElementById('admin-passcode');
             if (this.value === 'admin') {
@@ -138,7 +137,7 @@
                 adminPasscodeField.classList.add('hidden');
             }
         });
-    </script>
+    </script> -->
 </body>
 
 </html>
