@@ -43,6 +43,12 @@ if ($totalMedicines === 0) {
 <div class="products content-wrapper">
     <h1><strong>Pharmacy Shop</strong></h1>
 
+    <div class="searchBox">
+    <input type="text" id="searchQuery" placeholder="Search for medicine">
+    </div>
+
+
+
     <form method="GET" action="pharmacy.php" style="margin-bottom: 20px; display:flex; gap:10px; align-items:flex-start">
         <label for="itemsPerPage">Items per page:</label>
         <select style="width: 50px;" id="itemsPerPage" name="items" onchange="this.form.submit()">
@@ -81,3 +87,23 @@ if ($totalMedicines === 0) {
 </div>
 
 <?= template_footer() ?>
+
+<script>
+    // Function to filter cards based on search input
+    function filterCards() {
+            const query = document.getElementById('searchQuery').value.toLowerCase();
+            const items = document.querySelectorAll('.product');
+
+            items.forEach(item => {
+                const name = item.querySelector('.name').textContent.toLowerCase();
+                if (name.includes(query)) {
+                    item.style.display = 'flex'; // Show matching items
+                } else {
+                    item.style.display = 'none'; // Hide non-matching items
+                }
+            });
+        }
+
+        // Add an event listener to the search input
+        document.getElementById('searchQuery').addEventListener('input', filterCards);
+</script>
