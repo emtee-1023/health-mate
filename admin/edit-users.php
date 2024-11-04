@@ -5,7 +5,7 @@ include "../includes/connect.php";
 
 $pkid = $_GET['id'];
 
-$res=$conn->query("SELECT * FROM impacts i WHERE i.impact_id='$pkid'");
+$res=$conn->query("SELECT * FROM users WHERE UserID='$pkid'");
 $row = $res->fetch_assoc();
 
 //$imgres = $conn->query("SELECT * FROM `event_gallery` WHERE event_id='$pkid'");

@@ -1,9 +1,9 @@
 <?php 
 session_start();
 include "includes/sessions.php";
-include "../includes/connect.php";
+include "../../includes/connect.php";
 
-$res=$conn->query("SELECT * FROM impacts i ORDER BY i.impact_id DESC");
+$res=$conn->query("SELECT * FROM users ORDER BY UserID ASC");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,12 +27,12 @@ $res=$conn->query("SELECT * FROM impacts i ORDER BY i.impact_id DESC");
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Impacts</h1>
+            <h1 class="m-0">Our Users</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Impacts</li>
+              <li class="breadcrumb-item active">Users</li>
             </ol>
           </div>
         </div><!-- /.row -->
@@ -45,17 +45,14 @@ $res=$conn->query("SELECT * FROM impacts i ORDER BY i.impact_id DESC");
         <div class="container-fluid">
             <!-- Default box -->
             <div class="card">
-            <div class="card-header">
-                    <div class="card-tools">
-                        <a href="new-impact.php" class="btn btn-info bg-gradient-info"><i class="fa fa-plus"></i> Add New Impact</a>
-                    </div>
-                </div>
                 <div class="card-body">
 
                     <table id="example1" class="table table-bordered table-striped ">
                         <thead>
                             <tr>
-                                <th>Impact</th>
+                                <th>User ID</th>
+                                <th>User's Name</th>
+                                <th>Email</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -67,14 +64,26 @@ $res=$conn->query("SELECT * FROM impacts i ORDER BY i.impact_id DESC");
                             <tr>
                                 <td>
                                   <div class="d-flex">
-                                        <span class="ml-2"><?php echo $row['impact_title'];?></span>
+                                        <span class="ml-2"><?php echo $row['UserID'];?></span>
+                                    </div>
+                                </td>
+
+                                <td>
+                                  <div class="d-flex">
+                                        <span class="ml-2"><?php echo $row['UserName'];?></span>
+                                    </div>
+                                </td>
+
+                                <td>
+                                  <div class="d-flex">
+                                        <span class="ml-2"><?php echo $row['email'];?></span>
                                     </div>
                                 </td>
 
                                 <td class="text-nowrap">
-                                    <a href="edit-impact.php?id=<?php echo $row["impact_id"];?>" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i> Edit</a>
+                                    <!--  <a href="edit-users.php?id=<?php echo $row["UserID"];?>" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i> Edit</a>  -->
 
-                                    <a href="processes.php?delete-event=<?php echo $row["impact_id"];?>" class="btn btn-sm btn-danger deleteBtn"><i class="fas fa-trash"></i> Delete</a>
+                                    <a href="processes.php?delete-event=<?php echo $row["UserID"];?>" class="btn btn-sm btn-danger deleteBtn"><i class="fas fa-trash"></i> Delete</a>
                                 </td>
                             </tr>
                             <?php } ?>

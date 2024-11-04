@@ -2,8 +2,7 @@
  <aside class="main-sidebar sidebar-light-primary elevation-4">
     <!-- Brand Logo -->
     <a href="dashboard.php" class="brand-link">
-      <img src="../assets/bootstrap-logo.png" alt="Logo" class="brand-image " style="opacity: .8">
-      <span class="brand-text font-weight-light">ADMIN PANEL</span>
+      <span class="brand-text font-weight-bold">PHARMACY PANEL</span>
     </a>
 
     <!-- Sidebar -->
@@ -45,20 +44,11 @@
             </a>
             
           </li>
-          
-          <li class="nav-item">
-            <a href="doctors.php" class="nav-link">
-              <i class="nav-icon fas fa-user-md"></i>
-              <p>
-                Doctors
-              </p>
-            </a>
-          </li>
           <li class="nav-item">
             <a href="users.php" class="nav-link">
               <i class="nav-icon fas fa-users"></i>
               <p>
-                Users
+                Patients
               </p>
             </a>
           </li>
@@ -71,32 +61,14 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="appointments.php" class="nav-link">
-              <i class="nav-icon fas fa-calendar-alt"></i>
+            <a href="medicine.php" class="nav-link">
+              <i class="nav-icon fas fa-pills"></i>
               <p>
-                Appointments
+                Prescriptions
               </p>
             </a>
           </li>
-          
-          <li class="nav-header">My Clients</li>
-          <li class="nav-item">
-            <a href="leads.php" class="nav-link">
-              <i class="nav-icon fas fa-user-plus"></i>
-              <p>
-                Contact Us
-              </p>
-            </a>
-          </li>
-
-        
-
-          
-
-          
-
-         
-        </ul>
+      </ul>
       </nav>
       <!-- /.sidebar-menu -->
       <div class="bottom">
