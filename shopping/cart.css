@@ -367,3 +367,21 @@ footer {
   padding: 20px 0;
   width: 100%;
 }
+.searchBox{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#searchQuery{
+  width: 400px;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  color: #555555;
+  border-radius: 5px;
+  text-align: center;
+  justify-self: center;
+  align-self: center;
+  font-weight: 500;
+  color: black;
+}

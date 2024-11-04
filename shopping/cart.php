@@ -122,6 +122,7 @@ include 'functions.php';
         <div class="buttons">
             <input type="submit" value="Update" name="update">
             <input type="submit" value="Place Order" name="placeorder">
+            <a style="color:white; text-decoration:none;" href="pharmacy.php">Continue Shopping</a>
         </div>
     </form>
 </div>
