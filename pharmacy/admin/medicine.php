@@ -1,7 +1,7 @@
 <?php 
 session_start();
 include "includes/sessions.php";
-include "../includes/connect.php";
+include "../../includes/connect.php";
 
 $res=$conn->query("SELECT * FROM medicine");
 ?>
@@ -58,6 +58,7 @@ $res=$conn->query("SELECT * FROM medicine");
                                             <th>Medication</th>
                                             <th>Use case</th>
                                             <th>Price</th>
+                                            <th>Available Stock</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -67,7 +68,7 @@ $res=$conn->query("SELECT * FROM medicine");
                                         <tr>
                                             <td>
                                               <div class="d-flex">
-                                                    <span><img src="../uploads/<?php echo $row['MedicinePhoto'];?>" width="60"></span>
+                                                    <span><img src="../../uploads/<?php echo $row['MedicinePhoto'];?>" width="60"></span>
                                                     <span class="ml-2"><?php echo $row['MedicineName'];?></span>
                                                 </div>
                                             </td>

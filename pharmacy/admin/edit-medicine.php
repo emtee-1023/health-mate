@@ -1,7 +1,7 @@
 <?php 
 session_start();
 include "includes/sessions.php";
-include "../includes/connect.php";
+include "../../includes/connect.php";
 
 
 $MedicineID = $_GET['id'];
@@ -115,7 +115,7 @@ $row = $res->fetch_assoc();
             <div class="row g-3">
                 <!-- Car name -->
                 <div class="col-8 mx-auto" >
-                    <img src="../uploads/<?php echo $row['MedicinePhoto'];?>" style="max-width:400px">
+                    <img src="../../uploads/<?php echo $row['MedicinePhoto'];?>" style="max-width:400px">
                 </div>
 
                 <!-- Desc -->
