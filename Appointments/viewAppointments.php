@@ -32,7 +32,7 @@ $stmt->close();
         document.addEventListener('DOMContentLoaded', function() {
             var calendarEl = document.getElementById('calendar');
             var calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'dayGridMonth',
+                initialView: 'timeGridWeek',
                 events: <?php echo json_encode($appointments); ?>, // Pass PHP appointments array to JavaScript
                 headerToolbar: {
                     start: 'prev,next today',
