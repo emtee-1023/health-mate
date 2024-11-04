@@ -146,190 +146,23 @@ elseif(isset($_POST["edit-prof"])){
         header("location: edit-profile.php?id=$id");
     }
 }
-
- 
-elseif(isset($_POST["new-event"])){
-    $name = mysqli_real_escape_string($conn, $_POST["name"]);
-    $sdesc = mysqli_real_escape_string($conn, $_POST["sdesc"]);
-    $desc = mysqli_real_escape_string($conn, $_POST["desc"]);
-    $loc = mysqli_real_escape_string($conn, $_POST["loc"]);
-    $serv = mysqli_real_escape_string($conn, $_POST["serv"]);
-    //$slots = mysqli_real_escape_string($conn, $_POST["slots"]);
-    $st = mysqli_real_escape_string($conn, $_POST["st"]);
-    $et = mysqli_real_escape_string($conn, $_POST["et"]);
-    
-
-    $image = $_FILES['photos']['tmp_name'];
-    $imgContent = addslashes(file_get_contents($image));
-    
-			
-
-    $file_name = $_FILES["photos"]["name"];
-    $_FILES["photos"]["type"];
-    $tmp_file = $_FILES["photos"]["tmp_name"];
-    
-    $destination = "../uploads/" . $file_name;
-    
-    move_uploaded_file($tmp_file, $destination);
-    $new = $filedate.$file_name;
-    $new_name = rename('../uploads/'.$file_name , '../uploads/'.$new);
-
-
-    $insert = "INSERT INTO `event`(`title`, `short_desc`, `description`, `location`, `services`, `start_datetime`, `end_datetime`, `cover_image`, `event_status`, `date_added`, `date_modified`) VALUES ('$name', '$sdesc', '$desc', '$loc', '$serv', '$st','$et','$new','1','$date','$date')";
-    
-    if ($conn->query($insert)===TRUE){
-        $pk = $conn->insert_id;
-          
-          $_SESSION["success"] = "New Project Added Sucessfully.";
-          header("location: edit-event.php?id=$pk");
-          
-      }else{
-          $_SESSION["error"] = "Error Occured. Please Try Again". $conn->error;
-          header("location:  new-event.php");
-      }
-}
-elseif(isset($_POST["edit-event"])){
+elseif(isset($_POST["edit-doctor"])){
     $id = mysqli_real_escape_string($conn, $_POST["rid"]);
-    $name = mysqli_real_escape_string($conn, $_POST["name"]);
-    $sdesc = mysqli_real_escape_string($conn, $_POST["sdesc"]);
-    $desc = mysqli_real_escape_string($conn, $_POST["desc"]);
-    $loc = mysqli_real_escape_string($conn, $_POST["loc"]);
-    $serv = mysqli_real_escape_string($conn, $_POST["serv"]);
-    $slots = mysqli_real_escape_string($conn, $_POST["slots"]);
-    $st = mysqli_real_escape_string($conn, $_POST["st"]);
-    $et = mysqli_real_escape_string($conn, $_POST["et"]);
     $status = mysqli_real_escape_string($conn, $_POST["status"]);
     
-
-    
-
-
-    $insert = "UPDATE `event` SET `title`='$name',`short_desc`='$sdesc',`description`='$desc',`location`='$loc',`services`='$serv',`slots`='$slots',`start_datetime`='$st',`end_datetime`='$et', `event_status`='$status', `date_modified`='$date' WHERE event_id='$id'";
+    $insert = "UPDATE `doctors` SET `verificationStatus`='$status' WHERE DoctorID='$id'";
     
     if ($conn->query($insert)===TRUE){
         
           
           $_SESSION["success"] = "Project Updated Sucessfully.";
-          header("location: edit-event.php?id=$id");
+          header("location: doctors.php");
           
       }else{
           $_SESSION["error"] = "Error Occured. Please Try Again". $conn->error;
-          header("location: edit-event.php?id=$id");
+          header("location: edit-doctor.php?id=$id");
       }
     }
-    
-elseif(isset($_POST["edit-event-img"])){
-        $id = mysqli_real_escape_string($conn, $_POST["edit-event-img"]);
-
-        $image = $_FILES['photos']['tmp_name'];
-        $imgContent = addslashes(file_get_contents($image));
-        
-                
-
-        $file_name = $_FILES["photos"]["name"];
-        $_FILES["photos"]["type"];
-        $tmp_file = $_FILES["photos"]["tmp_name"];
-        
-        $destination = "../uploads/" . $file_name;
-        
-        move_uploaded_file($tmp_file, $destination);
-        $new = $filedate.$file_name;
-        $new_name = rename('../uploads/'.$file_name , '../uploads/'.$new);
-
-
-        $insert = "UPDATE `event` SET `cover_image`='$new' WHERE event_id='$id'";
-        
-        if ($conn->query($insert)===TRUE){
-              
-              $_SESSION["success"] = "Project Image Updated Sucessfully.";
-              header("location: edit-event.php?id=$id#img");
-              
-          }else{
-              $_SESSION["error"] = "Error Occured. Please Try Again". $conn->error;
-              header("location: edit-event.php?id=$id#img");
-          }
-}
-elseif(isset($_POST["edit-event-doc"])){
-    $id = mysqli_real_escape_string($conn, $_POST["edit-event-doc"]);
-
-    $image = $_FILES['photos']['tmp_name'];
-    $imgContent = addslashes(file_get_contents($image));
-    
-            
-
-    $file_name = $_FILES["photos"]["name"];
-    $_FILES["photos"]["type"];
-    $tmp_file = $_FILES["photos"]["tmp_name"];
-    
-    $destination = "../uploads/" . $file_name;
-    
-    move_uploaded_file($tmp_file, $destination);
-    $new = $filedate.$file_name;
-    $new_name = rename('../uploads/'.$file_name , '../uploads/'.$new);
-
-
-    $insert = "UPDATE `event` SET `report`='$new' WHERE event_id='$id'";
-    
-    if ($conn->query($insert)===TRUE){
-          
-          $_SESSION["success"] = "Project Document Updated Sucessfully.";
-          header("location: edit-event.php?id=$id#doc");
-          
-      }else{
-          $_SESSION["error"] = "Error Occured. Please Try Again". $conn->error;
-          header("location: edit-event.php?id=$id#doc");
-      }
-}
-
-elseif(isset($_POST["add-gallery"])){
-    $id = mysqli_real_escape_string($conn, $_POST["add-gallery"]);
-
-    $image = $_FILES['photos']['tmp_name'];
-    $imgContent = addslashes(file_get_contents($image));
-    
-            
-
-    $file_name = $_FILES["photos"]["name"];
-    $_FILES["photos"]["type"];
-    $tmp_file = $_FILES["photos"]["tmp_name"];
-    
-    $destination = "../uploads/" . $file_name;
-    
-    move_uploaded_file($tmp_file, $destination);
-    $new = $filedate.$file_name;
-    $new_name = rename('../uploads/'.$file_name , '../uploads/'.$new);
-
-
-    $insert = "INSERT INTO `event_gallery`(`event_id`, `image`, `date_created`) VALUES ('$id','$new','$date')";
-    
-    if ($conn->query($insert)===TRUE){
-          
-          $_SESSION["success"] = "Image Added Sucessfully.";
-          header("location: edit-project.php?id=$id#gallery");
-          
-      }else{
-          $_SESSION["error"] = "Error Occured. Please Try Again". $conn->error;
-          header("location: edit-project.php?id=$id#gallery");
-      }
-}
-
-elseif(isset($_GET["del-gallery"])){
-    $id = mysqli_real_escape_string($conn, $_GET["eid"]);
-    $act = mysqli_real_escape_string($conn, $_GET["del-gallery"]);
-
-    $qry = "DELETE FROM `event_gallery` WHERE event_gallery_id='$act'";
-    if ($conn->query($qry)===TRUE){
-          
-        $_SESSION["success"] = "Image Deleted Sucessfully.";
-        header("location: edit-project.php?id=$id#gallery");
-        
-    }else{
-        $_SESSION["error"] = "Error Occured. Please Try Again". $conn->error;
-        header("location: edit-project.php?id=$id#gallery");
-    }
-}
-
-
 elseif(isset($_POST["add-pkg-act"])){
         $id = mysqli_real_escape_string($conn, $_POST["pkid"]);
         $act = mysqli_real_escape_string($conn, $_POST["name"]);

@@ -47,7 +47,7 @@
           </li>
           
           <li class="nav-item">
-            <a href="projects.php" class="nav-link">
+            <a href="doctors.php" class="nav-link">
               <i class="nav-icon fas fa-user-md"></i>
               <p>
                 Doctors
@@ -55,10 +55,10 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="impacts.php" class="nav-link">
+            <a href="users.php" class="nav-link">
               <i class="nav-icon fas fa-users"></i>
               <p>
-                Patients
+                Users
               </p>
             </a>
           </li>
@@ -67,6 +67,14 @@
               <i class="nav-icon fas fa-pills"></i>
               <p>
                 Medicine
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="appointments.php" class="nav-link">
+              <i class="nav-icon fas fa-calendar-alt"></i>
+              <p>
+                Appointments
               </p>
             </a>
           </li>

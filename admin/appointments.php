@@ -3,7 +3,21 @@ session_start();
 include "includes/sessions.php";
 include "../includes/connect.php";
 
-$res=$conn->query("SELECT * FROM projects p ORDER BY p.project_id DESC");
+$res = $conn->query("
+    SELECT 
+        appointments.AppointmentID, 
+        appointments.UserID, 
+        appointments.DoctorID, 
+        appointments.AppointmentDate, 
+        appointments.ConsultationFee, 
+        users.UserName, 
+        doctors.DoctorName
+    FROM appointments
+    LEFT JOIN users ON appointments.UserID = users.UserID
+    LEFT JOIN doctors ON appointments.DoctorID = doctors.DoctorID
+    ORDER BY appointments.AppointmentID ASC
+");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,12 +41,12 @@ $res=$conn->query("SELECT * FROM projects p ORDER BY p.project_id DESC");
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Projects</h1>
+            <h1 class="m-0">Appointments</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Projects</li>
+              <li class="breadcrumb-item active">Appointments</li>
             </ol>
           </div>
         </div><!-- /.row -->
@@ -45,20 +59,14 @@ $res=$conn->query("SELECT * FROM projects p ORDER BY p.project_id DESC");
         <div class="container-fluid">
             <!-- Default box -->
             <div class="card">
-            <div class="card-header">
-                    <div class="card-tools">
-                        <a href="new-project.php" class="btn btn-info bg-gradient-info"><i class="fa fa-plus"></i> Add New Project</a>
-                    </div>
-                </div>
                 <div class="card-body">
 
                     <table id="example1" class="table table-bordered table-striped ">
                         <thead>
                             <tr>
-                                <th>Project</th>
-                                <th>Location</th>
-                                <th>Dates</th>
-                                <th>Status</th>
+                                <th>User's Name</th>
+                                <th>Doctor Name</th>
+                                <th>Appointment Details</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -70,18 +78,26 @@ $res=$conn->query("SELECT * FROM projects p ORDER BY p.project_id DESC");
                             <tr>
                                 <td>
                                   <div class="d-flex">
-                                        <span class="ml-2"><?php echo $row['project_name'];?></span>
+                                        <span class="ml-2"><?php echo $row['UserName'];?></span>
                                     </div>
                                 </td>
-                                <td><?php echo $row["venue"];?></td>
-                                <td><span class="text-nowrap"><?php echo date('M d, Y', strtotime($row['project_date']));?></span></td>
 
-                                <td><?php echo eventStatus($row["status"]);?></td>
+                                <td>
+                                  <div class="d-flex">
+                                        <span class="ml-2"><?php echo $row['DoctorName'];?></span>
+                                    </div>
+                                </td>
+
+                                <td>
+                                  <div class="d-flex">
+                                        <span class="ml-2"><?php echo $row['AppointmentDate'];?></span>
+                                    </div>
+                                </td>
 
                                 <td class="text-nowrap">
-                                    <a href="edit-project.php?id=<?php echo $row["project_id"];?>" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i> Edit</a>
+                                    <a href="edit-users.php?id=<?php echo $row["UserID"];?>" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i> Edit</a>
 
-                                    <a href="processes.php?delete-event=<?php echo $row["project_id"];?>" class="btn btn-sm btn-danger deleteBtn"><i class="fas fa-trash"></i> Delete</a>
+                                    <a href="processes.php?delete-event=<?php echo $row["UserID"];?>" class="btn btn-sm btn-danger deleteBtn"><i class="fas fa-trash"></i> Delete</a>
                                 </td>
                             </tr>
                             <?php } ?>
