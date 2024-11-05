@@ -22,8 +22,8 @@ if (isset($_POST['add-user'])) {
         $_2fa = 0;
     }
 
-    $stmt1 = $conn->prepare('INSERT INTO users (FName,LName,Email,PhoneNum,Password,Sex,Pfp,DOB,_2FAStatus,CreatedAt) values (?, ?, ?, ?, ?, ?, ?, ?, ?)');
-    $stmt1->bind_param('ssssssssis', $fname, $lname, $dob, $email, $phone, $password, $sex, $pfp,  $dob, $_2fa, $currentTimestamp);
+    $stmt1 = $conn->prepare('INSERT INTO users (FName,LName,Email,PhoneNum,Password,Sex,Pfp,DOB,_2FAStatus,CreatedAt) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
+    $stmt1->bind_param('ssssssssis', $fname, $lname, $email, $phone, $password, $sex, $pfp,  $dob, $_2fa, $currentTimestamp);
     if (!$stmt1->execute()) {
         $_SESSION['error'] = 'Problem Encountered During Registration';
         header('location: register.php');
