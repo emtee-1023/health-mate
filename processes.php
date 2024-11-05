@@ -167,4 +167,23 @@ if (isset($_POST['add-user'])) {
     $_SESSION['success'] = "Account Created Successfuly";
     header('location: login.php');
     exit();
+} else if (isset($_POST['user-login'])){
+    $emailOrNumber = $_POST['email-or-number'];
+    $password = $_POST['password'];
+
+    $stmt1 = $conn->prepare('SELECT * FROM users WHERE Email = ? OR PhoneNum = ?');
+    $stmt1->bind_param('ss',$emailOrNumber,$emailOrNumber);
+    if(!$stmt1->execute()){
+        $_SESSION['error'] = "Error retreiving user account";
+        header('location: login.php');
+        exit();
+     }
+     $res1 = $stmt1->get_result();
+
+     if($res1->num_rows > 0){
+        $usr = $res1->fetch_assoc();
+        if(password_verify($password, $usr['Password'])){
+            $_SESSION['uid'] = $usr['']
+        }
+     }
 }
