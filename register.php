@@ -216,7 +216,7 @@ session_start();
 
                                         <div class="col-6 mb-3">
                                             <label class="form-label">Upload Medical Certificate (PDF)</label>
-                                            <input class="form-control" type="file" accept=".pdf, .jpg, .png" required>
+                                            <input class="form-control" type="file" name='medCert' accept=".pdf, .jpg, .png" required>
                                         </div>
 
                                         <div class="col-6 mb-3">
@@ -314,7 +314,7 @@ session_start();
 
                                         <div class="col-6 mb-3">
                                             <label class="form-label">Upload Medical Certificate (PDF)</label>
-                                            <input class="form-control" type="file" accept=".pdf, .jpg, .png" required>
+                                            <input class="form-control" type="file" name="medCert" accept=".pdf, .jpg, .png" required>
                                         </div>
 
                                         <div class="col-6 mb-3">
@@ -412,7 +412,7 @@ session_start();
 
                                         <div class="col-6 mb-3">
                                             <label class="form-label">Upload Medical Certificate (PDF)</label>
-                                            <input class="form-control" type="file" accept=".pdf, .jpg, .png" required>
+                                            <input class="form-control" type="file" name="medCert" accept=".pdf, .jpg, .png" required>
                                         </div>
 
                                         <div class="col-6 mb-3">
