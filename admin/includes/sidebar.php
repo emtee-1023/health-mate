@@ -2,7 +2,7 @@
  <aside class="main-sidebar sidebar-light-primary elevation-4">
    <!-- Brand Logo -->
    <a href="dashboard.php" class="brand-link">
-     <img src="../assets/bootstrap-logo.png" alt="Logo" class="brand-image " style="opacity: .8">
+     HealthMate
      <span class="brand-text font-weight-light">ADMIN PANEL</span>
    </a>
 
@@ -11,10 +11,10 @@
      <!-- Sidebar user panel (optional) -->
      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
        <div class="image">
-         <img src="../assets/bootsrap-logo.png" class="img-circle elevation-2" alt="User Image">
+         <img src="../uploads/profile.jpg" class="img-circle elevation-2" alt="User Image">
        </div>
        <div class="info">
-         <a href="#" class="d-block">Health Mate</a>
+         <a href="#" class="d-block">Mark Talamson</a>
        </div>
      </div>
 
