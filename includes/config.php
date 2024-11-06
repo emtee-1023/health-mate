@@ -1,8 +1,8 @@
 <?php
-$host = 'sql7.freesqldatabase.com';
-$db = 'sql7739447';
-$user = 'sql7739447';
-$pass = 'jD7SgRJ2Ce';
+$host = '127.0.0.1';
+$db = 'inlaqkew_health_mate';
+$user = 'inlaqkew_root';
+$pass = '@IH&pS%l6v+Z';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=utf8mb4";
 $options = [

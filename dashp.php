@@ -1,9 +1,8 @@
 <?php
-include 'includes/connect.php';
 include 'includes/config.php';
+require 'includes.php';
 
 try {
-    $pdo = new PDO($dsn, $user, $pass, $options);
 
     if (isset($_GET['UserID'])) {
         $UserID = $_GET['UserID'];
