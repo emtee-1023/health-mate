@@ -109,16 +109,16 @@ session_start();
 
                                         <div class="col-6 mb-3">
                                             <label class="form-label">Password</label>
-                                            <input class="form-control" id="pass" type="password" placeholder="Enter Password" required>
+                                            <input class="form-control pass" type="password" placeholder="Enter Password" required>
                                         </div>
 
                                         <div class="col-6 mb-3">
                                             <label class="form-label">Confirm Password</label>
-                                            <input class="form-control" id="confirmPass" type="password" name="password" placeholder="Confirm Password" required>
+                                            <input class="form-control confirmPass" type="password" name="password" placeholder="Confirm Password" required>
                                         </div>
 
                                         <div class="col-12 mb-3">
-                                            <p id="passwordFeedback" style="color: red; display: none;">Passwords do not match.</p>
+                                            <p class="passwordFeedback" style="color: red; display: none;">Passwords do not match.</p>
                                         </div>
 
                                         <div class="col-6 mb-3">
@@ -129,7 +129,7 @@ session_start();
                                 </div>
                                 <div class="card-footer pt-0">
                                     <div class="text-end">
-                                        <button type="submit" name="add-user" class="btn btn-primary mb-0" id="submitButton" disabled>Submit</button>
+                                        <button type="submit" name="add-user" class="btn btn-primary mb-0 submitButton" disabled>Submit</button>
                                     </div>
                                 </div>
                         </form>
@@ -197,16 +197,16 @@ session_start();
 
                                         <div class="col-6 mb-3">
                                             <label class="form-label">Password</label>
-                                            <input class="form-control" id="pass" type="password" placeholder="Enter Password" required>
+                                            <input class="form-control pass" type="password" placeholder="Enter Password" required>
                                         </div>
 
                                         <div class="col-6 mb-3">
                                             <label class="form-label">Confirm Password</label>
-                                            <input class="form-control" id="confirmPass" type="password" name="password" placeholder="Confirm Password" required>
+                                            <input class="form-control confirmPass" type="password" name="password" placeholder="Confirm Password" required>
                                         </div>
 
                                         <div class="col-12 mb-3">
-                                            <p id="passwordFeedback" style="color: red; display: none;">Passwords do not match.</p>
+                                            <p class="passwordFeedback" style="color: red; display: none;">Passwords do not match.</p>
                                         </div>
 
                                         <div class="col-12 mb-3">
@@ -227,7 +227,7 @@ session_start();
                                 </div>
                                 <div class="card-footer pt-0">
                                     <div class="text-end">
-                                        <button type="submit" name="doctor-apply" class="btn btn-primary mb-0" id="submitButton" disabled>Submit</button>
+                                        <button type="submit" name="doctor-apply" class="btn btn-primary mb-0 submitButton" disabled>Submit</button>
                                     </div>
                                 </div>
                         </form>
@@ -295,16 +295,16 @@ session_start();
 
                                         <div class="col-6 mb-3">
                                             <label class="form-label">Password</label>
-                                            <input class="form-control" id="pass" type="password" placeholder="Enter Password" required>
+                                            <input class="form-control pass" type="password" placeholder="Enter Password" required>
                                         </div>
 
                                         <div class="col-6 mb-3">
                                             <label class="form-label">Confirm Password</label>
-                                            <input class="form-control" id="confirmPass" type="password" name="password" placeholder="Confirm Password" required>
+                                            <input class="form-control confirmPass" type="password" name="password" placeholder="Confirm Password" required>
                                         </div>
 
                                         <div class="col-12 mb-3">
-                                            <p id="passwordFeedback" style="color: red; display: none;">Passwords do not match.</p>
+                                            <p class="passwordFeedback" style="color: red; display: none;">Passwords do not match.</p>
                                         </div>
 
                                         <div class="col-12 mb-3">
@@ -325,7 +325,7 @@ session_start();
                                 </div>
                                 <div class="card-footer pt-0">
                                     <div class="text-end">
-                                        <button type="submit" name="nurse-apply" class="btn btn-primary mb-0" id="submitButton" disabled>Submit</button>
+                                        <button type="submit" name="nurse-apply" class="btn btn-primary mb-0 submitButton" disabled>Submit</button>
                                     </div>
                                 </div>
                         </form>
@@ -393,16 +393,16 @@ session_start();
 
                                         <div class="col-6 mb-3">
                                             <label class="form-label">Password</label>
-                                            <input class="form-control" id="pass" type="password" placeholder="Enter Password" required>
+                                            <input class="form-control pass" type="password" placeholder="Enter Password" required>
                                         </div>
 
                                         <div class="col-6 mb-3">
                                             <label class="form-label">Confirm Password</label>
-                                            <input class="form-control" id="confirmPass" type="password" name="password" placeholder="Confirm Password" required>
+                                            <input class="form-control confirmPass" type="password" name="password" placeholder="Confirm Password" required>
                                         </div>
 
                                         <div class="col-12 mb-3">
-                                            <p id="passwordFeedback" style="color: red; display: none;">Passwords do not match.</p>
+                                            <p class="passwordFeedback" style="color: red; display: none;">Passwords do not match.</p>
                                         </div>
 
                                         <div class="col-12 mb-3">
@@ -423,7 +423,7 @@ session_start();
                                 </div>
                                 <div class="card-footer pt-0">
                                     <div class="text-end">
-                                        <button type="submit" name="pharmacist-apply" class="btn btn-primary mb-0" id="submitButton" disabled>Submit</button>
+                                        <button type="submit" name="pharmacist-apply" class="btn btn-primary mb-0 submitButton" disabled>Submit</button>
                                     </div>
                                 </div>
                         </form>
@@ -439,13 +439,13 @@ session_start();
     </div>
 
     <!-- jQuery -->
-    <script src="../plugins/jquery/jquery.min.js"></script>
+    <script src="plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
-    <script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
-    <script src="../dist/js/adminlte.min.js"></script>
+    <script src="dist/js/adminlte.min.js"></script>
     <!-- Toastr -->
-    <script src="../plugins/toastr/toastr.min.js"></script>
+    <script src="plugins/toastr/toastr.min.js"></script>
 
     <?php
     if (isset($_SESSION['success'])) {
@@ -471,49 +471,59 @@ session_start();
     ?>
 
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Select all forms on the page
+            const forms = document.querySelectorAll('form');
+
+            // Loop through each form to add event listeners
+            forms.forEach(form => {
+                const pass = form.querySelector('.pass');
+                const confirmPassword = form.querySelector('.confirmPass');
+                const submitButton = form.querySelector('.submitButton');
+                const feedback = form.querySelector('.passwordFeedback');
+
+                // Ensure all necessary elements are present before adding event listeners
+                if (pass && confirmPassword && submitButton && feedback) {
+                    function checkPasswordsMatch() {
+                        if (pass.value && confirmPassword.value) {
+                            if (pass.value === confirmPassword.value) {
+                                submitButton.disabled = false;
+                                feedback.style.display = 'none';
+                            } else {
+                                submitButton.disabled = true;
+                                feedback.style.display = 'block';
+                                feedback.textContent = 'Passwords do not match.';
+                            }
+                        } else {
+                            submitButton.disabled = true;
+                            feedback.style.display = 'none';
+                        }
+                    }
+
+                    // Attach input listeners to password fields
+                    pass.addEventListener('input', checkPasswordsMatch);
+                    confirmPassword.addEventListener('input', checkPasswordsMatch);
+                }
+            });
+        });
+
         function showForm() {
             // Hide all role forms
-            document.querySelectorAll('.role-form').forEach(form => form.style.display = 'none');
+            document.querySelectorAll('.role-form').forEach(form => {
+                form.style.display = 'none';
+                // Reset form fields and feedback when hiding
+                form.querySelectorAll('input').forEach(input => input.value = '');
+                const feedback = form.querySelector('.passwordFeedback');
+                if (feedback) feedback.style.display = 'none';
+            });
 
-            // Get the selected role
+            // Show the selected form
             const role = document.getElementById('role').value;
-
-            // Show the selected role form
-            const formId = role + 'Form';
-            const formToShow = document.getElementById(formId);
-
+            const formToShow = document.getElementById(role + 'Form');
             if (formToShow) {
                 formToShow.style.display = 'block';
             }
         }
-    </script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const pass = document.getElementById('pass');
-            const confirmPassword = document.getElementById('confirmPass');
-            const submitButton = document.getElementById('submitButton');
-            const feedback = document.getElementById('passwordFeedback');
-
-            function checkPasswordsMatch() {
-                if (pass.value && confirmPassword.value) {
-                    if (pass.value === confirmPassword.value) {
-                        submitButton.disabled = false;
-                        feedback.style.display = 'none';
-                    } else {
-                        submitButton.disabled = true;
-                        feedback.style.display = 'block';
-                        feedback.textContent = 'Passwords do not match.';
-                    }
-                } else {
-                    submitButton.disabled = true;
-                    feedback.style.display = 'none';
-                }
-            }
-
-            pass.addEventListener('input', checkPasswordsMatch);
-            confirmPassword.addEventListener('input', checkPasswordsMatch);
-        });
     </script>
 
 </body>

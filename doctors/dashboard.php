@@ -2,7 +2,6 @@
 session_start();
 include "includes/sessions.php";
 include "../includes/connect.php";
-include '../includes/config.php';
 
 
 ?>

@@ -3,7 +3,21 @@ session_start();
 include "includes/sessions.php";
 include "../includes/connect.php";
 
-$res=$conn->query("SELECT * FROM users ORDER BY UserID ASC");
+$res = $conn->query("
+    SELECT 
+        appointments.AppointmentID, 
+        appointments.UserID, 
+        appointments.DoctorID, 
+        appointments.AppointmentDate, 
+        appointments.ConsultationFee, 
+        users.UserName, 
+        doctors.DoctorName
+    FROM appointments
+    LEFT JOIN users ON appointments.UserID = users.UserID
+    LEFT JOIN doctors ON appointments.DoctorID = doctors.DoctorID
+    ORDER BY appointments.AppointmentID ASC
+");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,12 +41,12 @@ $res=$conn->query("SELECT * FROM users ORDER BY UserID ASC");
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Our Users</h1>
+            <h1 class="m-0">Appointments</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Users</li>
+              <li class="breadcrumb-item active">Appointments</li>
             </ol>
           </div>
         </div><!-- /.row -->
@@ -50,10 +64,10 @@ $res=$conn->query("SELECT * FROM users ORDER BY UserID ASC");
                     <table id="example1" class="table table-bordered table-striped ">
                         <thead>
                             <tr>
-                                <th>User ID</th>
                                 <th>User's Name</th>
-                                <th>Email</th>
-                                <th>Phone Number</th>
+                                <th>Doctor Name</th>
+                                <th>Appointment Details</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -64,25 +78,26 @@ $res=$conn->query("SELECT * FROM users ORDER BY UserID ASC");
                             <tr>
                                 <td>
                                   <div class="d-flex">
-                                        <span class="ml-2"><?php echo $row['UserID'];?></span>
+                                        <span class="ml-2"><?php echo $row['UserName'];?></span>
                                     </div>
                                 </td>
 
                                 <td>
                                   <div class="d-flex">
-                                        <span class="ml-2"><?php echo $row['FName'] . ' ' . $row['LName'];?></span>
+                                        <span class="ml-2"><?php echo $row['DoctorName'];?></span>
                                     </div>
                                 </td>
 
                                 <td>
                                   <div class="d-flex">
-                                        <span class="ml-2"><?php echo $row['Email'];?></span>
+                                        <span class="ml-2"><?php echo $row['AppointmentDate'];?></span>
                                     </div>
                                 </td>
-                                <td>
-                                  <div class="d-flex">
-                                        <span class="ml-2"><?php echo $row['PhoneNum'];?></span>
-                                    </div>
+
+                                <td class="text-nowrap">
+                                    <a href="edit-users.php?id=<?php echo $row["UserID"];?>" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i> Edit</a>
+
+                                    <a href="processes.php?delete-event=<?php echo $row["UserID"];?>" class="btn btn-sm btn-danger deleteBtn"><i class="fas fa-trash"></i> Delete</a>
                                 </td>
                             </tr>
                             <?php } ?>

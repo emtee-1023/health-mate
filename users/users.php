@@ -53,7 +53,7 @@ $res=$conn->query("SELECT * FROM users ORDER BY UserID ASC");
                                 <th>User ID</th>
                                 <th>User's Name</th>
                                 <th>Email</th>
-                                <th>Phone Number</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -70,19 +70,20 @@ $res=$conn->query("SELECT * FROM users ORDER BY UserID ASC");
 
                                 <td>
                                   <div class="d-flex">
-                                        <span class="ml-2"><?php echo $row['FName'] . ' ' . $row['LName'];?></span>
+                                        <span class="ml-2"><?php echo $row['UserName'];?></span>
                                     </div>
                                 </td>
 
                                 <td>
                                   <div class="d-flex">
-                                        <span class="ml-2"><?php echo $row['Email'];?></span>
+                                        <span class="ml-2"><?php echo $row['email'];?></span>
                                     </div>
                                 </td>
-                                <td>
-                                  <div class="d-flex">
-                                        <span class="ml-2"><?php echo $row['PhoneNum'];?></span>
-                                    </div>
+
+                                <td class="text-nowrap">
+                                    <!--  <a href="edit-users.php?id=<?php echo $row["UserID"];?>" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i> Edit</a>  -->
+
+                                    <a href="processes.php?delete-event=<?php echo $row["UserID"];?>" class="btn btn-sm btn-danger deleteBtn"><i class="fas fa-trash"></i> Delete</a>
                                 </td>
                             </tr>
                             <?php } ?>

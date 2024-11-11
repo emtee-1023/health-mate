@@ -3,7 +3,7 @@ session_start();
 include "includes/sessions.php";
 include "../includes/connect.php";
 
-$res=$conn->query("SELECT * FROM users ORDER BY UserID ASC");
+$res=$conn->query("SELECT * FROM doctors ORDER BY DoctorID ASC");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,12 +27,12 @@ $res=$conn->query("SELECT * FROM users ORDER BY UserID ASC");
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Our Users</h1>
+            <h1 class="m-0">Our Doctors</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Users</li>
+              <li class="breadcrumb-item active">Doctors</li>
             </ol>
           </div>
         </div><!-- /.row -->
@@ -45,15 +45,16 @@ $res=$conn->query("SELECT * FROM users ORDER BY UserID ASC");
         <div class="container-fluid">
             <!-- Default box -->
             <div class="card">
+            
                 <div class="card-body">
 
                     <table id="example1" class="table table-bordered table-striped ">
                         <thead>
                             <tr>
-                                <th>User ID</th>
-                                <th>User's Name</th>
-                                <th>Email</th>
-                                <th>Phone Number</th>
+                                <th>Doctor ID</th>
+                                <th>Doctor Name</th>
+                                <th>Specialization</th>
+                                <th>Verification Status</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -64,26 +65,13 @@ $res=$conn->query("SELECT * FROM users ORDER BY UserID ASC");
                             <tr>
                                 <td>
                                   <div class="d-flex">
-                                        <span class="ml-2"><?php echo $row['UserID'];?></span>
+                                        <span class="ml-2"><?php echo $row['DoctorID'];?></span>
                                     </div>
                                 </td>
+                                <td><?php echo $row["DoctorName"];?></td>
+                                <td><span class="text-nowrap"><?php echo $row["Specialization"];?></span></td>
 
-                                <td>
-                                  <div class="d-flex">
-                                        <span class="ml-2"><?php echo $row['FName'] . ' ' . $row['LName'];?></span>
-                                    </div>
-                                </td>
-
-                                <td>
-                                  <div class="d-flex">
-                                        <span class="ml-2"><?php echo $row['Email'];?></span>
-                                    </div>
-                                </td>
-                                <td>
-                                  <div class="d-flex">
-                                        <span class="ml-2"><?php echo $row['PhoneNum'];?></span>
-                                    </div>
-                                </td>
+                                <td><?php echo doctorStatus($row["QualiStatus"]);?></td>
                             </tr>
                             <?php } ?>
                         </tbody>
@@ -112,11 +100,11 @@ $res=$conn->query("SELECT * FROM users ORDER BY UserID ASC");
 </html>
 
 <?php
-function eventStatus($status){
+function doctorStatus($status){
   if($status == 0){
-    $output = "<span class='badge badge-danger'>Hidden</span>";
+    $output = "<span class='badge badge-danger'>Unverified</span>";
   }elseif($status == 1){
-    $output = "<span class='badge badge-success'>Visible</span>";
+    $output = "<span class='badge badge-success'>Verified</span>";
   }
 
   return $output;
