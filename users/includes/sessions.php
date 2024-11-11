@@ -1,8 +1,8 @@
 <?php
-if(!isset($_SESSION["chid"])){
-    echo '<script>location.replace("index.php");</script>';
-    exit ();
-}else{
-    $userid = $_SESSION["chid"];
+if (!isset($_SESSION["uid"])) {
+    $_SESSION['error'] = "User Account Cannot Be Retreived";
+    header('location: ../login.php');
+    exit();
+} else {
+    $userid = $_SESSION["uid"];
 }
-?>

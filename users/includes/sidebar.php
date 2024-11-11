@@ -11,10 +11,10 @@
      <!-- Sidebar user panel (optional) -->
      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
        <div class="image">
-         <img src="../assets/bootsrap-logo.png" class="img-circle elevation-2" alt="User Image">
+         <img src="../uploads/<?= $_SESSION['pfp'] ?>" class="img-circle elevation-2" alt="User Image">
        </div>
        <div class="info">
-         <a href="#" class="d-block">Health Mate</a>
+         <a href="#" class="d-block"><?= $_SESSION['fname'] . ' ' . $_SESSION['lname'] ?> <br> <span>User</span></a>
        </div>
      </div>
 
@@ -47,10 +47,26 @@
          </li>
 
          <li class="nav-item">
-           <a href="doctors.php" class="nav-link">
-             <i class="nav-icon fas fa-user-md"></i>
+           <a href="patient-profiles.php" class="nav-link">
+             <i class="nav-icon fas fa-users"></i>
              <p>
-               Doctors
+               Patient Profiles
+             </p>
+           </a>
+         </li>
+         <li class="nav-item">
+           <a href="appointments.php" class="nav-link">
+             <i class="nav-icon fas fa-calendar-alt"></i>
+             <p>
+               Appointments
+             </p>
+           </a>
+         </li>
+         <li class="nav-item">
+           <a href="appointments.php" class="nav-link">
+             <i class="nav-icon fas fa-clipboard"></i>
+             <p>
+               Prescriptions
              </p>
            </a>
          </li>
@@ -70,30 +86,12 @@
              </p>
            </a>
          </li>
-         <li class="nav-item">
-           <a href="appointments.php" class="nav-link">
-             <i class="nav-icon fas fa-calendar-alt"></i>
-             <p>
-               Appointments
-             </p>
-           </a>
-         </li>
-
-         <li class="nav-header">My Clients</li>
-         <li class="nav-item">
-           <a href="leads.php" class="nav-link">
-             <i class="nav-icon fas fa-user-plus"></i>
-             <p>
-               Contact Us
-             </p>
-           </a>
-         </li>
 
        </ul>
      </nav>
      <!-- /.sidebar-menu -->
      <div class="bottom">
-       <a href="processes.php?logout" class="btn btn-info text-white btn-block">
+       <a href="processes.php?logout" class="btn btn-primary text-white btn-block">
          <i class="nav-icon fas fa-sign-out-alt"></i>
 
          Logout

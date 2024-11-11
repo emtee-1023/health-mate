@@ -15,7 +15,7 @@ if (isset($_POST['add-user'])) {
     $phone = $_POST['phone-number'];
     $sex = $_POST['sex'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-    $pfp = 'defaultuser.png';
+    $pfp = 'defualtpfp.jpg';
     if (isset($_POST['_2fa'])) {
         $_2fa = 1;
     } else {
@@ -41,7 +41,7 @@ if (isset($_POST['add-user'])) {
     $sex = $_POST['sex'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
     $bio = $_POST['bio'];
-    $pfp = 'defaultuser.png';
+    $pfp = 'defualtpfp.jpg';
     if (isset($_POST['_2fa'])) {
         $_2fa = 1;
     } else {
@@ -86,7 +86,7 @@ if (isset($_POST['add-user'])) {
     $sex = $_POST['sex'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
     $bio = $_POST['bio'];
-    $pfp = 'defaultuser.png';
+    $pfp = 'defualtpfp.jpg';
     if (isset($_POST['_2fa'])) {
         $_2fa = 1;
     } else {
@@ -131,7 +131,7 @@ if (isset($_POST['add-user'])) {
     $sex = $_POST['sex'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
     $bio = $_POST['bio'];
-    $pfp = 'defaultuser.png';
+    $pfp = 'defualtpfp.jpg';
     if (isset($_POST['_2fa'])) {
         $_2fa = 1;
     } else {
@@ -167,24 +167,31 @@ if (isset($_POST['add-user'])) {
     $_SESSION['success'] = "Account Created Successfuly";
     header('location: login.php');
     exit();
-} 
-// else if (isset($_POST['user-login'])){
-//     $emailOrNumber = $_POST['email-or-number'];
-//     $password = $_POST['password'];
+} else if (isset($_POST['user-login'])) {
+    $emailOrNumber = $_POST['email-or-number'];
+    $password = $_POST['password'];
 
-//     $stmt1 = $conn->prepare('SELECT * FROM users WHERE Email = ? OR PhoneNum = ?');
-//     $stmt1->bind_param('ss',$emailOrNumber,$emailOrNumber);
-//     if(!$stmt1->execute()){
-//         $_SESSION['error'] = "Error retreiving user account";
-//         header('location: login.php');
-//         exit();
-//      }
-//      $res1 = $stmt1->get_result();
+    $stmt1 = $conn->prepare('SELECT * FROM users WHERE Email = ? OR PhoneNum = ?');
+    $stmt1->bind_param('ss', $emailOrNumber, $emailOrNumber);
+    if (!$stmt1->execute()) {
+        $_SESSION['error'] = "Error retreiving user account";
+        header('location: login.php');
+        exit();
+    }
+    $res1 = $stmt1->get_result();
 
-//      if($res1->num_rows > 0){
-//         $usr = $res1->fetch_assoc();
-//         if(password_verify($password, $usr['Password'])){
-//             $_SESSION['uid'] = $usr['']
-//         }
-//      }
-// }
+    if ($res1->num_rows > 0) {
+        $usr = $res1->fetch_assoc();
+        if (password_verify($password, $usr['Password'])) {
+            $_SESSION['uid'] = $usr['UserID'];
+            $_SESSION['fname'] = $usr['FName'];
+            $_SESSION['lname'] = $usr['LName'];
+            $_SESSION['pfp'] = $usr['Pfp'];
+            header('location: users/dashboard.php');
+        } else {
+            $_SESSION['error'] = "Invalid Credentials";
+            header('location: login.php');
+            exit();
+        }
+    }
+}
