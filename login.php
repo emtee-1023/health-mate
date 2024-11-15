@@ -65,15 +65,15 @@ session_start();
                                     <form class="form-horizontal" method="POST" action="processes.php">
                                         <div class="card-body">
                                             <div class="form-group row">
-                                                <label for="inputEmail3" class="col-xl-4 col-form-label">Email / Phone Number</label>
+                                                <label class="col-xl-4 col-form-label">Email / Phone Number</label>
                                                 <div class="col-xl-8">
-                                                    <input type="text" name="email-or-number" class="form-control" id="inputEmail3" placeholder="Email / Phone Number" required>
+                                                    <input type="text" name="email-or-number" class="form-control" placeholder="Email / Phone Number" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="inputPassword3" class="col-xl-4 col-form-label">Password</label>
                                                 <div class="col-xl-8">
-                                                    <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Password" required>
+                                                    <input type="password" name="password" class="form-control" placeholder="Password" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -100,15 +100,15 @@ session_start();
                                     <form class="form-horizontal" method="POST" action="processes.php">
                                         <div class="card-body">
                                             <div class="form-group row">
-                                                <label for="inputEmail3" class="col-xl-4 col-form-label">Email / Phone Number</label>
+                                                <label class="col-xl-4 col-form-label">Email / Phone Number</label>
                                                 <div class="col-xl-8">
-                                                    <input type="text" name="email-or-number" class="form-control" id="inputEmail3" placeholder="Email / Phone Number" required>
+                                                    <input type="text" name="email-or-number" class="form-control" placeholder="Email / Phone Number" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="inputPassword3" class="col-xl-4 col-form-label">Password</label>
                                                 <div class="col-xl-8">
-                                                    <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Password" required>
+                                                    <input type="password" name="password" class="form-control" placeholder="Password" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -135,15 +135,15 @@ session_start();
                                     <form class="form-horizontal" method="POST" action="processes.php">
                                         <div class="card-body">
                                             <div class="form-group row">
-                                                <label for="inputEmail3" class="col-xl-4 col-form-label">Email / Phone Number</label>
+                                                <label class="col-xl-4 col-form-label">Email / Phone Number</label>
                                                 <div class="col-xl-8">
-                                                    <input type="text" name="email-or-number" class="form-control" id="inputEmail3" placeholder="Email / Phone Number" required>
+                                                    <input type="text" name="email-or-number" class="form-control" placeholder="Email / Phone Number" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="inputPassword3" class="col-xl-4 col-form-label">Password</label>
                                                 <div class="col-xl-8">
-                                                    <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Password" required>
+                                                    <input type="password" name="password" class="form-control" placeholder="Password" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -170,15 +170,15 @@ session_start();
                                     <form class="form-horizontal" method="POST" action="processes.php">
                                         <div class="card-body">
                                             <div class="form-group row">
-                                                <label for="inputEmail3" class="col-xl-4 col-form-label">Email / Phone Number</label>
+                                                <label class="col-xl-4 col-form-label">Email / Phone Number</label>
                                                 <div class="col-xl-8">
-                                                    <input type="text" name="email-or-number" class="form-control" id="inputEmail3" placeholder="Email / Phone Number" required>
+                                                    <input type="text" name="email-or-number" class="form-control" placeholder="Email / Phone Number" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="inputPassword3" class="col-xl-4 col-form-label">Password</label>
                                                 <div class="col-xl-8">
-                                                    <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Password" required>
+                                                    <input type="password" name="password" class="form-control" placeholder="Password" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -205,15 +205,15 @@ session_start();
                                     <form class="form-horizontal" method="POST" action="processes.php">
                                         <div class="card-body">
                                             <div class="form-group row">
-                                                <label for="inputEmail3" class="col-xl-4 col-form-label">Email / Phone Number</label>
+                                                <label class="col-xl-4 col-form-label">Email / Phone Number</label>
                                                 <div class="col-xl-8">
-                                                    <input type="text" name="email-or-number" class="form-control" id="inputEmail3" placeholder="Email / Phone Number" required>
+                                                    <input type="text" name="email-or-number" class="form-control" placeholder="Email / Phone Number" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="inputPassword3" class="col-xl-4 col-form-label">Password</label>
                                                 <div class="col-xl-8">
-                                                    <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Password" required>
+                                                    <input type="password" name="password" class="form-control" placeholder="Password" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -233,7 +233,6 @@ session_start();
             </div>
         </div>
     </div>
-
     <!-- jQuery -->
     <script src="plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
@@ -260,7 +259,7 @@ session_start();
     ?>
         <script>
             // Display an informational Toastr notification
-            toastr.danger("<?php echo $_SESSION['error']; ?>", "Error");
+            toastr.error("<?php echo $_SESSION['error']; ?>", "Error");
         </script>
     <?php
         unset($_SESSION['error']);
