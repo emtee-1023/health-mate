@@ -3,24 +3,23 @@ include 'includes/connect.php';
 ?>
 <!doctype html>
 <html class="no-js" lang="zxx">
-
-<head>
-	<!-- Meta Tags -->
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="keywords" content="Site keywords here">
-	<meta name="description" content="">
-	<meta name='copyright' content=''>
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-	<!-- Title -->
-	<title>Healthmate - Free Medical and Doctor Directory HTML Template.</title>
-
-	<!-- Favicon -->
-	<link rel="icon" href="img/favicon.png">
-
-	<!-- Google Fonts -->
-	<link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+    <head>
+        <!-- Meta Tags -->
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="keywords" content="Site keywords here">
+		<meta name="description" content="">
+		<meta name='copyright' content=''>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		
+		<!-- Title -->
+        <title>Health Mate</title>
+		
+		<!-- Favicon -->
+        <link rel="icon" href="img/favicon.png">
+		
+		<!-- Google Fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
 
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="css/bootstrap.min.css">
@@ -56,143 +55,141 @@ include 'includes/connect.php';
 			<div class="loader-outter"></div>
 			<div class="loader-inner"></div>
 
-			<div class="indicator">
-				<svg width="16px" height="12px">
-					<polyline id="back" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
-					<polyline id="front" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
-				</svg>
-			</div>
-		</div>
-	</div>
-	<!-- End Preloader -->
-
-	<!-- Header Area -->
-	<header class="header">
-		<!-- Topbar -->
-		<div class="topbar">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-6 col-md-5 col-12">
-						<!-- Contact -->
-						<ul class="top-link">
-							<li><a href="#">About</a></li>
-							<li><a href="#">Doctors</a></li>
-							<li><a href="#">Contact</a></li>
-							<li><a href="#">FAQ</a></li>
-						</ul>
-						<!-- End Contact -->
-					</div>
-					<div class="col-lg-6 col-md-7 col-12">
-						<!-- Top Contact -->
-						<ul class="top-contact">
-							<li><i class="fa fa-phone"></i><a href="tel:+254792314330">0792 314 330</a></li>
-							<li><i class="fa fa-envelope"></i><a href="mailto:support@yourmail.com">support@yourmail.com</a></li>
-						</ul>
-						<!-- End Top Contact -->
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- End Topbar -->
-		<!-- Header Inner -->
-		<div class="header-inner">
-			<div class="container">
-				<div class="inner">
-					<div class="row">
-						<div class="col-lg-3 col-md-3 col-12">
-							<!-- Start Logo -->
-							<div class="logo">
-								<span class="blue">health</span><span class="black">mate</span>
-							</div>
-							<!-- End Logo -->
-							<!-- Mobile Nav -->
-							<div class="mobile-nav"></div>
-							<!-- End Mobile Nav -->
-						</div>
-						<div class="col-lg-7 col-md-9 col-12">
-							<!-- Main Menu -->
-							<div class="main-menu">
-								<nav class="navigation">
-									<ul class="nav menu">
-										<li class="active"><a href="#">Home <i class="icofont-rounded-down"></i></a>
-											<ul class="dropdown">
-												<li><a href="index.html">Home Page</a></li>
-											</ul>
-										</li>
-										<li><a href="#">Doctors </a></li>
-										<li><a href="#">Services </a></li>
-
-										<li><a href="#">Blogs <i class="icofont-rounded-down"></i></a>
-											<ul class="dropdown">
-												<li><a href="blog-single.html">Blog Details</a></li>
-											</ul>
-										</li>
-										<li><a href="contact.html">Contact Us</a></li>
-									</ul>
-								</nav>
-							</div>
-							<!--/ End Main Menu -->
-						</div>
-						<div class="col-lg-2 col-12">
-							<div class="get-quote">
-								<a href="login.php" class="btn">Log In / Sign Up</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!--/ End Header Inner -->
-	</header>
-	<!-- End Header Area -->
-
-	<!-- Slider Area -->
-	<section class="slider">
-		<div class="hero-slider">
-			<!-- Start Single Slider -->
-			<div class="single-slider" style="background-image:url('img/slider2.jpg')">
+                <div class="indicator"> 
+                    <svg width="16px" height="12px">
+                        <polyline id="back" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
+                        <polyline id="front" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <!-- End Preloader -->
+	
+		<!-- Header Area -->
+		<header class="header" >
+			<!-- Topbar -->
+			<div class="topbar">
 				<div class="container">
 					<div class="row">
-						<div class="col-lg-7">
-							<div class="text">
-								<h1>Get any <span>Treatment</span> At Your Own <span>Convinience!</span></h1>
-								<p>Health Mate brings quality medical care to your home, offering convenient access to treatment without the need for clinic visits. From check-ups to specialized care, our service ensures you receive safe, personalized healthcare right at your doorstep.</p>
-								<div class="button">
-									<a href="register.php" class="btn">Join Us Today</a>
-									<a href="#" class="btn primary">Learn More</a>
+						<div class="col-lg-6 col-md-5 col-12">
+							<!-- Contact -->
+							<ul class="top-link">
+								<li><a href="#">About</a></li>
+								<li><a href="#">Doctors</a></li>
+								<li><a href="contact.php">Contact</a></li>
+							</ul>
+							<!-- End Contact -->
+						</div>
+						<div class="col-lg-6 col-md-7 col-12">
+							<!-- Top Contact -->
+							<ul class="top-contact">
+								<li><i class="fa fa-phone"></i><a href="tel:+254792314330">0792 314 330</a></li>
+								<li><i class="fa fa-envelope"></i><a href="mailto:devsolutions023@gmail.com">devsolutions023@gmail.com</a></li>
+							</ul>
+							<!-- End Top Contact -->
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- End Topbar -->
+			<!-- Header Inner -->
+			<div class="header-inner">
+				<div class="container">
+					<div class="inner">
+						<div class="row">
+							<div class="col-lg-3 col-md-3 col-12">
+								<!-- Start Logo -->
+								<div class="logo">
+									<span class="blue">health</span><span class="black">mate</span>
+								</div>
+								<!-- End Logo -->
+								<!-- Mobile Nav -->
+								<div class="mobile-nav"></div>
+								<!-- End Mobile Nav -->
+							</div>
+							<div class="col-lg-7 col-md-9 col-12">
+								<!-- Main Menu -->
+								<div class="main-menu">
+									<nav class="navigation">
+										<ul class="nav menu">
+											<li class="active"><a href="#">Home <i class="icofont-rounded-down"></i></a>
+												<ul class="dropdown">
+													<li><a href="index.html">Home Page</a></li>
+												</ul>
+											</li>
+											<li><a href="#">Doctors </a></li>
+											
+											<li><a href="#">Blogs <i class="icofont-rounded-down"></i></a>
+												<ul class="dropdown">
+													<li><a href="blog-single.html">Blog Details</a></li>
+												</ul>
+											</li>
+											<li><a href="contact.php">Contact Us</a></li>
+										</ul>
+									</nav>
+								</div>
+								<!--/ End Main Menu -->
+							</div>
+							<div class="col-lg-2 col-12">
+								<div class="get-quote">
+									<a href="login.php" class="btn">Log In / Sign Up</a>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<!-- End Single Slider -->
-			<!-- Start Single Slider -->
-			<div class="single-slider" style="background-image:url('img/slider.jpg')">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-7">
-							<div class="text">
-								<h1>Get Your <span>Emergency</span> Responded To In <span>Seconds!</span></h1>
-								<p>Our medical practitioners are always readdy on call to help you deal with your medical emergency. </p>
-								<div class="button">
-									<a href="register.php" class="btn">Join Us Today</a>
-									<a href="#" class="btn primary">Learn More</a>
+			<!--/ End Header Inner -->
+		</header>
+		<!-- End Header Area -->
+		
+		<!-- Slider Area -->
+		<section class="slider">
+			<div class="hero-slider">
+				<!-- Start Single Slider -->
+				<div class="single-slider" style="background-image:url('img/slider2.jpg')">
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-7">
+								<div class="text">
+									<h1>Get any <span>Treatment</span> At Your Own <span>Convinience!</span></h1>
+									<p>Health Mate brings quality medical care to your home, offering convenient access to treatment without the need for clinic visits. From check-ups to specialized care, our service ensures you receive safe, personalized healthcare right at your doorstep.</p>
+									<div class="button">
+										<a href="register.php" class="btn">Join Us Today</a>
+										<a href="#" class="btn primary">Learn More</a>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<!-- Start End Slider -->
-			<!-- Start Single Slider -->
-			<div class="single-slider" style="background-image:url('img/slider3.jpg')">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-7">
-							<div class="text">
-								<h1>Your <span>Health</span> Delivered Fast And With <span>Care!</span></h1>
-								<p>
+				<!-- End Single Slider -->
+				<!-- Start Single Slider -->
+				<div class="single-slider" style="background-image:url('img/slider.jpg')">
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-7">
+								<div class="text">
+									<h1>Get Your <span>Emergency</span> Responded To In <span>Seconds!</span></h1>
+									<p>Our medical practitioners are always readdy on call to help you deal with your medical emergency. </p>
+									<div class="button">
+										<a href="register.php" class="btn">Join Us Today</a>
+										<a href="#" class="btn primary">Learn More</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Start End Slider -->
+				<!-- Start Single Slider -->
+				<div class="single-slider" style="background-image:url('img/slider3.jpg')">
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-7">
+								<div class="text">
+									<h1>Your <span>Health</span> Delivered Fast And With <span>Care!</span></h1>
+									<p>
 									At Health Mate, your health is our priority. We deliver fast, reliable medical care directly to you, ensuring you receive the attention you need without delay. Our team combines efficiency with compassion, providing expert treatment in the comfort of your own home. Your health, delivered fast and with care.</p>
 								<div class="button">
 									<a href="register.php" class="btn">Join Us Today</a>
@@ -840,7 +837,6 @@ include 'includes/connect.php';
 									<select name="doctor_id" id="doctor" class="form-control" onchange="selectDepartment()">
 										<option value="">Select Doctor</option>
 										<?php
-										// Fetch all doctors with their departments
 										$sql = "SELECT doctors.DoctorID, doctors.DoctorName, departments.DepartmentName 
 												FROM doctors 
 												INNER JOIN departments ON doctors.DepartmentID = departments.DepartmentID";
@@ -885,176 +881,64 @@ include 'includes/connect.php';
 						</div>
 					</form>
 
-				</div>
-				<div class="col-lg-6 col-md-12 ">
-					<div class="appointment-image">
-						<img src="img/contact-img.png" alt="#">
 					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- End Appointment -->
-
-	<!-- Start Newsletter Area -->
-	<section class="newsletter section">
-		<div class="container">
-			<div class="row ">
-				<div class="col-lg-6  col-12">
-					<!-- Start Newsletter Form -->
-					<div class="subscribe-text ">
-						<h6>Sign up for newsletter</h6>
-						<p class="">Cu qui soleat partiendo urbanitas. Eum aperiri indoctum eu,<br> homero alterum.</p>
-					</div>
-					<!-- End Newsletter Form -->
-				</div>
-				<div class="col-lg-6  col-12">
-					<!-- Start Newsletter Form -->
-					<div class="subscribe-form ">
-						<form action="mail/mail.php" method="get" target="_blank" class="newsletter-inner">
-							<input name="EMAIL" placeholder="Your email address" class="common-input" onfocus="this.placeholder = ''"
-								onblur="this.placeholder = 'Your email address'" required="" type="email">
-							<button class="btn">Subscribe</button>
-						</form>
-					</div>
-					<!-- End Newsletter Form -->
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- /End Newsletter Area -->
-
-	<!-- Footer Area -->
-	<footer id="footer" class="footer ">
-		<!-- Footer Top -->
-		<div class="footer-top">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-3 col-md-6 col-12">
-						<div class="single-footer">
-							<h2>About Us</h2>
-							<p>Lorem ipsum dolor sit am consectetur adipisicing elit do eiusmod tempor incididunt ut labore dolore magna.</p>
-							<!-- Social -->
-							<ul class="social">
-								<li><a href="#"><i class="icofont-facebook"></i></a></li>
-								<li><a href="#"><i class="icofont-google-plus"></i></a></li>
-								<li><a href="#"><i class="icofont-twitter"></i></a></li>
-								<li><a href="#"><i class="icofont-vimeo"></i></a></li>
-								<li><a href="#"><i class="icofont-pinterest"></i></a></li>
-							</ul>
-							<!-- End Social -->
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-6 col-12">
-						<div class="single-footer f-link">
-							<h2>Quick Links</h2>
-							<div class="row">
-								<div class="col-lg-6 col-md-6 col-12">
-									<ul>
-										<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Home</a></li>
-										<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>About Us</a></li>
-										<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Services</a></li>
-										<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Our Cases</a></li>
-										<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Other Links</a></li>
-									</ul>
-								</div>
-								<div class="col-lg-6 col-md-6 col-12">
-									<ul>
-										<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Consuling</a></li>
-										<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Finance</a></li>
-										<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Testimonials</a></li>
-										<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>FAQ</a></li>
-										<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Contact Us</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-6 col-12">
-						<div class="single-footer">
-							<h2>Open Hours</h2>
-							<p>Lorem ipsum dolor sit ame consectetur adipisicing elit do eiusmod tempor incididunt.</p>
-							<ul class="time-sidual">
-								<li class="day">Monday - Fridayp <span>8.00-20.00</span></li>
-								<li class="day">Saturday <span>9.00-18.30</span></li>
-								<li class="day">Monday - Thusday <span>9.00-15.00</span></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-6 col-12">
-						<div class="single-footer">
-							<h2>Newsletter</h2>
-							<p>subscribe to our newsletter to get allour news in your inbox.. Lorem ipsum dolor sit amet, consectetur adipisicing elit,</p>
-							<form action="mail/mail.php" method="get" target="_blank" class="newsletter-inner">
-								<input name="email" placeholder="Email Address" class="common-input" onfocus="this.placeholder = ''"
-									onblur="this.placeholder = 'Your email address'" required="" type="email">
-								<button class="button"><i class="icofont icofont-paper-plane"></i></button>
-							</form>
+					<div class="col-lg-6 col-md-12 ">
+						<div class="appointment-image">
+							<img src="img/contact-img.png" alt="#">
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<!--/ End Footer Top -->
-		<!-- Copyright -->
-		<div class="copyright">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12 col-md-12 col-12">
-						<div class="copyright-content">
-							<p>© Copyright 2018 | All Rights Reserved by <a href="https://www.wpthemesgrid.com" target="_blank">wpthemesgrid.com</a> </p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!--/ End Copyright -->
-	</footer>
-	<!--/ End Footer Area -->
-
-	<!-- jquery Min JS -->
-	<script src="js/jquery.min.js"></script>
-	<!-- jquery Migrate JS -->
-	<script src="js/jquery-migrate-3.0.0.js"></script>
-	<!-- jquery Ui JS -->
-	<script src="js/jquery-ui.min.js"></script>
-	<!-- Easing JS -->
-	<script src="js/easing.js"></script>
-	<!-- Color JS -->
-	<script src="js/colors.js"></script>
-	<!-- Popper JS -->
-	<script src="js/popper.min.js"></script>
-	<!-- Bootstrap Datepicker JS -->
-	<script src="js/bootstrap-datepicker.js"></script>
-	<!-- Jquery Nav JS -->
-	<script src="js/jquery.nav.js"></script>
-	<!-- Slicknav JS -->
-	<script src="js/slicknav.min.js"></script>
-	<!-- ScrollUp JS -->
-	<script src="js/jquery.scrollUp.min.js"></script>
-	<!-- Niceselect JS -->
-	<script src="js/niceselect.js"></script>
-	<!-- Tilt Jquery JS -->
-	<script src="js/tilt.jquery.min.js"></script>
-	<!-- Owl Carousel JS -->
-	<script src="js/owl-carousel.js"></script>
-	<!-- counterup JS -->
-	<script src="js/jquery.counterup.min.js"></script>
-	<!-- Steller JS -->
-	<script src="js/steller.js"></script>
-	<!-- Wow JS -->
-	<script src="js/wow.min.js"></script>
-	<!-- Magnific Popup JS -->
-	<script src="js/jquery.magnific-popup.min.js"></script>
-	<!-- Counter Up CDN JS -->
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
-	<!-- Bootstrap JS -->
-	<script src="js/bootstrap.min.js"></script>
-	<!-- Main JS -->
-	<script src="js/main.js"></script>
-	<script>
-		function filterDoctors() {
-			const departmentId = document.getElementById("department").value;
+		</section>
+		<!-- End Appointment -->
+		
+		<?php
+			include 'footer.php';
+		?>
+		
+		<!-- jquery Min JS -->
+        <script src="js/jquery.min.js"></script>
+		<!-- jquery Migrate JS -->
+		<script src="js/jquery-migrate-3.0.0.js"></script>
+		<!-- jquery Ui JS -->
+		<script src="js/jquery-ui.min.js"></script>
+		<!-- Easing JS -->
+        <script src="js/easing.js"></script>
+		<!-- Color JS -->
+		<script src="js/colors.js"></script>
+		<!-- Popper JS -->
+		<script src="js/popper.min.js"></script>
+		<!-- Bootstrap Datepicker JS -->
+		<script src="js/bootstrap-datepicker.js"></script>
+		<!-- Jquery Nav JS -->
+        <script src="js/jquery.nav.js"></script>
+		<!-- Slicknav JS -->
+		<script src="js/slicknav.min.js"></script>
+		<!-- ScrollUp JS -->
+        <script src="js/jquery.scrollUp.min.js"></script>
+		<!-- Niceselect JS -->
+		<script src="js/niceselect.js"></script>
+		<!-- Tilt Jquery JS -->
+		<script src="js/tilt.jquery.min.js"></script>
+		<!-- Owl Carousel JS -->
+        <script src="js/owl-carousel.js"></script>
+		<!-- counterup JS -->
+		<script src="js/jquery.counterup.min.js"></script>
+		<!-- Steller JS -->
+		<script src="js/steller.js"></script>
+		<!-- Wow JS -->
+		<script src="js/wow.min.js"></script>
+		<!-- Magnific Popup JS -->
+		<script src="js/jquery.magnific-popup.min.js"></script>
+		<!-- Counter Up CDN JS -->
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+		<!-- Bootstrap JS -->
+		<script src="js/bootstrap.min.js"></script>
+		<!-- Main JS -->
+		<script src="js/main.js"></script>
+		<script>
+			function filterDoctors() {
+    const departmentId = document.getElementById("department").value;
 
 			// AJAX request to get doctors based on department
 			fetch(`get_doctors.php?department_id=${departmentId}`)

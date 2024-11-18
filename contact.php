@@ -10,7 +10,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		
 		<!-- Title -->
-        <title>Mediplus - Free Medical and Doctor Directory HTML Template.</title>
+        <title>Health Mate .</title>
 		
 		<!-- Favicon -->
         <link rel="icon" href="img/favicon.png">
@@ -60,23 +60,7 @@
             </div>
         </div>
         <!-- End Preloader -->
-		
-		<!-- Get Pro Button -->
-		<ul class="pro-features">
-			<a class="get-pro" href="#">Get Pro</a>
-			<li class="big-title">Pro Version Available on Themeforest</li>
-			<li class="title">Pro Version Features</li>
-			<li>2+ premade home pages</li>
-			<li>20+ html pages</li>
-			<li>Color Plate With 12+ Colors</li>
-			<li>Sticky Header / Sticky Filters</li>
-			<li>Working Contact Form With Google Map</li>
-			<div class="button">
-				<a href="http://preview.themeforest.net/item/mediplus-medical-and-doctor-html-template/full_screen_preview/26665910?_ga=2.145092285.888558928.1591971968-344530658.1588061879" target="_blank" class="btn">Pro Version Demo</a>
-				<a href="https://themeforest.net/item/mediplus-medical-and-doctor-html-template/26665910" target="_blank" class="btn">Buy Pro Version</a>
-			</div>
-		</ul>
-	
+
 		<!-- Header Area -->
 		<header class="header" >
 			<!-- Topbar -->
@@ -88,16 +72,15 @@
 							<ul class="top-link">
 								<li><a href="#">About</a></li>
 								<li><a href="#">Doctors</a></li>
-								<li><a href="#">Contact</a></li>
-								<li><a href="#">FAQ</a></li>
+								<li><a href="contact.php">Contact</a></li>
 							</ul>
 							<!-- End Contact -->
 						</div>
 						<div class="col-lg-6 col-md-7 col-12">
 							<!-- Top Contact -->
 							<ul class="top-contact">
-								<li><i class="fa fa-phone"></i>+880 1234 56789</li>
-								<li><i class="fa fa-envelope"></i><a href="mailto:support@yourmail.com">support@yourmail.com</a></li>
+								<li><i class="fa fa-phone"></i><a href="tel:+254792314330">0792 314 330</a></li>
+								<li><i class="fa fa-envelope"></i><a href="mailto:devsolutions023@gmail.com">devsolutions023@gmail.com</a></li>
 							</ul>
 							<!-- End Top Contact -->
 						</div>
@@ -113,7 +96,7 @@
 							<div class="col-lg-3 col-md-3 col-12">
 								<!-- Start Logo -->
 								<div class="logo">
-									<a href="index.html"><img src="img/logo.png" alt="#"></a>
+									<span class="blue">health</span><span class="black">mate</span>
 								</div>
 								<!-- End Logo -->
 								<!-- Mobile Nav -->
@@ -125,24 +108,18 @@
 								<div class="main-menu">
 									<nav class="navigation">
 										<ul class="nav menu">
-											<li class="active"><a href="#">Home <i class="icofont-rounded-down"></i></a>
+											<li><a href="index.php">Home <i class="icofont-rounded-down"></i></a>
 												<ul class="dropdown">
-													<li><a href="index.html">Home Page 1</a></li>
+													<li><a href="index.php">Home Page</a></li>
 												</ul>
 											</li>
 											<li><a href="#">Doctos </a></li>
-											<li><a href="#">Services </a></li>
-											<li><a href="#">Pages <i class="icofont-rounded-down"></i></a>
-												<ul class="dropdown">
-													<li><a href="404.html">404 Error</a></li>
-												</ul>
-											</li>
 											<li><a href="#">Blogs <i class="icofont-rounded-down"></i></a>
 												<ul class="dropdown">
 													<li><a href="blog-single.html">Blog Details</a></li>
 												</ul>
 											</li>
-											<li><a href="contact.html">Contact Us</a></li>
+											<li class="active"><a href="contact.html">Contact Us</a></li>
 										</ul>
 									</nav>
 								</div>
@@ -188,14 +165,16 @@
 						<div class="col-lg-6">
 							<div class="contact-us-left">
 								<!--Start Google-map -->
-								<div id="myMap"></div>
+								<div id="">
+									<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7771823514354!2d36.80947437599801!3d-1.3089548356534346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f112e9eff4827%3A0x17a918597484c8ea!2sStrathmore%20University!5e0!3m2!1sen!2ske!4v1731913804150!5m2!1sen!2ske" width="600" height="550" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+								</div>
 								<!--/End Google-map -->
 							</div>
 						</div>
 						<div class="col-lg-6">
 							<div class="contact-us-form">
 								<h2>Contact With Us</h2>
-								<p>If you have any questions please fell free to contact with us.</p>
+								<p>If you have any questions please feel free to contact us.</p>
 								<!-- Form -->
 								<form class="form" method="post" action="mail/mail.php">
 									<div class="row">
@@ -243,24 +222,28 @@
 					<div class="row">
 						<!-- single-info -->
 						<div class="col-lg-4 col-12 ">
+							<a href="tel:+254792314330">
 							<div class="single-info">
 								<i class="icofont icofont-ui-call"></i>
 								<div class="content">
-									<h3>+(000) 1234 56789</h3>
-									<p>info@company.com</p>
+									<h3>+(254)792 314 330</h3>
+									<p>devsolutions023@gmail.com</p>
 								</div>
 							</div>
+							</a>
 						</div>
 						<!--/End single-info -->
 						<!-- single-info -->
 						<div class="col-lg-4 col-12 ">
+							<a href="https://maps.app.goo.gl/tcxPPRqX9fNTk7EL6" target="blank">
 							<div class="single-info">
 								<i class="icofont-google-map"></i>
 								<div class="content">
-									<h3>2 Fir e Brigade Road</h3>
-									<p>Chittagonj, Lakshmipur</p>
+									<h3>Ole Sangale Road</h3>
+									<p>Nairobi, Kenya</p>
 								</div>
 							</div>
+							</a>
 						</div>
 						<!--/End single-info -->
 						<!-- single-info -->
@@ -268,8 +251,8 @@
 							<div class="single-info">
 								<i class="icofont icofont-wall-clock"></i>
 								<div class="content">
-									<h3>Mon - Sat: 8am - 5pm</h3>
-									<p>Sunday Closed</p>
+									<h3>Open 24/7</h3>
+									<p>We are never closed</p>
 								</div>
 							</div>
 						</div>
@@ -281,91 +264,9 @@
 		<!--/ End Contact Us -->
 		
 		<!-- Footer Area -->
-		<footer id="footer" class="footer ">
-			<!-- Footer Top -->
-			<div class="footer-top">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-3 col-md-6 col-12">
-							<div class="single-footer">
-								<h2>About Us</h2>
-								<p>Lorem ipsum dolor sit am consectetur adipisicing elit do eiusmod tempor incididunt ut labore dolore magna.</p>
-								<!-- Social -->
-								<ul class="social">
-									<li><a href="#"><i class="icofont-facebook"></i></a></li>
-									<li><a href="#"><i class="icofont-google-plus"></i></a></li>
-									<li><a href="#"><i class="icofont-twitter"></i></a></li>
-									<li><a href="#"><i class="icofont-vimeo"></i></a></li>
-									<li><a href="#"><i class="icofont-pinterest"></i></a></li>
-								</ul>
-								<!-- End Social -->
-							</div>
-						</div>
-						<div class="col-lg-3 col-md-6 col-12">
-							<div class="single-footer f-link">
-								<h2>Quick Links</h2>
-								<div class="row">
-									<div class="col-lg-6 col-md-6 col-12">
-										<ul>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Home</a></li>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>About Us</a></li>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Services</a></li>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Our Cases</a></li>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Other Links</a></li>	
-										</ul>
-									</div>
-									<div class="col-lg-6 col-md-6 col-12">
-										<ul>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Consuling</a></li>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Finance</a></li>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Testimonials</a></li>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>FAQ</a></li>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Contact Us</a></li>	
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-3 col-md-6 col-12">
-							<div class="single-footer">
-								<h2>Open Hours</h2>
-								<p>Lorem ipsum dolor sit ame consectetur adipisicing elit do eiusmod tempor incididunt.</p>
-								<ul class="time-sidual">
-									<li class="day">Monday - Fridayp <span>8.00-20.00</span></li>
-									<li class="day">Saturday <span>9.00-18.30</span></li>
-									<li class="day">Monday - Thusday <span>9.00-15.00</span></li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-lg-3 col-md-6 col-12">
-							<div class="single-footer">
-								<h2>Newsletter</h2>
-								<p>subscribe to our newsletter to get allour news in your inbox.. Lorem ipsum dolor sit amet, consectetur adipisicing elit,</p>
-								<form action="mail/mail.php" method="get" target="_blank" class="newsletter-inner">
-									<input name="email" placeholder="Email Address" class="common-input" onfocus="this.placeholder = ''"
-										onblur="this.placeholder = 'Your email address'" required="" type="email">
-									<button class="button"><i class="icofont icofont-paper-plane"></i></button>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!--/ End Footer Top -->
-			<!-- Copyright -->
-			<div class="copyright">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-12 col-md-12 col-12">
-							<div class="copyright-content">
-								<p>© Copyright 2018  |  All Rights Reserved by <a href="https://www.wpthemesgrid.com" target="_blank">wpthemesgrid.com</a> </p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!--/ End Copyright -->
-		</footer>
+		<?php
+			include 'footer.php';
+		?>
 		<!--/ End Footer Area -->
 		
 		<!-- jquery Min JS -->
