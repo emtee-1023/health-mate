@@ -2,9 +2,8 @@
  <aside class="main-sidebar sidebar-light-primary elevation-4">
    <!-- Brand Logo -->
    <a href="dashboard.php" class="brand-link">
-     <img src="../assets/bootstrap-logo.png" alt="Logo" class="brand-image " style="opacity: .8">
-     <span class="brand-text font-weight-light">ADMIN PANEL</span>
-   </a>
+     <img src="../img/logo.jpg" alt="Logo" class="brand-image" style="opacity: .8; width: 200px; max-height: 40px;">
+   </a> <br>
 
    <!-- Sidebar -->
    <div class="sidebar">
@@ -70,23 +69,6 @@
              </p>
            </a>
          </li>
-         <li class="nav-item">
-           <a href="users.php" class="nav-link">
-             <i class="nav-icon fas fa-users"></i>
-             <p>
-               Users
-             </p>
-           </a>
-         </li>
-         <li class="nav-item">
-           <a href="medicine.php" class="nav-link">
-             <i class="nav-icon fas fa-pills"></i>
-             <p>
-               Medicine
-             </p>
-           </a>
-         </li>
-
        </ul>
      </nav>
      <!-- /.sidebar-menu -->
