@@ -187,14 +187,14 @@ if (isset($_POST['add-user'])) {
             $_SESSION['fname'] = $usr['FName'];
             $_SESSION['lname'] = $usr['LName'];
             $_SESSION['pfp'] = $usr['Pfp'];
-            header('location: users/dashboard.php');
+            header('location: users/index.php');
         } else {
             $_SESSION['error'] = "Invalid Credentials";
             header('location: login.php');
             exit();
         }
     }
-} else if (isset($_POST['submit-appointment'])){
+} else if (isset($_POST['submit-appointment'])) {
     $usr = $_SESSION['uid'];
     $name = $_POST['name'];
     $email = $_POST['email'];
@@ -203,7 +203,7 @@ if (isset($_POST['add-user'])) {
     $doctor_id = $_POST['doctor_id'];
     $date = $_POST['date'];
     $message = $_POST['message'];
-    
+
     $stmt1 = $conn->prepare('INSERT INTO leads(UserName,Email,PhoneNum,DoctorName,DepartmentName,Date,Message) values(?, ?, ?, ?, ?, ?, ?)');
     $stmt1->bind_param('sssssss', $name, $email, $phone, $department_id, $doctor_id, $date, $message);
     if (!$stmt1->execute()) {
@@ -214,4 +214,31 @@ if (isset($_POST['add-user'])) {
     $_SESSION['success'] = "Message Sent Successfully";
     header('location: index.php');
     exit();
+} else if (isset($_POST['doctor-login'])) {
+    $emailOrNumber = $_POST['email-or-number'];
+    $password = $_POST['password'];
+
+    $stmt1 = $conn->prepare('SELECT * FROM doctors WHERE Email = ? OR PhoneNum = ?');
+    $stmt1->bind_param('ss', $emailOrNumber, $emailOrNumber);
+    if (!$stmt1->execute()) {
+        $_SESSION['error'] = "Error retreiving doctor's account";
+        header('location: login.php');
+        exit();
+    }
+    $res1 = $stmt1->get_result();
+
+    if ($res1->num_rows > 0) {
+        $doc = $res1->fetch_assoc();
+        if (password_verify($password, $doc['Password'])) {
+            $_SESSION['docid'] = $doc['DoctorID'];
+            $_SESSION['fname'] = $doc['FName'];
+            $_SESSION['lname'] = $doc['LName'];
+            $_SESSION['pfp'] = $doc['Pfp'];
+            header('location: doctors/index.php');
+        } else {
+            $_SESSION['error'] = "Invalid Credentials";
+            header('location: login.php');
+            exit();
+        }
+    }
 }

@@ -1,122 +1,128 @@
 <?php
 session_start();
+include "includes/sessions.php";
+include "../includes/connect.php";
+
+
 ?>
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Admin Panel | Food For Ministers</title>
-
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="../dist/css/adminlte.min.css">
-  <!-- Toastr -->
-  <link rel="stylesheet" href="../plugins/toastr/toastr.min.css">
+  <?php include "includes/header.php"; ?>
 </head>
 
-<body class="hold-transition layout-top-nav">
+<body class="hold-transition sidebar-mini layout-fixed">
   <div class="wrapper">
 
+
+    <?php include "includes/navbar.php"; ?>
+
+
+    <?php include "includes/sidebar.php"; ?>
 
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
-
-
-
-      <!-- Main content -->
-      <div class="content">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-6 mx-auto">
-              <div class="card card-primary card-outline mt-5">
-                <div class="card-header">
-                  <h5 class="card-title m-0">Sign-in to start your session.</h5>
-                </div>
-                <form class="form-horizontal" method="POST" action="processes.php">
-                  <div class="card-body">
-                    <div class="form-group row">
-                      <label for="inputEmail3" class="col-xl-2 col-form-label">Email</label>
-                      <div class="col-xl-10">
-                        <input type="email" name="email" class="form-control" id="inputEmail3" placeholder="Email" required>
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label for="inputPassword3" class="col-xl-2 col-form-label">Password</label>
-                      <div class="col-xl-10">
-                        <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Password" required>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- /.card-body -->
-                  <div class="card-footer bg-white">
-                    <button type="submit" name="login" class="btn btn-primary float-right">Login</button>
-                  </div>
-                  <!-- /.card-footer -->
-                </form>
-              </div>
-
-            </div>
-            <!-- /.col-md-6 -->
-
-
-
-          </div>
-          <!-- /.row -->
+      <div class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1 class="m-0">Dashboard</h1>
+            </div><!-- /.col -->
+          </div><!-- /.row -->
         </div><!-- /.container-fluid -->
       </div>
+      <!-- /.content-header -->
+
+      <!-- Main content -->
+      <section class="content">
+        <div class="container-fluid">
+          <!-- Small boxes (Stat box) -->
+          <div class="row d-none">
+            <div class="col-lg-3 col-6">
+              <!-- small box -->
+              <div class="small-box bg-info">
+                <div class="inner">
+                  <h3>2</h3>
+
+                  <p>Pending Orders</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-bag"></i>
+                </div>
+                <a href="orders.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-6">
+              <!-- small box -->
+              <div class="small-box bg-success">
+                <div class="inner">
+                  <h3>2</h3>
+
+                  <p>Products</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-stats-bars"></i>
+                </div>
+                <a href="products.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-6">
+              <!-- small box -->
+              <div class="small-box bg-warning">
+                <div class="inner">
+                  <h3>2</h3>
+
+                  <p>Retailers</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-person-add"></i>
+                </div>
+                <a href="retailers.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-6">
+              <!-- small box -->
+              <div class="small-box bg-danger">
+                <div class="inner">
+                  <h3>Ksh2</h3>
+
+                  <p>Total Sales</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-pie-graph"></i>
+                </div>
+                <a href="invoices.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              </div>
+            </div>
+            <!-- ./col -->
+          </div>
+          <!-- /.row -->
+          <!-- Main row -->
+          <div class="row ">
+            <div class="col-sm-6 mx-auto text-center">
+              <p>Any important statistics will appear here!</p>
+            </div>
+          </div>
+          <!-- /.row (main row) -->
+        </div><!-- /.container-fluid -->
+      </section>
       <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
 
-
+    <?php include "includes/footer.php"; ?>
 
   </div>
   <!-- ./wrapper -->
 
-  <!-- REQUIRED SCRIPTS -->
+  <?php include "includes/scripts.php"; ?>
 
-  <!-- jQuery -->
-  <script src="../plugins/jquery/jquery.min.js"></script>
-  <!-- Bootstrap 4 -->
-  <script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <!-- AdminLTE App -->
-  <script src="../dist/js/adminlte.min.js"></script>
-  <!-- Toastr -->
-  <script src="../plugins/toastr/toastr.min.js"></script>
-
-  <?php
-  if (isset($_SESSION['success'])) {
-  ?>
-    <script>
-      // Display an informational Toastr notification
-      toastr.success("<?php echo $_SESSION['success']; ?>", "Success");
-    </script>
-  <?php
-    unset($_SESSION['success']);
-  }
-  ?>
-  <?php
-  if (isset($_SESSION['error'])) {
-  ?>
-    <script>
-      // Display an informational Toastr notification
-      toastr.danger("<?php echo $_SESSION['error']; ?>", "Error");
-    </script>
-  <?php
-    unset($_SESSION['error']);
-  }
-  ?>
 </body>
 
 </html>
