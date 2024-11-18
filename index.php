@@ -1,3 +1,6 @@
+<?php
+	include 'includes/connect.php';
+?>
 <!doctype html>
 <html class="no-js" lang="zxx">
     <head>
@@ -615,9 +618,9 @@
 							<!-- Table Head -->
 							<div class="table-head">
 								<div class="icon">
-									<i class="icofont icofont-tooth"></i>
+									<i class="icofont icofont-blood"></i>
 								</div>
-								<h4 class="title">Specialized Consultaion</h4>
+								<h4 class="title">Specialized Consultation</h4>
 								<div class="price">
 									<p class="amount">2000<span>/ Per Visit</span></p>
 								</div>	
@@ -678,7 +681,7 @@
 						<div class="section-title">
 							<h2>Keep up with Our Most Recent Medical News.</h2>
 							<img src="img/section-img.png" alt="#">
-							<p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
+							<p>Get to read about our latest advancements and achievements in transforming the medical field</p>
 						</div>
 					</div>
 				</div>
@@ -687,13 +690,13 @@
 						<!-- Single Blog -->
 						<div class="single-news">
 							<div class="news-head">
-								<img src="img/blog1.jpg" alt="#">
+								<img src="img/blog3.jpg" alt="#">
 							</div>
 							<div class="news-body">
 								<div class="news-content">
-									<div class="date">22 Aug, 2020</div>
+									<div class="date">19 Nov, 2024</div>
 									<h2><a href="blog-single.html">We have annnocuced our new product.</a></h2>
-									<p class="text">Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed do eiusmod tempor incididunt sed do incididunt sed.</p>
+									<p class="text">You can finally get to enjoy our Web application that we have been working on for the past year. This is just to make access to medical personnel easier</p>
 								</div>
 							</div>
 						</div>
@@ -707,9 +710,10 @@
 							</div>
 							<div class="news-body">
 								<div class="news-content">
-									<div class="date">15 Jul, 2020</div>
+									<div class="date">15 Oct, 2024</div>
 									<h2><a href="blog-single.html">Top five way for solving teeth problems.</a></h2>
-									<p class="text">Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed do eiusmod tempor incididunt sed do incididunt sed.</p>
+									<p class="text">
+									Top solutions for teeth problems: brush twice daily, floss regularly, limit sugar, visit dentist, and use mouthwash.</p>
 								</div>
 							</div>
 						</div>
@@ -719,13 +723,13 @@
 						<!-- Single Blog -->
 						<div class="single-news">
 							<div class="news-head">
-								<img src="img/blog3.jpg" alt="#">
+								<img src="img/blog1.jpg" alt="#">
 							</div>
 							<div class="news-body">
 								<div class="news-content">
-									<div class="date">05 Jan, 2020</div>
-									<h2><a href="blog-single.html">We provide highly business soliutions.</a></h2>
-									<p class="text">Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed do eiusmod tempor incididunt sed do incididunt sed.</p>
+									<div class="date">05 Aug, 2024</div>
+									<h2><a href="blog-single.html">We provide highly needed health solutions.</a></h2>
+									<p class="text">We provide essential health solutions with easy online access, ensuring convenience and quick support.</p>
 								</div>
 							</div>
 						</div>
@@ -784,78 +788,101 @@
 						<div class="section-title">
 							<h2>We Are Always Ready to Help You. Book An Appointment</h2>
 							<img src="img/section-img.png" alt="#">
-							<p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
+							<p>Fill in the form describing your concern and we will get back to you as soon as possible</p>
 						</div>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-lg-6 col-md-12 col-12">
-						<form class="form" action="#">
-							<div class="row">
-								<div class="col-lg-6 col-md-6 col-12">
-									<div class="form-group">
-										<input name="name" type="text" placeholder="Name">
-									</div>
-								</div>
-								<div class="col-lg-6 col-md-6 col-12">
-									<div class="form-group">
-										<input name="email" type="email" placeholder="Email">
-									</div>
-								</div>
-								<div class="col-lg-6 col-md-6 col-12">
-									<div class="form-group">
-										<input name="phone" type="text" placeholder="Phone">
-									</div>
-								</div>
-								<div class="col-lg-6 col-md-6 col-12">
-									<div class="form-group">
-										<div class="nice-select form-control wide" tabindex="0"><span class="current">Department</span>
-											<ul class="list">
-												<li data-value="1" class="option selected ">Department</li>
-												<li data-value="2" class="option">Cardiac Clinic</li>
-												<li data-value="3" class="option">Neurology</li>
-												<li data-value="4" class="option">Dentistry</li>
-												<li data-value="5" class="option">Gastroenterology</li>
-											</ul>
-										</div>
-									</div>
-								</div>
-								<div class="col-lg-6 col-md-6 col-12">
-									<div class="form-group">
-										<div class="nice-select form-control wide" tabindex="0"><span class="current">Doctor</span>
-											<ul class="list">
-												<li data-value="1" class="option selected ">Doctor</li>
-												<li data-value="2" class="option">Dr. Akther Hossain</li>
-												<li data-value="3" class="option">Dr. Dery Alex</li>
-												<li data-value="4" class="option">Dr. Jovis Karon</li>
-											</ul>
-										</div>
-									</div>
-								</div>
-								<div class="col-lg-6 col-md-6 col-12">
-									<div class="form-group">
-										<input type="text" placeholder="Date" id="datepicker">
-									</div>
-								</div>
-								<div class="col-lg-12 col-md-12 col-12">
-									<div class="form-group">
-										<textarea name="message" placeholder="Write Your Message Here....."></textarea>
-									</div>
+					<form class="form" action="processes.php" method="POST">
+						<div class="row">
+							<div class="col-lg-6 col-md-6 col-12">
+								<div class="form-group">
+									<input name="name" type="text" placeholder="Name">
 								</div>
 							</div>
+
+							<div class="col-lg-6 col-md-6 col-12">
+								<div class="form-group">
+									<input name="email" type="email" placeholder="Email">
+								</div>
+							</div>
+
+							<div class="col-lg-6 col-md-6 col-12">
+								<div class="form-group">
+									<input name="phone" type="text" placeholder="Phone">
+								</div>
+							</div>
+
+							<div class="col-lg-6 col-md-6 col-12">
+								<div class="form-group">
+									<select name="department_id" id="department" class="form-control" onchange="filterDoctors()">
+										<option value="">Select Department</option>
+										<?php
+										// Fetch departments from the database
+										$sql = "SELECT DepartmentID, DepartmentName FROM departments";
+										$result = $conn->query($sql);
+										if ($result->num_rows > 0) {
+											while ($row = $result->fetch_assoc()) {
+												echo "<option value='" . $row['DepartmentID'] . "'>" . $row['DepartmentName'] . "</option>";
+											}
+										}
+										?>
+									</select>
+								</div>
+							</div>
+
+							<!-- Doctor Select -->
+							<div class="col-lg-6 col-md-6 col-12">
+								<div class="form-group">
+									<select name="doctor_id" id="doctor" class="form-control" onchange="selectDepartment()">
+										<option value="">Select Doctor</option>
+										<?php
+										// Fetch all doctors with their departments
+										$sql = "SELECT doctors.DoctorID, doctors.DoctorName, departments.DepartmentName 
+												FROM doctors 
+												INNER JOIN departments ON doctors.DepartmentID = departments.DepartmentID";
+										$result = $conn->query($sql);
+										if ($result->num_rows > 0) {
+											while ($row = $result->fetch_assoc()) {
+												echo "<option value='" . $row['DoctorID'] . "' data-department='" . $row['DepartmentID'] . "'>" . $row['DoctorName'] . "</option>";
+											}
+										}
+										?>
+									</select>
+								</div>
+							</div>
+
+							<!-- Date Input -->
+							<div class="col-lg-6 col-md-6 col-12">
+								<div class="form-group">
+									<input type="text" name="date" placeholder="Date" id="datepicker">
+								</div>
+							</div>
+
+							<!-- Message Input -->
+							<div class="col-lg-12 col-md-12 col-12">
+								<div class="form-group">
+									<textarea name="message" placeholder="Write Your Message Here....."></textarea>
+								</div>
+							</div>
+
+							<!-- Submit Button -->
 							<div class="row">
 								<div class="col-lg-5 col-md-4 col-12">
 									<div class="form-group">
 										<div class="button">
-											<button type="submit" class="btn">Book An Appointment</button>
+											<input name="submit-appointment" type="submit" class="btn" value="Get In Touch">
 										</div>
 									</div>
 								</div>
 								<div class="col-lg-7 col-md-8 col-12">
-									<p>( We will be confirm by an Text Message )</p>
+									<p>( We will confirm by a Text Message )</p>
 								</div>
 							</div>
-						</form>
+						</div>
+					</form>
+
 					</div>
 					<div class="col-lg-6 col-md-12 ">
 						<div class="appointment-image">
@@ -1023,5 +1050,32 @@
 		<script src="js/bootstrap.min.js"></script>
 		<!-- Main JS -->
 		<script src="js/main.js"></script>
+		<script>
+			function filterDoctors() {
+    const departmentId = document.getElementById("department").value;
+
+    // AJAX request to get doctors based on department
+    fetch(`get_doctors.php?department_id=${departmentId}`)
+        .then((response) => response.json())
+        .then((data) => {
+            const doctorSelect = document.getElementById("doctor");
+            doctorSelect.innerHTML = '<option value="">Select Doctor</option>'; // Reset options
+            data.forEach((doctor) => {
+                doctorSelect.innerHTML += `<option value="${doctor.DoctorID}" data-department="${doctor.DepartmentID}">${doctor.DoctorName}</option>`;
+            });
+        });
+}
+
+function selectDepartment() {
+    const doctorSelect = document.getElementById("doctor");
+    const selectedDoctor = doctorSelect.options[doctorSelect.selectedIndex];
+    const departmentId = selectedDoctor.getAttribute("data-department");
+
+    // Auto-select the department
+    const departmentSelect = document.getElementById("department");
+    departmentSelect.value = departmentId;
+}
+
+		</script>
     </body>
 </html>

@@ -194,4 +194,24 @@ if (isset($_POST['add-user'])) {
             exit();
         }
     }
+} else if (isset($_POST['submit-appointment'])){
+    $usr = $_SESSION['uid'];
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $department_id = $_POST['department_id'];
+    $doctor_id = $_POST['doctor_id'];
+    $date = $_POST['date'];
+    $message = $_POST['message'];
+    
+    $stmt1 = $conn->prepare('INSERT INTO leads(UserName,Email,PhoneNum,DoctorName,DepartmentName,Date,Message) values(?, ?, ?, ?, ?, ?, ?)');
+    $stmt1->bind_param('sssssss', $name, $email, $phone, $department_id, $doctor_id, $date, $message);
+    if (!$stmt1->execute()) {
+        $_SESSION['error'] = "Message Not Sent";
+        header('index.php');
+        exit();
+    }
+    $_SESSION['success'] = "Message Sent Successfully";
+    header('location: index.php');
+    exit();
 }
