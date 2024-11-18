@@ -1,8 +1,8 @@
 <?
-$name = $_POST{'name'};
-$email = $_POST{'email'};
-$phone = $_POST{'phone'};
-$subject = $_POST{'subject'};
+$name = $_POST['name'];
+$email = $_POST['email'];
+$phone = $_POST['phone'];
+$subject = $_POST['subject'];
 $message = $_POST['message'];
 
 $email_message = "
@@ -15,8 +15,8 @@ Message: ".$message."
 
 ";
 
-mail ("name@youremail.com" , "New Message", $email_message);
-header("location: ../mail-success.html");
+mail ("devsolutions023@gmail.com" , "New Message", $email_message);
+header("location: ../index.php");
 ?>
 
 

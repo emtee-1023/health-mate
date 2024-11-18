@@ -214,4 +214,55 @@ if (isset($_POST['add-user'])) {
     $_SESSION['success'] = "Message Sent Successfully";
     header('location: index.php');
     exit();
+} else if (isset($_POST['book_appointment'])) {
+    $UserID = 1;
+    $DoctorID = 1;
+    $AppointmentTime = $currentTimestamp;
+
+    // Insert into database
+    $conn->query("
+        INSERT INTO appointments (UserID, DoctorID, AppoitnmentTIme)
+        VALUES ($UserID, $DoctorID, '$AppointmentTime')
+    ");
+
+    // Get Calendly Link
+    //$doctor = $conn->query("SELECT CalendlyLink FROM doctors WHERE DoctorID = $DoctorID")->fetch_assoc();
+    $CalendlyLink = "https://calendly.com/lawry-ochieng-strathmore/appointment-booking";
+
+    // Use Calendly API to create an event
+    $payload = json_encode([
+        'event_type' => 'appointment-booking',
+        'start_time' => $currentTimestamp,
+        'end_time' => date('Y-m-d\TH:i:s', strtotime($currentTimestamp) + 3600), // 1-hour slot
+        'invitee' => [
+            'name' => 'Mark',
+            'email' => 'mark.talamson@strathmore.edu'
+        ]
+    ]);
+    $ch = curl_init("$CalendlyLink/scheduled_events");
+    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+        //API Key
+        'Authorization: Bearer eyJraWQiOiIxY2UxZTEzNjE3ZGNmNzY2YjNjZWJjY2Y4ZGM1YmFmYThhNjVlNjg0MDIzZjdjMzJiZTgzNDliMjM4MDEzNWI0IiwidHlwIjoiUEFUIiwiYWxnIjoiRVMyNTYifQ.eyJpc3MiOiJodHRwczovL2F1dGguY2FsZW5kbHkuY29tIiwiaWF0IjoxNzMxOTYwNTQwLCJqdGkiOiI4ZTUwZWM2My05MjQ3LTRjN2ItYjU4NS1kMTA1OTE0ODBhZjQiLCJ1c2VyX3V1aWQiOiI1YWYyNjg1Yy1iYjBjLTRkNGQtOGQ1Yi1hYmQwNWEzNDEyYTIifQ.L0iYp8Ou_IQoAIOqHCan2SjzgTXinlfaN71NduwTHO8WGxqF4iPhQ-HmRdVBabGP_tyb_JgVkgre-JaOaPcN7w',
+        'Content-Type: application/json'
+    ]);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $response = json_decode(curl_exec($ch), true);
+    curl_close($ch);
+
+    // Check for errors in the API response
+    if (isset($response['error'])) {
+        echo json_encode(['success' => false, 'message' => 'Error creating Calendly event: ' . $response['error']['message']]);
+        exit;
+    } else {
+        // The event was created successfully, retrieve the event link and update the database
+        $event_link = $response['resource']['uri'];  // Get the event link from the response
+        $conn->query("UPDATE appointments SET CalendlyEventLink = '$event_link' WHERE AppointmentID = " . $conn->insert_id);
+
+        echo json_encode(['success' => true, 'event_link' => $event_link]);
+        exit;
+    }
 }
+
+
