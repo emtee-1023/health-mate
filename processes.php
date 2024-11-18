@@ -259,8 +259,8 @@ if (isset($_POST['add-user'])) {
     // Use Calendly API to create an event
     $payload = json_encode([
         'event_type' => 'appointment-booking',
-        'start_time' => $currentTimestamp,
-        'end_time' => date('Y-m-d\TH:i:s', strtotime($currentTimestamp) + 3600), // 1-hour slot
+        'start_time' => '2024-11-19T09:00:00Z',
+        'end_time' => date('Y-m-d\TH:i:s', strtotime('2024-11-19T09:00:00Z') + 3600), // 1-hour slot
         'invitee' => [
             'name' => 'Mark',
             'email' => 'mark.talamson@strathmore.edu'
@@ -291,5 +291,3 @@ if (isset($_POST['add-user'])) {
         exit;
     }
 }
-
-
