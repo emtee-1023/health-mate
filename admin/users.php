@@ -3,7 +3,12 @@ session_start();
 include "includes/sessions.php";
 include "../includes/connect.php";
 
-$res = $conn->query("SELECT u.*, COUNT(p.PatientID) AS patientCount FROM users u LEFT JOIN patients p ON p.userid = u.userid ORDER BY UserID ASC");
+$res = $conn->query("SELECT u.*, COUNT(p.PatientID) AS patientCount 
+                     FROM users u 
+                     LEFT JOIN patients p 
+                     ON p.userid = u.userid 
+                     GROUP BY u.UserID 
+                     ORDER BY u.UserID ASC");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -62,7 +67,7 @@ $res = $conn->query("SELECT u.*, COUNT(p.PatientID) AS patientCount FROM users u
                   </tr>
                 </thead>
                 <tbody>
-                  <?php while ($row = $res->fetch_assoc()) {
+                  <?php while ($row = $res->fetch_assoc()):
 
 
                   ?>
@@ -109,7 +114,7 @@ $res = $conn->query("SELECT u.*, COUNT(p.PatientID) AS patientCount FROM users u
                         <a href="processes.php?delete-event=<?php echo $row["UserID"]; ?>" class="btn btn-sm btn-danger deleteBtn"><i class="fas fa-trash"></i> Delete</a>
                       </td>
                     </tr>
-                  <?php } ?>
+                  <?php endwhile ?>
                 </tbody>
               </table>
 

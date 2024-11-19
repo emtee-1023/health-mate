@@ -3,7 +3,14 @@ session_start();
 include "includes/sessions.php";
 include "../includes/connect.php";
 
-$res = $conn->query("SELECT * FROM doctors");
+$res = $conn->query("
+    SELECT d.*, COUNT(a.appointmentid) AS numAppointments 
+    FROM doctors d 
+    LEFT JOIN appointments a ON d.doctorid = a.doctorid 
+    GROUP BY d.doctorid 
+    ORDER BY d.DoctorID ASC
+");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -59,6 +66,7 @@ $res = $conn->query("SELECT * FROM doctors");
                     <th>Email Address</th>
                     <th>Last Login</th>
                     <th>Qualification Status</th>
+                    <th>Completed Appointments</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -97,6 +105,12 @@ $res = $conn->query("SELECT * FROM doctors");
                       <td>
                         <div class="d-flex">
                           <?php echo doctorStatus($row["QualiStatus"]); ?>
+                        </div>
+                      </td>
+
+                      <td>
+                        <div class="d-flex">
+                          <?php echo $row["numAppointments"]; ?>
                         </div>
                       </td>
 

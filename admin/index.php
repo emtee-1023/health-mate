@@ -69,6 +69,23 @@ include "../includes/connect.php";
 
               <div class="col-md-4">
                 <div class="card text-white bg-secondary mb-3">
+                  <div class="card-header">Total Patients</div>
+                  <div class="card-body">
+                    <h5 class="card-title">
+                      <?php
+                      // Example PHP query to get total appointments
+                      $result = $conn->query("SELECT COUNT(*) AS total FROM patients");
+                      $row = $result->fetch_assoc();
+                      echo $row['total'] ?? 0; // Display total or 0 if null
+                      ?>
+                    </h5>
+                    <p class="card-text">Number of Patients on the system</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="card text-white bg-secondary mb-3">
                   <div class="card-header">Total Applied Doctors</div>
                   <div class="card-body">
                     <h5 class="card-title">
