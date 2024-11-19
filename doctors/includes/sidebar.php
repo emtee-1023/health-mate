@@ -13,7 +13,8 @@
          <img src="../uploads/<?= $_SESSION['pfp'] ?>" class="img-circle elevation-2" alt="User Image">
        </div>
        <div class="info">
-         <a href="#" class="d-block">Dr. <?= $_SESSION['fname'] . ' ' . $_SESSION['lname'] ?> <br> <span>Doctor</span></a>
+         <a href="#" class="d-block">Dr. <?= $_SESSION['fname'] . ' ' . $_SESSION['lname'] ?></a>
+         <span><?= $_SESSION['clinic'] ?></span>
        </div>
      </div>
 
@@ -36,30 +37,13 @@
                with font-awesome or any other icon font library -->
 
          <li class="nav-item">
-           <a href="dashboard.php" class="nav-link">
+           <a href="index.php" class="nav-link">
              <i class="nav-icon fas fa-tachometer-alt"></i>
              <p>
                Dashboard
              </p>
            </a>
 
-         </li>
-         <li class="nav-item">
-           <a href="users.php" class="nav-link">
-             <i class="nav-icon fas fa-users"></i>
-             <p>
-               Users
-             </p>
-           </a>
-         </li>
-         <li class="nav-item">
-           <a href="medicine.php" class="nav-link">
-             <i class="nav-icon fas fa-pills"></i>
-             <p>
-               Medicine
-             </p>
-           </a>
-         </li>
          <li class="nav-item">
            <a href="appointments.php" class="nav-link">
              <i class="nav-icon fas fa-calendar-alt"></i>
@@ -69,16 +53,24 @@
            </a>
          </li>
 
-         <li class="nav-header">My Clients</li>
          <li class="nav-item">
-           <a href="leads.php" class="nav-link">
-             <i class="nav-icon fas fa-user-plus"></i>
+           <a href="prescriptions.php" class="nav-link">
+             <i class="nav-icon fas fa-pills"></i>
              <p>
-               Contact Us
+               Prescriptions
              </p>
            </a>
          </li>
 
+         </li>
+         <li class="nav-item">
+           <a href="patients.php" class="nav-link">
+             <i class="nav-icon fas fa-users"></i>
+             <p>
+               Patients
+             </p>
+           </a>
+         </li>
        </ul>
      </nav>
      <!-- /.sidebar-menu -->

@@ -1,5 +1,6 @@
 <?php
 session_start();
+require('includes/connect.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -220,8 +221,19 @@ session_start();
                                         </div>
 
                                         <div class="col-6 mb-3">
-                                            <label class="form-label">Enable Two Factor Authentication</label>
-                                            <input type="checkbox" name="_2fa">
+                                            <label class="form-label">Choose Specialization Clinic</label>
+                                            <select class="form-control" name="clinic" id="clinic">
+                                                <option value="" disabled selected>Choose area of Specialization</option>
+                                                <?php
+                                                $stmt6 = $conn->prepare('SELECT * FROM clinics ORDER BY ClinicID ASC');
+                                                $stmt6->execute();
+                                                $res6 = $stmt6->get_result();
+                                                while ($row = $res6->fetch_assoc()):
+                                                ?>
+                                                    <option value="<?= $row['ClinicID'] ?>"><?= $row['ClinicName'] ?></option>
+                                                <?php endwhile ?>
+                                            </select>
+                                            <input class="" type="checkbox" name="_2fa" hidden>
                                         </div>
                                     </div>
                                 </div>
