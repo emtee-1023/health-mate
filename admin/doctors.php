@@ -3,7 +3,14 @@ session_start();
 include "includes/sessions.php";
 include "../includes/connect.php";
 
-$res = $conn->query("SELECT d.*, COUNT(a.appointmentid) AS numAppointments FROM doctors d  LEFT JOIN appointments a ON d.doctorid = a.doctorid ORDER BY DoctorID ASC");
+$res = $conn->query("
+    SELECT d.*, COUNT(a.appointmentid) AS numAppointments 
+    FROM doctors d 
+    LEFT JOIN appointments a ON d.doctorid = a.doctorid 
+    GROUP BY d.doctorid 
+    ORDER BY d.DoctorID ASC
+");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -64,9 +71,8 @@ $res = $conn->query("SELECT d.*, COUNT(a.appointmentid) AS numAppointments FROM 
                   </tr>
                 </thead>
                 <tbody>
-                  <?php while ($row = $res->fetch_assoc()) {
-
-
+                <?php if ($res && $res->num_rows > 0): ?>
+                  <?php while ($row = $res->fetch_assoc()):
                   ?>
                     <tr>
                       <td>
@@ -114,7 +120,12 @@ $res = $conn->query("SELECT d.*, COUNT(a.appointmentid) AS numAppointments FROM 
                         <a href="processes.php?delete-event=<?php echo $row["DoctorID"]; ?>" class="btn btn-sm btn-danger deleteBtn"><i class="fas fa-trash"></i> Delete</a>
                       </td>
                     </tr>
-                  <?php } ?>
+                  <?php endwhile ?>
+                  <?php else: ?>
+                    <tr>
+                      <td colspan="8">No doctors found.</td>
+                    </tr>
+                  <?php endif; ?>
                 </tbody>
               </table>
 
