@@ -459,8 +459,7 @@ elseif (isset($_POST["add-medicine"])) {
     }
 } elseif (isset($_GET['logout'])) {
     session_destroy();
-
     session_start();
     $_SESSION['success'] = "Logged Out Successfully!";
-    header('location: index.php');
+    header('location: ../login.php');
 }

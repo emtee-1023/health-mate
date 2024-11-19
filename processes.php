@@ -242,6 +242,62 @@ if (isset($_POST['add-user'])) {
             exit();
         }
     }
+} else if (isset($_POST['admin-login'])) {
+    $emailOrNumber = $_POST['email-or-number'];
+    $password = $_POST['password'];
+
+    $stmt1 = $conn->prepare('SELECT * FROM admins WHERE Email = ? OR PhoneNum = ?');
+    $stmt1->bind_param('ss', $emailOrNumber, $emailOrNumber);
+    if (!$stmt1->execute()) {
+        $_SESSION['error'] = "Error retreiving admin's account";
+        header('location: login.php');
+        exit();
+    }
+    $res1 = $stmt1->get_result();
+
+    if ($res1->num_rows > 0) {
+        $adm = $res1->fetch_assoc();
+        if (password_verify($password, $adm['Password'])) {
+            $_SESSION['adminid'] = $adm['AdminID'];
+            $_SESSION['fname'] = $adm['FName'];
+            $_SESSION['lname'] = $adm['LName'];
+            $_SESSION['pfp'] = $adm['Pfp'];
+            header('location: admin/index.php');
+            exit();
+        } else {
+            $_SESSION['error'] = "Invalid Credentials";
+            header('location: login.php');
+            exit();
+        }
+    }
+} else if (isset($_POST['pharmacist-login'])) {
+    $emailOrNumber = $_POST['email-or-number'];
+    $password = $_POST['password'];
+
+    $stmt1 = $conn->prepare('SELECT * FROM pharmacists WHERE Email = ? OR PhoneNum = ?');
+    $stmt1->bind_param('ss', $emailOrNumber, $emailOrNumber);
+    if (!$stmt1->execute()) {
+        $_SESSION['error'] = "Error retreiving pharmacist's account";
+        header('location: login.php');
+        exit();
+    }
+    $res1 = $stmt1->get_result();
+
+    if ($res1->num_rows > 0) {
+        $pha = $res1->fetch_assoc();
+        if (password_verify($password, $pha['Password'])) {
+            $_SESSION['phaid'] = $pha['PharmacistID'];
+            $_SESSION['fname'] = $pha['FName'];
+            $_SESSION['lname'] = $pha['LName'];
+            $_SESSION['pfp'] = $pha['Pfp'];
+            header('location: pharmacists/index.php');
+            exit();
+        } else {
+            $_SESSION['error'] = "Invalid Credentials";
+            header('location: login.php');
+            exit();
+        }
+    }
 } else if (isset($_POST['book_appointment'])) {
     $UserID = 1;
     $DoctorID = 1;

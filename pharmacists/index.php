@@ -52,107 +52,113 @@ include "../includes/connect.php";
               <!-- Total Appointments -->
               <div class="col-md-4">
                 <div class="card text-white bg-secondary mb-3">
-                  <div class="card-header">Total Users</div>
+                  <div class="card-header">Total Drugs In Stock</div>
                   <div class="card-body">
                     <h5 class="card-title">
                       <?php
                       // Example PHP query to get total appointments
-                      $result = $conn->query("SELECT COUNT(*) AS total FROM users");
+                      $result = $conn->query("SELECT COUNT(*) AS total FROM medicine");
                       $row = $result->fetch_assoc();
                       echo $row['total'] ?? 0; // Display total or 0 if null
                       ?>
                     </h5>
-                    <p class="card-text">Number of Users on the system</p>
+                    <p class="card-text">Number of drugs in the system</p>
                   </div>
                 </div>
               </div>
 
               <div class="col-md-4">
                 <div class="card text-white bg-secondary mb-3">
-                  <div class="card-header">Total Applied Doctors</div>
+                  <div class="card-header">Total Prescriptions Written</div>
                   <div class="card-body">
                     <h5 class="card-title">
                       <?php
                       // Example PHP query to get total appointments
-                      $result = $conn->query("SELECT COUNT(*) AS total FROM doctors");
+                      $result = $conn->query("SELECT COUNT(*) AS total FROM prescriptions");
                       $row = $result->fetch_assoc();
                       echo $row['total'] ?? 0; // Display total or 0 if null
                       ?>
                     </h5>
-                    <p class="card-text">Total Number of Doctors by doctors</p>
+                    <p class="card-text">Total Number of prescriptions by doctors</p>
                   </div>
                 </div>
               </div>
 
               <div class="col-md-4">
                 <div class="card text-white bg-secondary mb-3">
-                  <div class="card-header">Total Authorized Doctors</div>
+                  <div class="card-header">Total Approved Prescriptions Written</div>
                   <div class="card-body">
                     <h5 class="card-title">
                       <?php
                       // Example PHP query to get total appointments
-                      $result = $conn->query("SELECT COUNT(*) AS total FROM doctors WHERE QualiStatus  = 1");
+                      $result = $conn->query("SELECT COUNT(*) AS total FROM prescriptions WHERE ApprovalStatus = 1");
                       $row = $result->fetch_assoc();
                       echo $row['total'] ?? 0; // Display total or 0 if null
                       ?>
                     </h5>
-                    <p class="card-text">Total Number of Approved Doctors</p>
+                    <p class="card-text">Total Approved prescriptions</p>
                   </div>
                 </div>
               </div>
 
               <div class="col-md-4">
                 <div class="card text-white bg-secondary mb-3">
-                  <div class="card-header">Total Patient Profiles</div>
+                  <div class="card-header">Total Pending Prescriptions Written</div>
                   <div class="card-body">
                     <h5 class="card-title">
                       <?php
                       // Example PHP query to get total appointments
-                      $result = $conn->query("SELECT COUNT(*) AS total FROM patients");
+                      $result = $conn->query("SELECT COUNT(*) AS total FROM prescriptions WHERE ApprovalStatus = 0");
                       $row = $result->fetch_assoc();
                       echo $row['total'] ?? 0; // Display total or 0 if null
                       ?>
                     </h5>
-                    <p class="card-text">Total Patient Profiles</p>
+                    <p class="card-text">Total Pending prescriptions</p>
                   </div>
                 </div>
               </div>
 
               <div class="col-md-4">
                 <div class="card text-white bg-secondary mb-3">
-                  <div class="card-header">Total Drugs Sold</div>
+                  <div class="card-header">Total Cancelled Prescriptions Written</div>
                   <div class="card-body">
                     <h5 class="card-title">
                       <?php
                       // Example PHP query to get total appointments
-                      $result = $conn->query("SELECT SUM(MedicineID) AS TotalSold FROM pharmacy_purchases;");
+                      $result = $conn->query("SELECT COUNT(*) AS total FROM prescriptions WHERE ApprovalStatus = 2");
                       $row = $result->fetch_assoc();
-                      echo $row['TotalSold'] ?? 0; // Display total or 0 if null
+                      echo $row['total'] ?? 0; // Display total or 0 if null
                       ?>
                     </h5>
-                    <p class="card-text">Total Drugs Sold from E-Pharma</p>
+                    <p class="card-text">Total Cancelled prescriptions</p>
                   </div>
                 </div>
               </div>
 
               <div class="col-md-4">
                 <div class="card text-white bg-secondary mb-3">
-                  <div class="card-header">Total Appointments Booked</div>
+                  <div class="card-header">Total Sales</div>
                   <div class="card-body">
                     <h5 class="card-title">
                       <?php
                       // Example PHP query to get total appointments
-                      $result = $conn->query("SELECT SUM(AppointmentID) AS TotalAppointments FROM appointments;");
+                      $result = $conn->query("SELECT SUM(TotalCost) AS TotalSales FROM pharmacy_purchases;");
                       $row = $result->fetch_assoc();
-                      echo $row['TotalAppointments'] ?? 0; // Display total or 0 if null
+                      echo 'Ksh. ' . $row['TotalSales'] ?? 0; // Display total or 0 if null
                       ?>
                     </h5>
-                    <p class="card-text">Total Appointments on D.O.C</p>
+                    <p class="card-text">TotalSales from E-Pharma</p>
                   </div>
                 </div>
               </div>
+
+
             </div>
           </div>
+
+
+
+
           <!-- /.row (main row) -->
         </div><!-- /.container-fluid -->
       </section>

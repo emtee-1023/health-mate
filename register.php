@@ -40,7 +40,7 @@ require('includes/connect.php');
                                     <option value="" disabled selected>Choose Registration Method</option>
                                     <option value="user">Register as a User</option>
                                     <option value="doctor">Apply as a Doctor</option>
-                                    <option value="nurse">Apply as a Nurse</option>
+                                    <!-- <option value="nurse">Apply as a Nurse</option> -->
                                     <option value="pharmacist">Apply as a Pharmacist</option>
                                 </select>
                             </div>
