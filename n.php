@@ -11,7 +11,9 @@
 </select>
 
 <!-- Calendly widget link that opens the popup -->
-<a href="#" id="calendlyLink" onclick="openCalendlyWidget(); return false;">Select An Appointment Time</a>
+
+
+<a href="#" id="calendlyLink" style="display: none; text-decoration:none; background-color:blue; color:white; padding:10px; border-radius:8px; text-align:center; height:50px; font-weight:bold;" onclick="openCalendlyWidget(); return false;">Select An Appointment Time</a>
 <!-- Calendly link widget end -->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -19,26 +21,24 @@
 <script>
 // This function will open the Calendly widget with the selected doctor's link
 function openCalendlyWidget() {
-    var DoctorID = $('#doctorSelect').val();  // Get the selected doctor ID
+                var DoctorID = $('#doctorSelect').val();  
 
-    if (doctorId) {
-        // Make AJAX call to fetch the Calendly link based on doctor selection
-        $.ajax({
-            url: 'get_calendly_link.php',
-            type: 'POST',
-            data: { DoctorID: DoctorID },
-            success: function(response) {
-                // Initialize the Calendly widget with the fetched URL
-                Calendly.initPopupWidget({ url: response });
-            },
-            error: function() {
-                alert('Error fetching Calendly link');
+                if (DoctorID) {
+                    $.ajax({
+                        url: 'get_calendly_link.php',
+                        type: 'POST',
+                        data: { DoctorID: DoctorID },
+                        success: function(response) {
+                            Calendly.initPopupWidget({ url: response });
+                        },
+                        error: function() {
+                            alert('Error fetching Calendly link');
+                        }
+                    });
+                } else {
+                    alert('Please select a doctor.');
+                }
             }
-        });
-    } else {
-        alert('Please select a doctor.');
-    }
-}
 
 $(document).ready(function() {
     // Ensure the Calendly link is updated when a doctor is selected
