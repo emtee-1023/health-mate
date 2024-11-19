@@ -1,131 +1,238 @@
 <?php
 include 'includes/connect.php';
-// Fetch departments
-$departments = $conn->query("SELECT * FROM departments");
 
-// Fetch doctors by department
-if (isset($_POST['DepartmentId'])) {
-    $DepartmentId = intval($_POST['DepartmentId']);
-    $doctors = $conn->query("SELECT * FROM doctors WHERE DepartmentId = $DepartmentId");
-    $doctors_list = [];
-    while ($row = $doctors->fetch_assoc()) {
-        $doctors_list[] = $row;
-    }
-    echo json_encode($doctors_list);
-    exit;
-}
-
-// Check doctor availability
-if (isset($_POST['DoctorID'])) {
-    $DoctorID = intval($_POST['DoctorID']);
-    $availability = $conn->query("
-        SELECT AppointmentTime 
-        FROM appointments 
-        WHERE DoctorID = $DoctorID
-          AND AppointmentTime > NOW()
-    ");
-    $taken_slots = [];
-    while ($row = $availability->fetch_assoc()) {
-        $taken_slots[] = $row['AppointmentTime'];
-    }
-    echo json_encode($taken_slots);
-    exit;
-}
-
-
+$res = $conn->query("SELECT * FROM departments ORDER BY DepartmentID ASC");
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Appointment</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Health Mate - Book An Appointment</title>
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+        .hero {
+            flex: 1;
+            background-color: #1e293b;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(circle at center, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            z-index: 1;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            z-index: 2;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 1rem;
+            z-index: 2;
+        }
+        .hero-image {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 8px;
+            z-index: 2;
+        }
+        .booking {
+            flex: 1;
+            padding: 2rem;
+            background-color: #f8fafc;
+        }
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .service {
+            text-align: center;
+            padding: 1rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .service-icon {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 0.5rem;
+        }
+        form {
+            display: grid;
+            gap: 1rem;
+        }
+        label {
+            font-weight: bold;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #3b82f6;
+            color: white;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #2563eb;
+        }
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Book an Appointment</h1>
+    <div class="container">
+        <div  style="background-image: url('img/welcome.png'); background-size: cover" class="hero">
+            <div>
+                <div class="logo">
+                    <img style="width: 150px; height: auto; border-radius: 10px;" src="img/healthmate-logo.jpg" alt="Logo">
+                </div>
+            </div>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items:left; justify-content:center;" class="booking">
+            <h2>Book an Appointment</h2>
+            <p style="margin-bottom: 1rem;">Medical care can be simple and made to work for you. Just book an appointment!!</p>
 
-    <form action="processes.php" method="post">
-    <label for="department">Department:</label>
-    <select id="department">
-        <option value="">Select a department</option>
-        <?php while ($row = $departments->fetch_assoc()): ?>
-            <option value="<?= $row['DepartmentId'] ?>"><?= $row['DepartmentName'] ?></option>
-        <?php endwhile; ?>
-    </select>
+            <div id="departmentSection">
 
-    <br><br>
+            </div>
 
-    <label for="doctor">Doctor:</label>
-    <select id="doctor">
-        <option value="">Select a doctor</option>
-        <option value="1">Lawrie Ochieng</option>
-    </select>
+                <br><br><br>
 
-    <br><br>
+            <div id="doctorSection">
 
-    <label for="AppointmentTime">Appointment Time:</label>
-    <input type="datetime-local" id="AppointmentTime">
+            </div>
 
-    <br><br>
+            <br><br><br>
 
-    <input type="submit" id="book_appointment" name="book_appointment" value="Book Appointment">
-    </form>
-    <br><br><br>
+            <a href="#" id="calendlyLink" style="display: none; text-decoration:none; background-color:blue; color:white; padding:10px; border-radius:8px; text-align:center; height:50px; font-weight:bold;" onclick="openCalendlyWidget(); return false;">Select An Appointment Time</a>
 
-    <!-- Calendly link widget begin -->
-<!-- Calendly inline widget begin -->
-<div class="calendly-inline-widget" data-url="https://calendly.com/lawry-ochieng-strathmore/appointment-booking" style="min-width:320px;height:700px;"></div>
-<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-<!-- Calendly inline widget end -->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            
 
-    <script>
-        $('#department').change(function() {
-            let DepartmentId = $(this).val();
-            $.post('appointment.php', { DepartmentId: departmentId }, function(response) {
-                let doctors = JSON.parse(response);
-                $('#doctor').empty().append('<option value="">Select a doctor</option>');
-                doctors.forEach(doc => {
-                    $('#doctor').append(`<option value="${doc.doctor_id}">${doc.doctor_name}</option>`);
+            <script>
+            function openCalendlyWidget() {
+                var DoctorID = $('#doctorSelect').val();  
+
+                if (DoctorID) {
+                    $.ajax({
+                        url: 'get_calendly_link.php',
+                        type: 'POST',
+                        data: { DoctorID: DoctorID },
+                        success: function(response) {
+                            Calendly.initPopupWidget({ url: response });
+                        },
+                        error: function() {
+                            alert('Error fetching Calendly link');
+                        }
+                    });
+                } else {
+                    alert('Please select a doctor.');
+                }
+            }
+
+            $(document).ready(function() {
+                $.ajax({
+                    url: 'get_departments.php', 
+                    type: 'GET',
+                    success: function(response) {
+                        $('#departmentSection').html(response); 
+                    },
+                    error: function() {
+                        alert('Error fetching departments');
+                    }
+                });
+
+                $(document).on('change', '#departmentSelect', function() {
+                    var DepartmentID = $(this).val();
+
+                    if (DepartmentID) {
+                        $.ajax({
+                            url: 'get_doctors_by_department.php', 
+                            type: 'POST',
+                            data: { DepartmentID: DepartmentID },
+                            success: function(response) {
+                                $('#doctorSection').html(response); 
+                                $('#calendlyLink').hide(); 
+                            },
+                            error: function() {
+                                alert('Error fetching doctors');
+                            }
+                        });
+                    } else {
+                        $('#doctorSection').html(''); 
+                    }
+                });
+
+                $(document).on('change', '#doctorSelect', function() {
+                    var DoctorID = $(this).val();
+
+                    if (DoctorID) {
+                        $.ajax({
+                            url: 'get_calendly_link.php',
+                            type: 'POST',
+                            data: { DoctorID: DoctorID },
+                            success: function(response) {
+                                $('#calendlyLink').attr('href', response);
+                                $('#calendlyLink').show(); 
+                            },
+                            error: function() {
+                                alert('Error fetching Calendly link');
+                            }
+                        });
+                    } else {
+                        $('#calendlyLink').hide(); 
+                    }
                 });
             });
-        });
+            </script>
 
-        $('#book_appointment').click(function() {
-            let patientId = 1; // Replace with logged-in patient ID
-            let doctorId = $('#doctor').val();
-            let appointmentTime = $('#appointment_time').val();
 
-            $.post('appointment.php', {
-                book_appointment: true,
-                patient_id: patientId,
-                doctor_id: doctorId,
-                appointment_time: appointmentTime,
-                patient_name: 'John Doe', // Replace with patient name
-                patient_email: 'john.doe@example.com' // Replace with patient email
-            }, function(response) {
-                let result = JSON.parse(response);
-                if (result.success) {
-                    alert('Appointment booked! Confirmation link: ' + result.event_link);
-                }
-            });
-        });
-    </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
