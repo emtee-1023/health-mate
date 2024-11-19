@@ -13,7 +13,8 @@
          <img src="../uploads/<?= $_SESSION['pfp'] ?>" class="img-circle elevation-2" alt="User Image">
        </div>
        <div class="info">
-         <a href="#" class="d-block"><?= $_SESSION['fname'] . ' ' . $_SESSION['lname'] ?> <br> <span>User</span></a>
+         <a href="#" class="d-block"><?= $_SESSION['fname'] . ' ' . $_SESSION['lname'] ?></a>
+         <span>Pharmacist</span>
        </div>
      </div>
 
@@ -43,29 +44,31 @@
              </p>
            </a>
 
+         <li class="nav-item">
+           <a href="prescriptions.php" class="nav-link">
+             <i class="nav-icon fas fa-pills"></i>
+             <p>
+               Prescriptions
+             </p>
+           </a>
+         </li>
          </li>
 
          <li class="nav-item">
-           <a href="patient-profiles.php" class="nav-link">
+           <a href="medicine.php" class="nav-link">
+             <i class="nav-icon fas fa-pills"></i>
+             <p>
+               Drugs
+             </p>
+           </a>
+         </li>
+
+
+         <li class="nav-item">
+           <a href="patients.php" class="nav-link">
              <i class="nav-icon fas fa-users"></i>
              <p>
-               Patient Profiles
-             </p>
-           </a>
-         </li>
-         <li class="nav-item">
-           <a href="appointments.php" class="nav-link">
-             <i class="nav-icon fas fa-calendar-alt"></i>
-             <p>
-               Appointments
-             </p>
-           </a>
-         </li>
-         <li class="nav-item">
-           <a href="appointments.php" class="nav-link">
-             <i class="nav-icon fas fa-clipboard"></i>
-             <p>
-               Prescriptions
+               Patients
              </p>
            </a>
          </li>
@@ -75,7 +78,6 @@
      <div class="bottom">
        <a href="processes.php?logout" class="btn btn-primary text-white btn-block">
          <i class="nav-icon fas fa-sign-out-alt"></i>
-
          Logout
        </a>
      </div>

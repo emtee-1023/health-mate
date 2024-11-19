@@ -1,8 +1,8 @@
 <?php
-if(!isset($_SESSION["chid"])){
-    echo '<script>location.replace("index.php");</script>';
-    exit ();
-}else{
-    $userid = $_SESSION["chid"];
+if (!isset($_SESSION["adminid"])) {
+    $_SESSION['error'] = "Problem  encountered retreiving admins account";
+    header('location: ../login.php');
+    exit();
+} else {
+    $adminid = $_SESSION["adminid"];
 }
-?>

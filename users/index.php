@@ -29,7 +29,7 @@ include "../includes/connect.php";
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Dashboard</h1>
+                            <h1 class="m-0">Welcome Back <?= $_SESSION['fname'] ?></h1>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
@@ -40,73 +40,117 @@ include "../includes/connect.php";
             <section class="content">
                 <div class="container-fluid">
                     <!-- Small boxes (Stat box) -->
-                    <div class="row d-none">
-                        <div class="col-lg-3 col-6">
-                            <!-- small box -->
-                            <div class="small-box bg-info">
-                                <div class="inner">
-                                    <h3>2</h3>
-
-                                    <p>Pending Orders</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="ion ion-bag"></i>
-                                </div>
-                                <a href="orders.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                            </div>
-                        </div>
-                        <!-- ./col -->
-                        <div class="col-lg-3 col-6">
-                            <!-- small box -->
-                            <div class="small-box bg-success">
-                                <div class="inner">
-                                    <h3>2</h3>
-
-                                    <p>Products</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="ion ion-stats-bars"></i>
-                                </div>
-                                <a href="products.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                            </div>
-                        </div>
-                        <!-- ./col -->
-                        <div class="col-lg-3 col-6">
-                            <!-- small box -->
-                            <div class="small-box bg-warning">
-                                <div class="inner">
-                                    <h3>2</h3>
-
-                                    <p>Retailers</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="ion ion-person-add"></i>
-                                </div>
-                                <a href="retailers.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                            </div>
-                        </div>
-                        <!-- ./col -->
-                        <div class="col-lg-3 col-6">
-                            <!-- small box -->
-                            <div class="small-box bg-danger">
-                                <div class="inner">
-                                    <h3>Ksh2</h3>
-
-                                    <p>Total Sales</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="ion ion-pie-graph"></i>
-                                </div>
-                                <a href="invoices.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                            </div>
-                        </div>
-                        <!-- ./col -->
-                    </div>
                     <!-- /.row -->
                     <!-- Main row -->
                     <div class="row ">
                         <div class="col-sm-6 mx-auto text-center">
-                            <p>Any important statistics will appear here!</p>
+                            <p>Analytics</p>
+                        </div>
+                    </div>
+                    <div class="container mt-5">
+                        <div class="row">
+                            <!-- Total Appointments -->
+                            <div class="col-md-4">
+                                <div class="card text-white bg-secondary mb-3">
+                                    <div class="card-header">Total Drugs In Stock</div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <?php
+                                            // Example PHP query to get total appointments
+                                            $result = $conn->query("SELECT COUNT(*) AS total FROM medicine");
+                                            $row = $result->fetch_assoc();
+                                            echo $row['total'] ?? 0; // Display total or 0 if null
+                                            ?>
+                                        </h5>
+                                        <p class="card-text">Number of drugs in the system</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="card text-white bg-secondary mb-3">
+                                    <div class="card-header">Total Prescriptions Written</div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <?php
+                                            // Example PHP query to get total appointments
+                                            $result = $conn->query("SELECT COUNT(*) AS total FROM prescriptions");
+                                            $row = $result->fetch_assoc();
+                                            echo $row['total'] ?? 0; // Display total or 0 if null
+                                            ?>
+                                        </h5>
+                                        <p class="card-text">Total Number of prescriptions by doctors</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="card text-white bg-secondary mb-3">
+                                    <div class="card-header">Total Approved Prescriptions Written</div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <?php
+                                            // Example PHP query to get total appointments
+                                            $result = $conn->query("SELECT COUNT(*) AS total FROM prescriptions WHERE ApprovalStatus = 1");
+                                            $row = $result->fetch_assoc();
+                                            echo $row['total'] ?? 0; // Display total or 0 if null
+                                            ?>
+                                        </h5>
+                                        <p class="card-text">Total Approved prescriptions</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="card text-white bg-secondary mb-3">
+                                    <div class="card-header">Total Pending Prescriptions Written</div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <?php
+                                            // Example PHP query to get total appointments
+                                            $result = $conn->query("SELECT COUNT(*) AS total FROM prescriptions WHERE ApprovalStatus = 0");
+                                            $row = $result->fetch_assoc();
+                                            echo $row['total'] ?? 0; // Display total or 0 if null
+                                            ?>
+                                        </h5>
+                                        <p class="card-text">Total Pending prescriptions</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="card text-white bg-secondary mb-3">
+                                    <div class="card-header">Total Cancelled Prescriptions Written</div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <?php
+                                            // Example PHP query to get total appointments
+                                            $result = $conn->query("SELECT COUNT(*) AS total FROM prescriptions WHERE ApprovalStatus = 2");
+                                            $row = $result->fetch_assoc();
+                                            echo $row['total'] ?? 0; // Display total or 0 if null
+                                            ?>
+                                        </h5>
+                                        <p class="card-text">Total Cancelled prescriptions</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="card text-white bg-secondary mb-3">
+                                    <div class="card-header">Total Sales</div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <?php
+                                            // Example PHP query to get total appointments
+                                            $result = $conn->query("SELECT SUM(TotalCost) AS TotalSales FROM pharmacy_purchases;");
+                                            $row = $result->fetch_assoc();
+                                            echo 'Ksh. ' . $row['TotalSales'] ?? 0; // Display total or 0 if null
+                                            ?>
+                                        </h5>
+                                        <p class="card-text">TotalSales from E-Pharma</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <!-- /.row (main row) -->

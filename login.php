@@ -40,7 +40,7 @@ session_start();
                                             <option value="" disabled selected>Choose Login Method</option>
                                             <option value="user">Login as a User</option>
                                             <option value="doctor">Login as a Doctor</option>
-                                            <option value="nurse">Login as a Nurse</option>
+                                            <!-- <option value="nurse">Login as a Nurse</option> -->
                                             <option value="pharmacist">Login as a Pharmacist</option>
                                             <option value="admin">Login as an Admin</option>
                                         </select>
