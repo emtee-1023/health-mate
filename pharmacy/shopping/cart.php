@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../includes/connect.php';
+include '../../includes/connect.php';
 include 'functions.php';
 
 
@@ -96,7 +96,7 @@ include 'functions.php';
                 <tr>
                 <td class="img">
                         <a href="medicine.php?MedicineID=<?=$product['MedicineID']?>">
-                            <img src="../uploads/<?=$product['MedicinePhoto']?>" width="50" height="50" alt="<?=$product['MedicineName']?>">
+                            <img src="../../uploads/<?=$product['MedicinePhoto']?>" width="50" height="50" alt="<?=$product['MedicineName']?>">
                         </a>
                     </td>
                     <td>

@@ -53,17 +53,21 @@ include "../includes/connect.php";
 
               <div class="col-md-4">
                 <div class="card text-white bg-secondary mb-3">
-                  <div class="card-header">Approval </div>
+                  <div class="card-header">Approval Status </div>
                   <div class="card-body">
                     <h5 class="card-title">
                       <?php
                       // Example PHP query to get total appointments
-                      $result = $conn->query("SELECT COUNT(*) AS total FROM medicine");
+                      $result = $conn->query("SELECT QualiStatus FROM doctors where doctorid = $docid");
                       $row = $result->fetch_assoc();
-                      echo $row['total'] ?? 0; // Display total or 0 if null
+                       if($row['QualiStatus'] == 0 ){
+                        echo "Pending";
+                      } else{
+                        echo "Approved";
+                      } 
+                      
                       ?>
                     </h5>
-                    <p class="card-text">Number of drugs in the system</p>
                   </div>
                 </div>
               </div>
@@ -92,7 +96,7 @@ include "../includes/connect.php";
                     <h5 class="card-title">
                       <?php
                       // Example PHP query to get total appointments
-                      $result = $conn->query("SELECT COUNT(*) AS total FROM prescriptions");
+                      $result = $conn->query("SELECT COUNT(*) AS total FROM prescriptions where doctorid = $docid");
                       $row = $result->fetch_assoc();
                       echo $row['total'] ?? 0; // Display total or 0 if null
                       ?>
@@ -109,7 +113,7 @@ include "../includes/connect.php";
                     <h5 class="card-title">
                       <?php
                       // Example PHP query to get total appointments
-                      $result = $conn->query("SELECT COUNT(*) AS total FROM prescriptions WHERE ApprovalStatus = 1");
+                      $result = $conn->query("SELECT COUNT(*) AS total FROM prescriptions WHERE ApprovalStatus = 1 AND doctorid = $docid");
                       $row = $result->fetch_assoc();
                       echo $row['total'] ?? 0; // Display total or 0 if null
                       ?>
@@ -126,7 +130,7 @@ include "../includes/connect.php";
                     <h5 class="card-title">
                       <?php
                       // Example PHP query to get total appointments
-                      $result = $conn->query("SELECT COUNT(*) AS total FROM prescriptions WHERE ApprovalStatus = 0");
+                      $result = $conn->query("SELECT COUNT(*) AS total FROM prescriptions WHERE ApprovalStatus = 0 AND doctorid = $docid");
                       $row = $result->fetch_assoc();
                       echo $row['total'] ?? 0; // Display total or 0 if null
                       ?>
@@ -143,7 +147,7 @@ include "../includes/connect.php";
                     <h5 class="card-title">
                       <?php
                       // Example PHP query to get total appointments
-                      $result = $conn->query("SELECT COUNT(*) AS total FROM prescriptions WHERE ApprovalStatus = 2");
+                      $result = $conn->query("SELECT COUNT(*) AS total FROM prescriptions WHERE ApprovalStatus = 2 AND doctorid = $docid");
                       $row = $result->fetch_assoc();
                       echo $row['total'] ?? 0; // Display total or 0 if null
                       ?>

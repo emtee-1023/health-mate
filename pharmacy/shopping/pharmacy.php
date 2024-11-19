@@ -1,5 +1,5 @@
 <?php
-include '../includes/connect.php';
+include '../../includes/connect.php';
 include 'functions.php';
 
 // Default items per page
@@ -64,7 +64,7 @@ if ($totalMedicines === 0) {
     <div class="products-wrapper">
         <?php foreach ($medicines as $medicine): ?>
             <a style="display:flex; flex-direction:column; align-items:center" class="product" href="medicine.php?MedicineID=<?= htmlspecialchars($medicine['MedicineID']); ?>">
-                <img src="../uploads/<?= htmlspecialchars($medicine['MedicinePhoto']); ?>" width="200" height="200" alt="<?= htmlspecialchars($medicine['MedicineName']); ?>">
+                <img src="../../uploads/<?= htmlspecialchars($medicine['MedicinePhoto']); ?>" width="200" height="200" alt="<?= htmlspecialchars($medicine['MedicineName']); ?>">
                 <span style="text-align: center;" class="name"><?= htmlspecialchars($medicine['MedicineName']); ?></span>
                 <span style="text-align: center;" class="price">Kes. <?= htmlspecialchars($medicine['MedicinePrice']); ?></span>
             </a>

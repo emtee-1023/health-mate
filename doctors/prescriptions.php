@@ -87,7 +87,7 @@ $res = $conn->query("SELECT * FROM prescriptions WHERE DoctorID = $docid");
                         </thead>
                         <tbody>
                           <?php
-                          $pstmt = "SELECT p.*, CONCAT(p1.fname,' ',p1.lname) AS patientname FROM prescriptions p JOIN patients p1 ON p1.patientid=p.patientid ORDER BY p.createdat DESC";
+                          $pstmt = "SELECT p.*, CONCAT(p1.fname,' ',p1.lname) AS patientname FROM prescriptions p LEFT JOIN patients p1 ON p1.patientid=p.patientid WHERE doctorid = $docid ORDER BY p.createdat DESC";
                           $pres = $conn->query($pstmt);
                           if ($pres->num_rows == 0) {
                             echo '<tr>
@@ -137,7 +137,7 @@ $res = $conn->query("SELECT * FROM prescriptions WHERE DoctorID = $docid");
                         </thead>
                         <tbody>
                           <?php
-                          $pstmt = "SELECT p.*, CONCAT(p1.fname,' ',p1.lname) AS patientname FROM prescriptions p JOIN patients p1 ON p1.patientid=p.patientid WHERE ApprovalStatus = 1 ORDER BY p.createdat DESC";
+                          $pstmt = "SELECT p.*, CONCAT(p1.fname,' ',p1.lname) AS patientname FROM prescriptions p JOIN patients p1 ON p1.patientid=p.patientid WHERE ApprovalStatus = 1 AND doctorid = $docid ORDER BY p.createdat DESC";
                           $pres = $conn->query($pstmt);
                           if ($pres->num_rows == 0) {
                             echo '<tr>
@@ -186,7 +186,7 @@ $res = $conn->query("SELECT * FROM prescriptions WHERE DoctorID = $docid");
                         </thead>
                         <tbody>
                           <?php
-                          $pstmt = "SELECT p.*, CONCAT(p1.fname,' ',p1.lname) AS patientname FROM prescriptions p JOIN patients p1 ON p1.patientid=p.patientid WHERE ApprovalStatus = 0 ORDER BY p.createdat DESC";
+                          $pstmt = "SELECT p.*, CONCAT(p1.fname,' ',p1.lname) AS patientname FROM prescriptions p JOIN patients p1 ON p1.patientid=p.patientid WHERE ApprovalStatus = 0  AND doctorid = $docid ORDER BY p.createdat DESC";
                           $pres = $conn->query($pstmt);
                           if ($pres->num_rows == 0) {
                             echo '<tr>
@@ -235,7 +235,7 @@ $res = $conn->query("SELECT * FROM prescriptions WHERE DoctorID = $docid");
                         </thead>
                         <tbody>
                           <?php
-                          $pstmt = "SELECT p.*, CONCAT(p1.fname,' ',p1.lname) AS patientname FROM prescriptions p JOIN patients p1 ON p1.patientid=p.patientid WHERE ApprovalStatus = 2 ORDER BY p.createdat DESC";
+                          $pstmt = "SELECT p.*, CONCAT(p1.fname,' ',p1.lname) AS patientname FROM prescriptions p JOIN patients p1 ON p1.patientid=p.patientid WHERE ApprovalStatus = 2  AND doctorid = $docid ORDER BY p.createdat DESC";
                           $pres = $conn->query($pstmt);
                           if ($pres->num_rows == 0) {
                             echo '<tr>

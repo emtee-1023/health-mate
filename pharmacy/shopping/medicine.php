@@ -1,6 +1,6 @@
 <?php
-include '../includes/connect.php';
-include '../includes/config.php';
+include '../../includes/connect.php';
+include '../../includes/config.php';
 include 'functions.php';
 
 try{
@@ -30,7 +30,7 @@ try{
 <?=template_header('Medicine')?>
 
 <div class="product content-wrapper">
-    <img src="../uploads/<?php echo htmlspecialchars($medicine['MedicinePhoto']);?>" width="400" height="400" alt="<?php echo htmlspecialchars($medicine['MedicineName']);?>">
+    <img src="../../uploads/<?php echo htmlspecialchars($medicine['MedicinePhoto']);?>" width="400" height="400" alt="<?php echo htmlspecialchars($medicine['MedicineName']);?>">
     <div>
         <h1><?php echo htmlspecialchars($medicine['MedicineName']);?></h1>
         <span class="price">Kes. <?php echo htmlspecialchars($medicine['MedicinePrice']);?></span>

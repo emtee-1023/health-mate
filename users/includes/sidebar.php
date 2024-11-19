@@ -69,6 +69,14 @@
              </p>
            </a>
          </li>
+         <li class="nav-item">
+           <a href="appointments.php" class="nav-link">
+             <i class="nav-icon fas fa-clipboard"></i>
+             <p>
+               Pharmacy
+             </p>
+           </a>
+         </li>
        </ul>
      </nav>
      <!-- /.sidebar-menu -->
