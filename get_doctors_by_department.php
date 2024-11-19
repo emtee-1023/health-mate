@@ -1,19 +1,19 @@
 <?php
 require_once 'includes/connect.php';
 
-if (isset($_POST['DepartmentID'])) {
-    $DepartmentID = $_POST['DepartmentID'];
-    
+if (isset($_POST['ClinicID'])) {
+    $ClinicID = $_POST['ClinicID'];
+
     // Query to get doctors from the selected department
-    $query = "SELECT DoctorID, DoctorName FROM doctors WHERE DepartmentID = ?";
+    $query = "SELECT DoctorID, CONCAT(FName,' ',LName) as DoctorName FROM doctors WHERE ClinicID = ?";
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("i", $DepartmentID);
+    $stmt->bind_param("i", $ClinicID);
     $stmt->execute();
     $result = $stmt->get_result();
-    
-    ?>
+
+?>
     <h4>Choose Your Preffered Doctor</h4>
-    <?php
+<?php
     if ($result->num_rows > 0) {
         echo '<select id="doctorSelect" name="doctor">';
         echo '<option value="">Select Doctor</option>'; // Placeholder option

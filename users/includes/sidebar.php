@@ -54,7 +54,7 @@
            </a>
          </li>
          <li class="nav-item">
-           <a href="appointments.php" class="nav-link">
+           <a href="../appointment.php" class="nav-link">
              <i class="nav-icon fas fa-calendar-alt"></i>
              <p>
                Appointments
