@@ -80,7 +80,7 @@
 							<!-- Top Contact -->
 							<ul class="top-contact">
 								<li><i class="fa fa-phone"></i><a href="tel:+254792314330">0792 314 330</a></li>
-								<li><i class="fa fa-envelope"></i><a href="mailto:devsolutions023@gmail.com">devsolutions023@gmail.com</a></li>
+								<li><i class="fa fa-envelope"></i><a href="mailto:Healthmate024@gmail.com">Healthmate024@gmail.com</a></li>
 							</ul>
 							<!-- End Top Contact -->
 						</div>

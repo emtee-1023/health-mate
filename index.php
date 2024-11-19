@@ -84,7 +84,7 @@ include 'includes/connect.php';
 							<!-- Top Contact -->
 							<ul class="top-contact">
 								<li><i class="fa fa-phone"></i><a href="tel:+254792314330">0792 314 330</a></li>
-								<li><i class="fa fa-envelope"></i><a href="mailto:devsolutions023@gmail.com">devsolutions023@gmail.com</a></li>
+								<li><i class="fa fa-envelope"></i><a href="mailto:Healthmate024@gmail.com">Healthmate024@gmail.com</a></li>
 							</ul>
 							<!-- End Top Contact -->
 						</div>
@@ -114,7 +114,7 @@ include 'includes/connect.php';
 										<ul class="nav menu">
 											<li class="active"><a href="#">Home <i class="icofont-rounded-down"></i></a>
 												<ul class="dropdown">
-													<li><a href="index.html">Home Page</a></li>
+													<li><a href="index.php">Home Page</a></li>
 												</ul>
 											</li>
 											<li><a href="#">Doctors </a></li>
@@ -605,7 +605,7 @@ include 'includes/connect.php';
 							<li class="cross"><i class="icofont icofont-ui-close"></i>In-house visits</li>
 						</ul>
 						<div class="table-bottom">
-							<a class="btn" href="#">Book Now</a>
+							<a class="btn" href="appointment.php">Book Now</a>
 						</div>
 						<!-- Table Bottom -->
 					</div>
@@ -632,7 +632,7 @@ include 'includes/connect.php';
 							<li class="cross"><i class="icofont icofont-ui-close"></i>In-house visits</li>
 						</ul>
 						<div class="table-bottom">
-							<a class="btn" href="#">Book Now</a>
+							<a class="btn" href="appointment.php">Book Now</a>
 						</div>
 						<!-- Table Bottom -->
 					</div>
@@ -659,7 +659,7 @@ include 'includes/connect.php';
 							<li><i class="icofont icofont-ui-check"></i>In-house visits</li>
 						</ul>
 						<div class="table-bottom">
-							<a class="btn" href="#">Book Now</a>
+							<a class="btn" href="appointment.php">Book Now</a>
 						</div>
 						<!-- Table Bottom -->
 					</div>
