@@ -41,7 +41,8 @@ if (isset($_POST['add-user'])) {
     $sex = $_POST['sex'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
     $bio = $_POST['bio'];
-    $pfp = 'defualtpfp.jpg';
+    $pfp = 'defualtpfp.png';
+    $clinic = $_POST['clinic'];
     if (isset($_POST['_2fa'])) {
         $_2fa = 1;
     } else {
@@ -67,8 +68,8 @@ if (isset($_POST['add-user'])) {
         $cert = '';
     }
 
-    $stmt1 = $conn->prepare('INSERT INTO doctors(FName,LName,Email,PhoneNum,Password,Sex,Pfp,Bio,MedicCert,DOB,_2FAStatus,CreatedAt) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
-    $stmt1->bind_param('ssssssssssis', $fname, $lname, $email, $phone, $password, $sex, $pfp, $bio, $cert, $dob, $_2fa, $currentTimestamp);
+    $stmt1 = $conn->prepare('INSERT INTO doctors(FName,LName,Email,PhoneNum,Password,Sex,Pfp,Bio, ClinicID, MedicCert,DOB,_2FAStatus,CreatedAt) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
+    $stmt1->bind_param('ssssssssissis', $fname, $lname, $email, $phone, $password, $sex, $pfp, $bio, $clinic, $cert, $dob, $_2fa, $currentTimestamp);
     if (!$stmt1->execute()) {
         $_SESSION['error'] = "Unable to create account";
         header('register.php');
@@ -86,7 +87,7 @@ if (isset($_POST['add-user'])) {
     $sex = $_POST['sex'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
     $bio = $_POST['bio'];
-    $pfp = 'defualtpfp.jpg';
+    $pfp = 'defualtpfp.png';
     if (isset($_POST['_2fa'])) {
         $_2fa = 1;
     } else {
@@ -131,7 +132,7 @@ if (isset($_POST['add-user'])) {
     $sex = $_POST['sex'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
     $bio = $_POST['bio'];
-    $pfp = 'defualtpfp.jpg';
+    $pfp = 'defualtpfp.png';
     if (isset($_POST['_2fa'])) {
         $_2fa = 1;
     } else {
@@ -194,7 +195,6 @@ if (isset($_POST['add-user'])) {
             exit();
         }
     }
-} else if (isset($_POST['submit-appointment'])) {
     $usr = $_SESSION['uid'];
     $name = $_POST['name'];
     $email = $_POST['email'];
@@ -218,7 +218,7 @@ if (isset($_POST['add-user'])) {
     $emailOrNumber = $_POST['email-or-number'];
     $password = $_POST['password'];
 
-    $stmt1 = $conn->prepare('SELECT * FROM doctors WHERE Email = ? OR PhoneNum = ?');
+    $stmt1 = $conn->prepare('SELECT d.*, c.clinicname FROM doctors d JOIN clinics c ON c.clinicid = d.clinicid WHERE Email = ? OR PhoneNum = ?');
     $stmt1->bind_param('ss', $emailOrNumber, $emailOrNumber);
     if (!$stmt1->execute()) {
         $_SESSION['error'] = "Error retreiving doctor's account";
@@ -234,6 +234,7 @@ if (isset($_POST['add-user'])) {
             $_SESSION['fname'] = $doc['FName'];
             $_SESSION['lname'] = $doc['LName'];
             $_SESSION['pfp'] = $doc['Pfp'];
+            $_SESSION['clinic'] = $doc['clinicname'];
             header('location: doctors/index.php');
         } else {
             $_SESSION['error'] = "Invalid Credentials";
@@ -266,7 +267,7 @@ if (isset($_POST['add-user'])) {
             'email' => 'mark.talamson@strathmore.edu'
         ]
     ]);
-    $ch = curl_init("$CalendlyLink/scheduled_events");
+    $ch = curl_init("$CalendlyLink");
     curl_setopt($ch, CURLOPT_HTTPHEADER, [
         //API Key
         'Authorization: Bearer eyJraWQiOiIxY2UxZTEzNjE3ZGNmNzY2YjNjZWJjY2Y4ZGM1YmFmYThhNjVlNjg0MDIzZjdjMzJiZTgzNDliMjM4MDEzNWI0IiwidHlwIjoiUEFUIiwiYWxnIjoiRVMyNTYifQ.eyJpc3MiOiJodHRwczovL2F1dGguY2FsZW5kbHkuY29tIiwiaWF0IjoxNzMxOTYwNTQwLCJqdGkiOiI4ZTUwZWM2My05MjQ3LTRjN2ItYjU4NS1kMTA1OTE0ODBhZjQiLCJ1c2VyX3V1aWQiOiI1YWYyNjg1Yy1iYjBjLTRkNGQtOGQ1Yi1hYmQwNWEzNDEyYTIifQ.L0iYp8Ou_IQoAIOqHCan2SjzgTXinlfaN71NduwTHO8WGxqF4iPhQ-HmRdVBabGP_tyb_JgVkgre-JaOaPcN7w',
